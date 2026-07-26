@@ -28,6 +28,13 @@ The [master architecture](docs/architecture/ARCHITECTURE.md) is the entry point 
 
 The current repository provides the first capability layer: a knowledge and governance platform made of human-readable and AI-consumable documents. Developer tooling, validators, a CLI, plugin loading, adapters, and governed agent orchestration are planned future capabilities; they are not implemented.
 
+## Product Management
+
+The framework is managed as a product using versioned releases, epics, sprints, stories, decisions, and review checkpoints.
+
+- [Release v0.4 – Enterprise Standards Framework](product/releases/REL-v0.4.md)
+- [EPIC-001 – Enterprise Standards Framework](product/epics/EPIC-001-enterprise-standards-framework.md)
+
 ## Core principles
 
 - Humans retain authority over consequential decisions.

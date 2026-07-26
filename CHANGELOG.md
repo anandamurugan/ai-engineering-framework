@@ -9,6 +9,9 @@ This project follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) an
 ### Added
 
 - Initial repository governance, standards, knowledge, agent, playbook, and workflow foundation.
+- Product-management foundation and initial directory structure for the planned v0.4 release.
+- Release definition for v0.4, Enterprise Standards Framework.
+- EPIC-001 defining the scope, outcomes, controls, and approval criteria for the Enterprise Standards Framework.
 - Proposed framework charter defining mission, scope, governance expectations, and capability layers.
 - Proposed master architecture and supporting repository, knowledge, plugin, agent, governance, execution, security, and release models.
 - Proposed architecture decisions for the layered framework, vendor-neutral core, future plugin extension model, and structured knowledge modules.
