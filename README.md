@@ -19,6 +19,13 @@ The framework helps teams apply agentic automation consistently across planning,
 
 Start with the [feature development playbook](playbooks/feature-development.md) and its [analyze and plan workflow](workflows/01-analyze-plan.md).
 
+## Product Management
+
+The framework is managed as a product using versioned releases, epics, sprints, stories, decisions, and review checkpoints.
+
+- [Release v0.4 – Enterprise Standards Framework](product/releases/REL-v0.4.md)
+- [EPIC-001 – Enterprise Standards Framework](product/epics/EPIC-001-enterprise-standards-framework.md)
+
 ## Core principles
 
 - Humans retain authority over consequential decisions.

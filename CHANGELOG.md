@@ -9,3 +9,6 @@ This project follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) an
 ### Added
 
 - Initial repository governance, standards, knowledge, agent, playbook, and workflow foundation.
+- Product-management foundation and initial directory structure for the planned v0.4 release.
+- Release definition for v0.4, Enterprise Standards Framework.
+- EPIC-001 defining the scope, outcomes, controls, and approval criteria for the Enterprise Standards Framework.
