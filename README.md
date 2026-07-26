@@ -6,11 +6,14 @@ Enterprise Agentic SDLC is an open-source framework for integrating AI agents in
 
 The framework helps teams apply agentic automation consistently across planning, implementation, review, and delivery. It defines shared instructions, risk controls, readiness criteria, completion criteria, and reusable workflows without prescribing a specific vendor or toolchain.
 
+The project mission, scope, values, and capability direction are defined in the [Framework Charter](CHARTER.md).
+
 ## Framework map
 
 | Area | Purpose |
 | --- | --- |
 | [Agent instructions](AGENTS.md) | Primary operating contract for implementation agents |
+| [Architecture](docs/architecture/ARCHITECTURE.md) | Platform layers, component boundaries, and related architecture models |
 | [Standards](standards/) | Mandatory delivery and governance controls |
 | [Knowledge](knowledge/) | Architectural concepts supporting the framework |
 | [Agents](agents/) | Role definitions for framework agents |
@@ -18,6 +21,12 @@ The framework helps teams apply agentic automation consistently across planning,
 | [Workflows](workflows/) | Executable, phase-oriented procedures |
 
 Start with the [feature development playbook](playbooks/feature-development.md) and its [analyze and plan workflow](workflows/01-analyze-plan.md).
+
+## Architecture
+
+The [master architecture](docs/architecture/ARCHITECTURE.md) is the entry point for the architecture document set. Supporting documents define repository organization, structured knowledge, future plugins, agent collaboration, governance, execution, security, and framework releases. Architecture decisions are recorded in [`docs/adr/`](docs/adr/).
+
+The current repository provides the first capability layer: a knowledge and governance platform made of human-readable and AI-consumable documents. Developer tooling, validators, a CLI, plugin loading, adapters, and governed agent orchestration are planned future capabilities; they are not implemented.
 
 ## Core principles
 
