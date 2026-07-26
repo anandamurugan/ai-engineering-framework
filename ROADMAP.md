@@ -2,22 +2,58 @@
 
 The roadmap communicates intended outcomes rather than delivery commitments. Priorities may change through maintainer review.
 
-## Foundation
+## Version milestones
 
-- Establish core governance standards and contributor instructions.
-- Define bounded autonomy and human approval controls.
-- Provide an initial orchestrator role, feature playbook, and analysis workflow.
+### v0.1 Foundation — Completed
 
-## Adoption
+- [x] Establish repository governance and contributor instructions.
+- [x] Define initial readiness, completion, risk, and human approval standards.
+- [x] Provide bounded-autonomy guidance, an orchestrator role, and initial feature workflow.
 
-- Add implementation, validation, review, and release workflows.
-- Provide reference integrations for common development platforms.
-- Publish examples showing risk-adjusted agent participation.
+### v0.2 Architecture Blueprint — Proposed
 
-## Scale
+- [ ] Obtain human review and approval for the framework charter and architecture.
+- [ ] Adopt the repository, knowledge, plugin, agent, governance, execution, security, and release models.
+- [ ] Decide the layered architecture, vendor-neutral core, future plugin model, and structured knowledge ADRs.
 
-- Define framework conformance and maturity models.
-- Add policy-as-code and audit interoperability guidance.
-- Expand guidance for regulated and multi-team environments.
+### v0.3 Enterprise Knowledge Platform — Planned
+
+- [ ] Establish controlled vocabularies, module lifecycle, discovery, and content validation contracts.
+- [ ] Expand vendor-neutral enterprise engineering knowledge.
+
+### v0.4 Agent Catalog — Planned
+
+- [ ] Publish bounded role specifications and collaboration patterns.
+- [ ] Define role conformance and evidence expectations.
+
+### v0.5 Playbooks and Workflows — Planned
+
+- [ ] Add implementation, validation, review, release, and operations workflows.
+- [ ] Provide risk-adjusted playbook composition guidance.
+
+### v0.6 Technology Plugins — Planned
+
+- [ ] Approve plugin schemas, compatibility, trust, and lifecycle contracts.
+- [ ] Introduce initial technology extensions without coupling the core.
+
+### v0.7 Validation and CLI Tooling — Planned
+
+- [ ] Implement local metadata, link, structure, and compatibility validation.
+- [ ] Provide a vendor-neutral command-line experience.
+
+### v0.8 Reference Implementations — Planned
+
+- [ ] Publish controlled examples demonstrating framework adoption.
+- [ ] Validate architecture contracts through implementation feedback.
+
+### v0.9 Agent Orchestration — Planned
+
+- [ ] Implement governed coordination, approval, identity, evidence, and audit capabilities.
+- [ ] Validate least privilege and human control in representative environments.
+
+### v1.0 Enterprise AI Engineering Platform — Planned
+
+- [ ] Stabilize public contracts and compatibility commitments.
+- [ ] Publish support, conformance, security, and migration policies.
 
 Proposals should follow [CONTRIBUTING.md](CONTRIBUTING.md) and preserve the principles in [README.md](README.md).
