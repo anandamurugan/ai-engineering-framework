@@ -1,0 +1,117 @@
+$schema: "https://json-schema.org/draft/2020-12/schema"
+$id: "https://enterprise-agentic-sdlc.example/schemas/standard.schema.yaml"
+title: Enterprise AI SDLC Standard Metadata
+description: Validates YAML front matter extracted from a framework standard.
+type: object
+additionalProperties: false
+required:
+  - id
+  - title
+  - version
+  - status
+  - category
+  - owner
+  - mandatory
+  - ai_consumable
+  - human_review_required
+properties:
+  id:
+    type: string
+    description: Stable framework standard identifier.
+    pattern: "^STD-[A-Z][A-Z0-9]{1,15}-[0-9]{3}$"
+    examples:
+      - STD-ARCH-001
+  title:
+    type: string
+    minLength: 3
+    maxLength: 160
+  version:
+    type: string
+    description: Semantic version without a leading v.
+    pattern: "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?(?:\\+[0-9A-Za-z.-]+)?$"
+    examples:
+      - 0.4.0
+  status:
+    type: string
+    enum:
+      - Draft
+      - Proposed
+      - Approved
+      - Deprecated
+      - Retired
+  category:
+    type: string
+    pattern: "^[A-Z][A-Za-z0-9 &/-]{1,79}$"
+  owner:
+    type: string
+    minLength: 2
+    maxLength: 120
+  review_cycle:
+    type: string
+    description: Human-readable review interval or event trigger.
+    pattern: "^(P[0-9]+[DWMY]|Event-driven|Organization-defined)$"
+    examples:
+      - P12M
+  mandatory:
+    type: boolean
+  ai_consumable:
+    type: boolean
+  human_review_required:
+    type: boolean
+  effective_date:
+    type:
+      - string
+      - "null"
+    format: date
+  last_reviewed:
+    type:
+      - string
+      - "null"
+    format: date
+  supersedes:
+    type: array
+    description: Stable IDs of standards replaced by this standard.
+    items:
+      type: string
+      pattern: "^STD-[A-Z][A-Z0-9]{1,15}-[0-9]{3}$"
+    uniqueItems: true
+    default: []
+  related_standards:
+    type: array
+    items:
+      type: string
+      pattern: "^STD-[A-Z][A-Z0-9]{1,15}-[0-9]{3}$"
+    uniqueItems: true
+    default: []
+  related_playbooks:
+    type: array
+    items:
+      type: string
+      pattern: "^PB-[A-Z][A-Z0-9]{1,15}-[0-9]{3}$"
+    uniqueItems: true
+    default: []
+  tags:
+    type: array
+    items:
+      type: string
+      pattern: "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    uniqueItems: true
+    default: []
+examples:
+  - id: STD-ARCH-001
+    title: Architecture Standard
+    version: 0.4.0
+    status: Draft
+    category: Architecture
+    owner: Framework PMO
+    review_cycle: P12M
+    mandatory: true
+    ai_consumable: true
+    human_review_required: true
+    effective_date: null
+    last_reviewed: null
+    supersedes: []
+    related_standards: []
+    related_playbooks: []
+    tags:
+      - architecture

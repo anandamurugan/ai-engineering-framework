@@ -35,6 +35,21 @@ The framework is managed as a product using versioned releases, epics, sprints, 
 - [Release v0.4 – Enterprise Standards Framework](product/releases/REL-v0.4.md)
 - [EPIC-001 – Enterprise Standards Framework](product/epics/EPIC-001-enterprise-standards-framework.md)
 
+## Standards Foundation
+
+The v0.4 Standards Foundation defines the contracts future enterprise standards must follow:
+
+- [Framework Asset Taxonomy](docs/framework/FRAMEWORK_ASSETS.md)
+- [Standard Metadata Schema](schemas/standard.schema.yaml)
+- [Standard Authoring Template](templates/standard-template.md)
+- [Standard Authoring Guide](docs/standards/STANDARD_AUTHORING_GUIDE.md)
+- [Standards Catalog](standards/README.md)
+- [Cross-Reference Model](docs/architecture/CROSS_REFERENCE_MODEL.md)
+- [Standards Review Process](docs/governance/STANDARD_REVIEW_PROCESS.md)
+- [Documentation Style Guide](docs/contributing/DOCUMENTATION_STYLE_GUIDE.md)
+
+These artifacts remain subject to Product Owner review. They do not implement the planned Sprint 4.2 engineering standards or an automated validation engine.
+
 ## Core principles
 
 - Humans retain authority over consequential decisions.
