@@ -32,11 +32,18 @@ Categories group standards by durable engineering concern, such as Architecture,
 
 ## Versioned standards
 
-No v0.4 standard is approved yet.
+The following v0.4 standards are Drafts awaiting required review and Product Owner approval.
 
 | ID | Title | Category | Version | Status | Owner | Mandatory | Link |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| — | No versioned standards published | — | — | — | — | — | — |
+| STD-ARCH-001 | Architecture Standard | Architecture | 0.4.0 | Draft | Framework PMO | Yes | [Read](architecture/STD-ARCH-001-architecture-standard.md) |
+| STD-CODE-001 | Coding Standard | Coding | 0.4.0 | Draft | Framework PMO | Yes | [Read](coding/STD-CODE-001-coding-standard.md) |
+| STD-API-001 | API Design Standard | API | 0.4.0 | Draft | Framework PMO | Yes | [Read](api/STD-API-001-api-design-standard.md) |
+| STD-TEST-001 | Testing Standard | Testing | 0.4.0 | Draft | Framework PMO | Yes | [Read](testing/STD-TEST-001-testing-standard.md) |
+| STD-DOC-001 | Documentation Standard | Documentation | 0.4.0 | Draft | Framework PMO | Yes | [Read](documentation/STD-DOC-001-documentation-standard.md) |
+| STD-GIT-001 | Git and Branching Standard | Git | 0.4.0 | Draft | Framework PMO | Yes | [Read](git/STD-GIT-001-git-and-branching-standard.md) |
+| STD-PR-001 | Pull Request Standard | Pull Request | 0.4.0 | Draft | Framework PMO | Yes | [Read](pull-request/STD-PR-001-pull-request-standard.md) |
+| STD-DEP-001 | Dependency Management Standard | Dependency Management | 0.4.0 | Draft | Framework PMO | Yes | [Read](dependency-management/STD-DEP-001-dependency-management-standard.md) |
 
 ## Existing foundational controls
 
@@ -51,7 +58,7 @@ The repository contains pre-v0.4 controls that remain applicable but have not ye
 
 ## Planned standards
 
-Sprint 4.2 plans Architecture, Coding, API Design, Testing, Documentation, Git and Branching, Pull Request, and Dependency Management standards. These assets are not implemented or approved, have no active catalog links, and must not be treated as requirements.
+Sprint 4.3 standards remain planned and are not active requirements until their files exist and complete approval.
 
 ## Catalog maintenance
 

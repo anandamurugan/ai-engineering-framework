@@ -48,7 +48,22 @@ The v0.4 Standards Foundation defines the contracts future enterprise standards 
 - [Standards Review Process](docs/governance/STANDARD_REVIEW_PROCESS.md)
 - [Documentation Style Guide](docs/contributing/DOCUMENTATION_STYLE_GUIDE.md)
 
-These artifacts remain subject to Product Owner review. They do not implement the planned Sprint 4.2 engineering standards or an automated validation engine.
+These foundation artifacts remain subject to Product Owner review and do not provide an automated validation engine.
+
+## Core Engineering Standards
+
+Sprint [SPR-004-002](product/sprints/SPR-004-002-core-engineering-standards.md) introduces eight Draft standards indexed in the [Standards Catalog](standards/README.md):
+
+- [STD-ARCH-001 — Architecture Standard](standards/architecture/STD-ARCH-001-architecture-standard.md)
+- [STD-CODE-001 — Coding Standard](standards/coding/STD-CODE-001-coding-standard.md)
+- [STD-API-001 — API Design Standard](standards/api/STD-API-001-api-design-standard.md)
+- [STD-TEST-001 — Testing Standard](standards/testing/STD-TEST-001-testing-standard.md)
+- [STD-DOC-001 — Documentation Standard](standards/documentation/STD-DOC-001-documentation-standard.md)
+- [STD-GIT-001 — Git and Branching Standard](standards/git/STD-GIT-001-git-and-branching-standard.md)
+- [STD-PR-001 — Pull Request Standard](standards/pull-request/STD-PR-001-pull-request-standard.md)
+- [STD-DEP-001 — Dependency Management Standard](standards/dependency-management/STD-DEP-001-dependency-management-standard.md)
+
+These standards are not Approved until required reviews and Product Owner approval are recorded.
 
 ## Core principles
 
