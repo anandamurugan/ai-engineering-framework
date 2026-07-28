@@ -14,6 +14,8 @@ last_reviewed: null
 supersedes: []
 related_standards:
   - STD-PR-001
+  - STD-DEPLOY-001
+  - STD-REL-001
 related_playbooks: []
 tags:
   - git
@@ -77,6 +79,8 @@ Follow the [Standards Review Process](../../docs/governance/STANDARD_REVIEW_PROC
 ## Related Standards
 
 - [STD-PR-001 — Pull Request Standard](../pull-request/STD-PR-001-pull-request-standard.md)
+- [STD-DEPLOY-001 — Deployment Standard](../deployment/STD-DEPLOY-001-deployment-standard.md)
+- [STD-REL-001 — Release Management Standard](../release/STD-REL-001-release-management-standard.md)
 ## Related Playbooks
 
 None. Future source-control playbooks remain planned.
@@ -89,3 +93,4 @@ None. Future source-control playbooks remain planned.
 | Version | Date | Change | Author | Approval |
 | --- | --- | --- | --- | --- |
 | 0.4.0 | 2026-07-27 | Initial draft | Framework PMO | Pending Product Owner approval |
+| 0.4.0 | 2026-07-28 | Added reciprocal Sprint 4.3 relationships | Framework PMO | Pending Product Owner approval |

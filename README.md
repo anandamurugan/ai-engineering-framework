@@ -65,6 +65,20 @@ Sprint [SPR-004-002](product/sprints/SPR-004-002-core-engineering-standards.md) 
 
 These standards are not Approved until required reviews and Product Owner approval are recorded.
 
+## Enterprise Engineering Standards
+
+Sprint [SPR-004-003](product/sprints/SPR-004-003-enterprise-engineering-standards.md) adds seven Draft operational standards to the [Standards Catalog](standards/README.md):
+
+- [STD-SEC-001 — Enterprise Security Standard](standards/security/STD-SEC-001-enterprise-security-standard.md)
+- [STD-PERF-001 — Performance and Scalability Standard](standards/performance/STD-PERF-001-performance-scalability-standard.md)
+- [STD-OBS-001 — Observability Standard](standards/observability/STD-OBS-001-observability-standard.md)
+- [STD-DEPLOY-001 — Deployment Standard](standards/deployment/STD-DEPLOY-001-deployment-standard.md)
+- [STD-REL-001 — Release Management Standard](standards/release/STD-REL-001-release-management-standard.md)
+- [STD-INC-001 — Incident Management Standard](standards/incident/STD-INC-001-incident-management-standard.md)
+- [STD-RISK-001 — Enterprise Risk Management Standard](standards/risk/STD-RISK-001-enterprise-risk-management-standard.md)
+
+These standards define operational controls, evidence, metrics, AI boundaries, and human authority. They remain Draft until required specialist reviews and Product Owner approval are recorded.
+
 ## Core principles
 
 - Humans retain authority over consequential decisions.

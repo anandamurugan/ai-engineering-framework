@@ -44,6 +44,13 @@ The following v0.4 standards are Drafts awaiting required review and Product Own
 | STD-GIT-001 | Git and Branching Standard | Git | 0.4.0 | Draft | Framework PMO | Yes | [Read](git/STD-GIT-001-git-and-branching-standard.md) |
 | STD-PR-001 | Pull Request Standard | Pull Request | 0.4.0 | Draft | Framework PMO | Yes | [Read](pull-request/STD-PR-001-pull-request-standard.md) |
 | STD-DEP-001 | Dependency Management Standard | Dependency Management | 0.4.0 | Draft | Framework PMO | Yes | [Read](dependency-management/STD-DEP-001-dependency-management-standard.md) |
+| STD-SEC-001 | Enterprise Security Standard | Security | 0.4.0 | Draft | Framework PMO | Yes | [Read](security/STD-SEC-001-enterprise-security-standard.md) |
+| STD-PERF-001 | Performance and Scalability Standard | Performance | 0.4.0 | Draft | Framework PMO | Yes | [Read](performance/STD-PERF-001-performance-scalability-standard.md) |
+| STD-OBS-001 | Observability Standard | Observability | 0.4.0 | Draft | Framework PMO | Yes | [Read](observability/STD-OBS-001-observability-standard.md) |
+| STD-DEPLOY-001 | Deployment Standard | Deployment | 0.4.0 | Draft | Framework PMO | Yes | [Read](deployment/STD-DEPLOY-001-deployment-standard.md) |
+| STD-REL-001 | Release Management Standard | Release Management | 0.4.0 | Draft | Framework PMO | Yes | [Read](release/STD-REL-001-release-management-standard.md) |
+| STD-INC-001 | Incident Management Standard | Incident Management | 0.4.0 | Draft | Framework PMO | Yes | [Read](incident/STD-INC-001-incident-management-standard.md) |
+| STD-RISK-001 | Enterprise Risk Management Standard | Risk Management | 0.4.0 | Draft | Framework PMO | Yes | [Read](risk/STD-RISK-001-enterprise-risk-management-standard.md) |
 
 ## Existing foundational controls
 
@@ -58,7 +65,7 @@ The repository contains pre-v0.4 controls that remain applicable but have not ye
 
 ## Planned standards
 
-Sprint 4.3 standards remain planned and are not active requirements until their files exist and complete approval.
+Sprint 4.4 governance and validation assets remain planned and are not active requirements until their files exist and complete approval.
 
 ## Catalog maintenance
 

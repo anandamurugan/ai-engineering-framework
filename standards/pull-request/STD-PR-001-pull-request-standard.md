@@ -20,6 +20,8 @@ related_standards:
   - STD-DOC-001
   - STD-GIT-001
   - STD-DEP-001
+  - STD-DEPLOY-001
+  - STD-REL-001
 related_playbooks: []
 tags:
   - pull-request
@@ -90,6 +92,8 @@ Follow the [Standards Review Process](../../docs/governance/STANDARD_REVIEW_PROC
 - [STD-DOC-001 — Documentation Standard](../documentation/STD-DOC-001-documentation-standard.md)
 - [STD-GIT-001 — Git and Branching Standard](../git/STD-GIT-001-git-and-branching-standard.md)
 - [STD-DEP-001 — Dependency Management Standard](../dependency-management/STD-DEP-001-dependency-management-standard.md)
+- [STD-DEPLOY-001 — Deployment Standard](../deployment/STD-DEPLOY-001-deployment-standard.md)
+- [STD-REL-001 — Release Management Standard](../release/STD-REL-001-release-management-standard.md)
 ## Related Playbooks
 
 None. Future review playbooks remain planned.
@@ -102,3 +106,4 @@ None. Future review playbooks remain planned.
 | Version | Date | Change | Author | Approval |
 | --- | --- | --- | --- | --- |
 | 0.4.0 | 2026-07-27 | Initial draft | Framework PMO | Pending Product Owner approval |
+| 0.4.0 | 2026-07-28 | Added reciprocal Sprint 4.3 relationships | Framework PMO | Pending Product Owner approval |

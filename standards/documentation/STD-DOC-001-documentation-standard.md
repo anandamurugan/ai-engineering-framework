@@ -16,6 +16,9 @@ related_standards:
   - STD-ARCH-001
   - STD-API-001
   - STD-PR-001
+  - STD-DEPLOY-001
+  - STD-REL-001
+  - STD-INC-001
 related_playbooks: []
 tags:
   - documentation
@@ -82,6 +85,9 @@ Follow the [Standards Review Process](../../docs/governance/STANDARD_REVIEW_PROC
 - [STD-ARCH-001 — Architecture Standard](../architecture/STD-ARCH-001-architecture-standard.md)
 - [STD-API-001 — API Design Standard](../api/STD-API-001-api-design-standard.md)
 - [STD-PR-001 — Pull Request Standard](../pull-request/STD-PR-001-pull-request-standard.md)
+- [STD-DEPLOY-001 — Deployment Standard](../deployment/STD-DEPLOY-001-deployment-standard.md)
+- [STD-REL-001 — Release Management Standard](../release/STD-REL-001-release-management-standard.md)
+- [STD-INC-001 — Incident Management Standard](../incident/STD-INC-001-incident-management-standard.md)
 ## Related Playbooks
 
 None. Future documentation playbooks remain planned.
@@ -94,3 +100,4 @@ None. Future documentation playbooks remain planned.
 | Version | Date | Change | Author | Approval |
 | --- | --- | --- | --- | --- |
 | 0.4.0 | 2026-07-27 | Initial draft | Framework PMO | Pending Product Owner approval |
+| 0.4.0 | 2026-07-28 | Added reciprocal Sprint 4.3 relationships | Framework PMO | Pending Product Owner approval |

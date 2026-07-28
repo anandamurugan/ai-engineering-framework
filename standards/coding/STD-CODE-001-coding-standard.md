@@ -17,6 +17,9 @@ related_standards:
   - STD-TEST-001
   - STD-PR-001
   - STD-DEP-001
+  - STD-SEC-001
+  - STD-PERF-001
+  - STD-OBS-001
 related_playbooks: []
 tags:
   - coding
@@ -85,6 +88,9 @@ Follow the [Standards Review Process](../../docs/governance/STANDARD_REVIEW_PROC
 - [STD-TEST-001 — Testing Standard](../testing/STD-TEST-001-testing-standard.md)
 - [STD-PR-001 — Pull Request Standard](../pull-request/STD-PR-001-pull-request-standard.md)
 - [STD-DEP-001 — Dependency Management Standard](../dependency-management/STD-DEP-001-dependency-management-standard.md)
+- [STD-SEC-001 — Enterprise Security Standard](../security/STD-SEC-001-enterprise-security-standard.md)
+- [STD-PERF-001 — Performance and Scalability Standard](../performance/STD-PERF-001-performance-scalability-standard.md)
+- [STD-OBS-001 — Observability Standard](../observability/STD-OBS-001-observability-standard.md)
 ## Related Playbooks
 
 None. Future relationships remain planned.
@@ -97,3 +103,4 @@ None. Future relationships remain planned.
 | Version | Date | Change | Author | Approval |
 | --- | --- | --- | --- | --- |
 | 0.4.0 | 2026-07-27 | Initial draft | Framework PMO | Pending Product Owner approval |
+| 0.4.0 | 2026-07-28 | Added reciprocal Sprint 4.3 relationships | Framework PMO | Pending Product Owner approval |
