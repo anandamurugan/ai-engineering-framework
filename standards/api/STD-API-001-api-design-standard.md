@@ -17,6 +17,9 @@ related_standards:
   - STD-CODE-001
   - STD-TEST-001
   - STD-DOC-001
+  - STD-SEC-001
+  - STD-PERF-001
+  - STD-OBS-001
 related_playbooks: []
 tags:
   - api
@@ -84,6 +87,9 @@ Follow the [Standards Review Process](../../docs/governance/STANDARD_REVIEW_PROC
 - [STD-CODE-001 — Coding Standard](../coding/STD-CODE-001-coding-standard.md)
 - [STD-TEST-001 — Testing Standard](../testing/STD-TEST-001-testing-standard.md)
 - [STD-DOC-001 — Documentation Standard](../documentation/STD-DOC-001-documentation-standard.md)
+- [STD-SEC-001 — Enterprise Security Standard](../security/STD-SEC-001-enterprise-security-standard.md)
+- [STD-PERF-001 — Performance and Scalability Standard](../performance/STD-PERF-001-performance-scalability-standard.md)
+- [STD-OBS-001 — Observability Standard](../observability/STD-OBS-001-observability-standard.md)
 ## Related Playbooks
 
 None. Future API playbook relationships remain planned.
@@ -96,3 +102,4 @@ None. Future API playbook relationships remain planned.
 | Version | Date | Change | Author | Approval |
 | --- | --- | --- | --- | --- |
 | 0.4.0 | 2026-07-27 | Initial draft | Framework PMO | Pending Product Owner approval |
+| 0.4.0 | 2026-07-28 | Added reciprocal Sprint 4.3 relationships | Framework PMO | Pending Product Owner approval |

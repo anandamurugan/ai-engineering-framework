@@ -17,3 +17,4 @@ This project follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) an
 - Proposed architecture decisions for the layered framework, vendor-neutral core, future plugin extension model, and structured knowledge modules.
 - Sprint 4.1B product stories and proposed Standards Foundation covering asset taxonomy, metadata schema, authoring, catalog, cross-references, review governance, and documentation style.
 - Sprint 4.2 specification, product stories, catalog updates, and eight Draft core engineering standards with cross-references and review evidence requirements.
+- Sprint 4.3 specification, seven product stories, catalog updates, and seven Draft enterprise security, performance, observability, deployment, release, incident, and risk standards.

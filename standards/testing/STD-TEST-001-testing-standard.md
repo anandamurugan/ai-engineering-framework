@@ -16,6 +16,11 @@ related_standards:
   - STD-CODE-001
   - STD-API-001
   - STD-PR-001
+  - STD-SEC-001
+  - STD-PERF-001
+  - STD-OBS-001
+  - STD-DEPLOY-001
+  - STD-REL-001
 related_playbooks: []
 tags:
   - testing
@@ -81,6 +86,11 @@ Follow the [Standards Review Process](../../docs/governance/STANDARD_REVIEW_PROC
 - [STD-CODE-001 — Coding Standard](../coding/STD-CODE-001-coding-standard.md)
 - [STD-API-001 — API Design Standard](../api/STD-API-001-api-design-standard.md)
 - [STD-PR-001 — Pull Request Standard](../pull-request/STD-PR-001-pull-request-standard.md)
+- [STD-SEC-001 — Enterprise Security Standard](../security/STD-SEC-001-enterprise-security-standard.md)
+- [STD-PERF-001 — Performance and Scalability Standard](../performance/STD-PERF-001-performance-scalability-standard.md)
+- [STD-OBS-001 — Observability Standard](../observability/STD-OBS-001-observability-standard.md)
+- [STD-DEPLOY-001 — Deployment Standard](../deployment/STD-DEPLOY-001-deployment-standard.md)
+- [STD-REL-001 — Release Management Standard](../release/STD-REL-001-release-management-standard.md)
 ## Related Playbooks
 
 None. Future testing playbook relationships remain planned.
@@ -93,3 +103,4 @@ None. Future testing playbook relationships remain planned.
 | Version | Date | Change | Author | Approval |
 | --- | --- | --- | --- | --- |
 | 0.4.0 | 2026-07-27 | Initial draft | Framework PMO | Pending Product Owner approval |
+| 0.4.0 | 2026-07-28 | Added reciprocal Sprint 4.3 relationships | Framework PMO | Pending Product Owner approval |
