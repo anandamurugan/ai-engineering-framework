@@ -16,3 +16,4 @@ This project follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) an
 - Proposed master architecture and supporting repository, knowledge, plugin, agent, governance, execution, security, and release models.
 - Proposed architecture decisions for the layered framework, vendor-neutral core, future plugin extension model, and structured knowledge modules.
 - Sprint 4.1B product stories and proposed Standards Foundation covering asset taxonomy, metadata schema, authoring, catalog, cross-references, review governance, and documentation style.
+- Sprint 4.2 specification, product stories, catalog updates, and eight Draft core engineering standards with cross-references and review evidence requirements.
