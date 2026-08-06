@@ -60,14 +60,14 @@ Every production-bound system and material change MUST identify applicable secur
 2. **Identity and authentication.** Human, service, machine, and AI-agent identities MUST be unique, attributable, strongly authenticated according to risk, and prohibited from shared credentials. Evidence: identity inventory and authentication configuration review.
 3. **Authorization and privilege.** Access MUST be explicitly authorized using role- or attribute-based controls, least privilege, separation of duties, and deny-by-default behavior; privileged access MUST be separately controlled and monitored. Evidence: access model and privileged-access record.
 4. **Identity lifecycle.** Credential issuance, session duration, rotation, revocation, recovery, and periodic access review MUST be defined for every identity class. Evidence: lifecycle procedure and dated access review.
-5. **Secrets.** Production secrets MUST use approved secrets-management mechanisms and MUST NOT appear in source, prompts, logs, generated documentation, deployment manifests, or unencrypted configuration. Evidence: secrets inventory and scan result.
+5. **Secrets.** Production secrets MUST use approved secrets-management mechanisms with controlled storage, access, rotation, revocation, and auditability, and MUST NOT appear in source, prompts, logs, generated documentation, deployment manifests, or unencrypted configuration. Evidence: secrets inventory, rotation record, access review, and scan result.
 6. **Cryptography.** Sensitive data MUST use approved encryption in transit and at rest; keys, certificates, algorithms, rotation, expiry, revocation, and custody MUST follow enterprise cryptographic governance. Evidence: cryptographic inventory and configuration review.
-7. **Application controls.** Trust boundaries MUST enforce input validation, output encoding, injection prevention, authorization, secure errors, session protection, file-upload restrictions, data minimization, and abuse controls. Evidence: security design, tests, and code review.
-8. **Security verification.** Applicable secure review, static analysis, dynamic analysis, composition analysis, secret scanning, artifact or container scanning, infrastructure-as-code scanning, security regression testing, and risk-based penetration testing MUST complete before release. Evidence: attributable results and finding disposition.
+7. **Secure development.** Teams MUST apply secure coding practices at trust boundaries, including input validation, output encoding, injection prevention, authorization, secure errors, session protection, file-upload restrictions, data minimization, and abuse controls. Evidence: security design, tests, and code review.
+8. **Security verification.** Applicable peer code review, static analysis, dynamic analysis, dependency and composition analysis, secret scanning, artifact or container scanning, infrastructure-as-code scanning, security regression testing, and risk-based penetration testing MUST complete before release. Evidence: attributable results and finding disposition.
 9. **Supply chain.** Builds MUST use approved sources, verified provenance, protected build identities, reproducible dependency resolution, software bills of materials, and integrity verification or signing where required by risk. Evidence: build record, SBOM, provenance, and verification result.
 10. **Vulnerability management.** Vulnerabilities MUST have severity, affected scope, owner, remediation target, compensating controls, and human disposition; overdue critical findings MUST block release unless authorized risk acceptance exists. Evidence: vulnerability register and approval.
-11. **Operational security.** Security-relevant activity MUST produce protected audit records and actionable monitoring; patching, escalation, incident handling, evidence retention, and control review MUST have accountable owners. Evidence: audit configuration, monitoring review, and response records.
-12. **Metrics and compliance.** Owners MUST monitor scan coverage, critical-vulnerability age, mean time to remediate, exception count, secrets exposures, and control failures without suppressing valid findings to improve metrics. Evidence: dated metrics and corrective actions.
+11. **Operational security.** Security-relevant activity MUST produce protected security logs and audit trails; records MUST be attributable, access-controlled, tamper-evident where required by risk, monitored, and retained according to applicable legal, regulatory, contractual, and enterprise requirements. Patching, escalation, and incident handling MUST have accountable owners. Evidence: logging and audit configuration, access and retention settings, monitoring review, and response records.
+12. **Metrics and compliance.** Owners MUST monitor scan coverage, critical-vulnerability age, mean time to remediate, exception count, secrets exposures, and control failures without suppressing valid findings to improve metrics. Control conformance MUST be reviewed at least once per `review_cycle` and after material system, threat, regulatory, or control changes. Evidence: dated metrics, control assessment, review decision, and corrective actions.
 13. **Approval.** Security exceptions, control changes, unresolved high risk, sensitive-data use, and production access MUST receive authorized human approval; an AI agent MUST NOT approve or accept them. Evidence: approval record with scope, conditions, and expiry.
 
 ## Recommended Practices
@@ -83,7 +83,9 @@ Every production-bound system and material change MUST identify applicable secur
 
 ## AI Implementation Guidance
 
-AI agents MAY draft threat models, controls, tests, findings, mitigations, and evidence summaries using authorized context. Agents MUST use minimum access, protect sensitive inputs, disclose uncertainty, preserve failed findings, and stop when identity, data, production, policy, or risk authority is unclear. Agents MUST NOT self-approve exceptions, change access, accept risk, suppress controls, or act as final security authority.
+AI agents MAY draft security documentation, recommend improvements, generate secure implementation suggestions, and assist with threat, control, vulnerability, and evidence analysis using authorized context. Agents MUST use minimum access, protect sensitive inputs, disclose uncertainty, preserve failed findings, and stop when identity, data, production, policy, or risk authority is unclear.
+
+AI agents MUST NOT approve security exceptions, accept enterprise risk, bypass mandatory controls, override required reviews, approve production releases, change access, suppress findings, or act as the final security authority.
 
 ## Human Review Guidance
 
@@ -136,3 +138,4 @@ None. Future security playbook relationships remain planned until identified ass
 | Version | Date | Change | Author | Approval |
 | --- | --- | --- | --- | --- |
 | 0.4.0 | 2026-07-28 | Initial draft | Framework PMO | Pending Product Owner approval |
+| 0.4.0 | 2026-08-06 | Clarified security governance requirements and AI authority boundaries | Framework PMO | Pending Product Owner approval |
