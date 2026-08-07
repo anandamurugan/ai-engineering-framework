@@ -48,7 +48,7 @@ Applies to production services, supporting infrastructure, critical dependencies
 
 ## Principles
 
-Observability is designed with the system, correlated across boundaries, privacy-preserving, owned, actionable, validated before production, and measured by operational outcomes rather than telemetry volume.
+Observability is designed with the system, production-first, end-to-end across service boundaries, privacy-preserving, owned, actionable, consistently instrumented, validated before production, and measured by operational outcomes rather than telemetry volume.
 
 ## Applicability
 
@@ -56,15 +56,15 @@ Production services MUST implement signals and controls proportionate to busines
 
 ## Mandatory Rules
 
-1. **Signal plan.** Services MUST define required logs, metrics, traces, events, owners, consumers, retention, access, and validation before production. Evidence: observability design and ownership record.
-2. **Structured logging.** Logs MUST use consistent timestamps, levels, structured fields, service and environment identity, error context, and correlation identifiers where supported. Evidence: schema and sample validation.
+1. **Signal plan.** Services MUST define required logs, metrics, traces, events, standardized instrumentation, owners, consumers, retention, access, and validation during design and before production. Evidence: observability design and ownership record.
+2. **Structured logging.** Logs MUST use consistent timestamps, defined log levels, structured fields, service and environment identity, error context, and correlation identifiers propagated across supported boundaries. Evidence: schema and sample validation.
 3. **Sensitive data.** Logs, metrics, traces, events, dashboards, and alerts MUST NOT contain secrets or unnecessary sensitive data; audit logs MUST be protected and separated according to policy. Evidence: telemetry data review and scan results.
-4. **Metrics.** Services MUST measure applicable availability, latency, throughput, error rate, saturation, dependency health, queue depth, resource use, and business-critical outcomes. Evidence: metric definitions and dashboard.
-5. **Tracing.** Trace context MUST propagate across supported service and dependency boundaries; spans MUST identify errors and dependencies without exposing sensitive payloads. Evidence: end-to-end propagation test.
+4. **Metrics.** Services MUST define applicable application, infrastructure, and business metrics, including availability, latency, throughput, error rate, saturation, dependency health, queue depth, resource use, SLIs, and SLO attainment. Evidence: metric definitions and dashboard.
+5. **Distributed tracing.** Request trace context MUST propagate across supported service and dependency boundaries; spans MUST identify errors, timing, and service dependencies without exposing sensitive payloads and MUST support end-to-end root-cause analysis. Evidence: end-to-end propagation test and representative trace example.
 6. **Health.** Health, liveness, and readiness signals MUST distinguish process state, service readiness, and dependency impairment and MUST support safe startup and shutdown behavior. Evidence: health-check contract and tests.
 7. **Reliability objectives.** Critical services MUST define SLIs, SLOs, measurement windows, error budgets, exclusions, owners, and review cadence. Evidence: approved service-level record.
-8. **Alerts.** Alerts MUST have justified thresholds, severity, owner, destination, deduplication, actionable context, runbook, and escalation path; alert behavior MUST be tested. Evidence: alert definitions and test result.
-9. **Operational readiness.** Required dashboards, runbooks, troubleshooting guidance, on-call access, telemetry retention, and diagnostic permissions MUST be validated before production approval. Evidence: monitoring-readiness review.
+8. **Alerts.** Alerts MUST have justified thresholds, defined severity levels, notification owner, destination, deduplication, actionable context, runbook, and escalation path; alert behavior MUST be tested and recurring noise MUST be reviewed and tuned to reduce alert fatigue without hiding actionable conditions. Evidence: alert definitions, routing ownership, test result, and tuning review.
+9. **Operational readiness.** Team-owned operational dashboards MUST expose service health, standard KPIs, SLI and SLO status, errors, saturation, and active risks. Executive dashboards MUST summarize business outcomes, availability, SLO attainment, and material operational risk where required. Dashboards, runbooks, troubleshooting guidance, on-call access, telemetry retention, and diagnostic permissions MUST be validated before production approval. Evidence: dashboard references and monitoring-readiness review.
 10. **Evidence integrity.** Telemetry and incident evidence MUST have controlled access, synchronized time, retention, and change history sufficient for investigation and audit. Evidence: retention and access configuration.
 11. **Metrics.** Owners MUST monitor SLO attainment, alert precision, mean time to detect, trace coverage, dashboard coverage, and runbook coverage with defined scope and without suppressing findings. Evidence: dated operational report.
 12. **Approval.** Material SLO changes, alert silencing, monitoring exceptions, and evidence deletion MUST require authorized human review. AI agents MUST NOT silence alerts, alter evidence, or close incidents. Evidence: approval or incident record.
@@ -82,7 +82,9 @@ Production services MUST implement signals and controls proportionate to busines
 
 ## AI Implementation Guidance
 
-AI agents MAY correlate signals, identify anomalies, draft incident summaries, suggest diagnoses, and recommend runbooks using authorized telemetry. Agents MUST preserve provenance, distinguish hypotheses from facts, protect sensitive data, and escalate uncertainty. Agents MUST NOT silence alerts, modify evidence, execute destructive remediation, change severity, or close incidents without authorized human review.
+AI agents MAY analyze authorized telemetry, summarize incidents, identify anomalies, recommend dashboard improvements, recommend alert tuning, correlate signals, and suggest diagnoses or runbook changes. Agents MUST preserve provenance, distinguish hypotheses from facts, protect sensitive data, and escalate uncertainty.
+
+AI agents MUST NOT disable monitoring, suppress alerts, acknowledge incidents without authorization, change production thresholds, approve operational readiness, modify evidence, execute destructive remediation, change severity, or close incidents without authorized human review.
 
 ## Human Review Guidance
 
@@ -90,7 +92,7 @@ Service owners approve signals and SLOs; operations or SRE reviewers confirm rea
 
 ## Required Evidence
 
-- Signal inventory, schemas, dashboard links or definitions, metric and trace definitions, and retention controls
+- Monitoring configuration, signal inventory, schemas, dashboard references or definitions, metric and trace definitions, representative trace examples, and retention controls
 - SLI, SLO, error-budget, alert, escalation, health-check, and trace-propagation validation
 - Runbooks, troubleshooting guidance, on-call access review, monitoring-readiness decision, and owners
 - Operational metrics, incidents, exceptions, approval records, and corrective actions
@@ -135,3 +137,4 @@ None. Future observability playbook relationships remain planned until identifie
 | Version | Date | Change | Author | Approval |
 | --- | --- | --- | --- | --- |
 | 0.4.0 | 2026-07-28 | Initial draft | Framework PMO | Pending Product Owner approval |
+| 0.4.0 | 2026-08-07 | Clarified telemetry, dashboard, alerting, readiness, evidence, and AI governance requirements | Framework PMO | Pending Product Owner approval |
