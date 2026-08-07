@@ -2,7 +2,7 @@
 id: STORY-STD-SEC-001
 title: Deliver STD-SEC-001 Enterprise Security Standard
 version: 0.4.0
-status: In Progress
+status: Completed
 owner: Framework PMO
 release: REL-004
 epic: EPIC-001

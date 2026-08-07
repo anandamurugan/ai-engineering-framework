@@ -2,7 +2,7 @@
 id: REL-004
 title: Release v0.4 - Enterprise Standards Framework
 version: 0.4.0
-status: Planned
+status: In Progress
 owner: Framework PMO
 target_release: TBD
 ---
