@@ -49,22 +49,22 @@ Risk management is evidence-based, proportional, continuous, transparent, owned,
 
 ## Applicability
 
-Material engineering decisions and changes MUST identify and manage applicable risk. The highest credible impact determines required escalation and authority.
+Material engineering decisions and changes MUST follow the approved risk management policy throughout identification, assessment, prioritization, treatment, monitoring, escalation, acceptance, and closure. The highest credible impact determines required escalation and authority.
 
 ## Mandatory Rules
 
 1. **Risk identification.** Risks MUST state cause, uncertain event, impact, affected assets, stakeholders, assumptions, evidence, and applicable domain. Evidence: risk record.
-2. **Coverage.** Reviews MUST consider architecture, technical, security, privacy, delivery, operational, performance, availability, compliance, third-party, supply-chain, data, and AI-specific risk. Evidence: risk checklist and rationale for exclusions.
-3. **Assessment.** Each material risk MUST record likelihood, impact, inherent rating, control effectiveness, residual rating, time horizon, dependency risk, and assessment rationale using an approved method. Evidence: assessment record.
-4. **Ownership.** Every material risk MUST have an accountable human owner with authority to coordinate treatment and escalation. AI agents MUST NOT own or accept risk. Evidence: risk register.
-5. **Treatment.** Risks MUST use an explicit avoid, reduce, transfer, accept, or escalate decision with mitigation actions, owners, target dates, dependencies, contingency, and validation. Evidence: treatment plan.
+2. **Coverage.** Reviews MUST consider business, architecture, technical, security, privacy, delivery, operational, performance, availability, compliance, third-party, supply-chain, data, and AI-specific risk. Evidence: risk checklist and rationale for exclusions.
+3. **Assessment.** Each material risk MUST record probability, impact, inherent score, approved risk-matrix position, criticality classification, control effectiveness, residual score, time horizon, dependency risk, and assessment rationale using an approved method. Evidence: risk assessment.
+4. **Ownership and accountability.** Every material risk MUST have an accountable human owner with authority to maintain its lifecycle, coordinate treatment, report status, and escalate when thresholds are crossed. AI agents MUST NOT own or accept risk. Evidence: risk register entry.
+5. **Treatment.** Risks MUST use an explicit accept, mitigate, transfer, avoid, or escalate decision with treatment rationale, mitigation actions, owners, target dates, dependencies, contingency plan, and validation. Evidence: mitigation and contingency plan.
 6. **Controls.** Control design and operation MUST be assessed separately, with failed, missing, or untested controls reflected in residual risk. Evidence: control assessment.
 7. **Acceptance.** Risk acceptance MUST identify authorized approver, rationale, scope, residual exposure, compensating controls, review date, expiry, and revocation conditions. Evidence: approval record.
-8. **Escalation.** High, critical, overdue, worsening, cross-domain, or authority-exceeding risks MUST be escalated according to defined thresholds before affected approval gates. Evidence: escalation record.
-9. **Review cadence.** Risks MUST be reviewed at an interval based on severity and when material changes, incidents, findings, dependencies, or control failures occur. Evidence: review history.
+8. **Monitoring and escalation.** Risk status, control effectiveness, mitigation progress, residual exposure, exceptions, and trends MUST be reported against defined thresholds. High, critical, overdue, worsening, cross-domain, or authority-exceeding risks MUST trigger executive escalation before affected approval gates. Evidence: status report and escalation record.
+9. **Review cadence.** Risks MUST receive periodic review at an interval based on severity and when material changes, incidents, findings, dependencies, exceptions, or control failures occur. Evidence: review history.
 10. **Closure.** A risk MUST NOT close until treatment and control evidence are verified, residual risk is within authority, dependencies are resolved, and an authorized human approves closure. Evidence: closure record.
-11. **Auditability.** Risk register changes, scores, decisions, owners, evidence, approvals, expiries, and history MUST be retained and attributable. Evidence: auditable register history.
-12. **Metrics.** Owners MUST monitor open high risks, overdue mitigations, accepted-risk age, risk trend, expired acceptances, and control effectiveness without lowering scores or hiding risks to improve reporting. Evidence: metric definitions and review.
+11. **Operational controls.** Risk register changes, assessments, decisions, owners, evidence, required approvals, exceptions, expiries, and review history MUST form an attributable audit trail. Compliance verification MUST confirm applicable policy, legal, regulatory, contractual, and enterprise control obligations. Evidence: auditable register history and compliance review.
+12. **Metrics.** Owners MUST monitor open risks, high-risk items, mitigation completion, residual risk, escalation rate, review compliance, overdue mitigations, accepted-risk age, expired acceptances, and control effectiveness without lowering scores or hiding risks to improve reporting. Evidence: metric definitions and review.
 13. **AI governance.** AI-related risks MUST address data, access, prompt injection, inaccurate output, automation bias, model or vendor dependency, evidence integrity, and excessive autonomy where applicable. Evidence: AI risk assessment.
 
 ## Recommended Practices
@@ -80,7 +80,9 @@ Material engineering decisions and changes MUST identify and manage applicable r
 
 ## AI Implementation Guidance
 
-AI agents MAY discover risks, collect authorized evidence, draft statements, analyze scenarios, suggest ratings and mitigations, and identify trends. Agents MUST cite sources, expose uncertainty and conflicting evidence, avoid fabricated precision, and escalate authority gaps. All ratings, treatment, acceptance, and closure decisions require accountable human review.
+AI agents MAY identify potential risks, summarize risk assessments, recommend mitigation options, analyze historical trends, draft risk documentation, collect authorized evidence, and analyze scenarios. Agents MUST cite sources, expose uncertainty and conflicting evidence, avoid fabricated precision, and escalate authority gaps.
+
+AI agents MUST NOT accept enterprise risk, approve risk exceptions, downgrade risk severity, authorize production deployment despite unresolved critical risks, override governance approvals, or make final treatment and closure decisions.
 
 ## Human Review Guidance
 
@@ -88,9 +90,9 @@ Risk owners maintain records and treatment; domain reviewers assess controls; se
 
 ## Required Evidence
 
-- Risk statement, affected assets, assumptions, sources, assessment rationale, inherent and residual ratings
-- Control assessment, treatment and contingency plan, owners, due dates, dependencies, and validation
-- Acceptance or escalation approval, scope, expiry, review history, metrics, and audit trail
+- Risk assessment, risk register entry, affected assets, assumptions, sources, assessment rationale, and inherent and residual risk assessment
+- Control assessment, mitigation plan, contingency plan, owners, due dates, dependencies, and validation
+- Approval record for acceptance or escalation, scope, expiry, review history, metrics, and audit trail
 - Closure evidence, independent review where required, and links to incidents, standards, decisions, and corrective actions
 
 Evidence MUST be named, attributable, traceable, retainable, reviewable, and associated with an accountable human role.
@@ -130,3 +132,4 @@ None. Future risk playbook relationships remain planned until identified assets 
 | Version | Date | Change | Author | Approval |
 | --- | --- | --- | --- | --- |
 | 0.4.0 | 2026-07-28 | Initial draft | Framework PMO | Pending Product Owner approval |
+| 0.4.0 | 2026-08-07 | Clarified governance, assessment, treatment, monitoring, evidence, metrics, and AI authority requirements | Framework PMO | Pending Product Owner approval |
