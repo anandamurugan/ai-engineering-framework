@@ -56,13 +56,13 @@ Teams MUST define performance applicability and risk for every production-bound 
 
 1. **Objectives and budgets.** Services MUST define measurable latency percentiles, throughput, concurrency, availability-related behavior, resource-efficiency targets, and performance budgets appropriate to business outcomes. Evidence: approved objectives and acceptance thresholds.
 2. **Workload model.** Capacity plans MUST document current and forecast volumes, operation mix, data size, concurrency, peak and spike behavior, seasonality, dependencies, growth, and assumptions. Evidence: versioned workload model.
-3. **Scalability design.** Architecture MUST state scaling dimensions, limits, bottlenecks, state constraints, dependency capacity, failure behavior, and capacity headroom. Evidence: scalability and dependency analysis.
+3. **Scalability design.** Architecture MUST evaluate horizontal and vertical scaling, identify justified stateful boundaries, favor stateless service design where feasible, and define how elastic infrastructure responds to demand. Scaling dimensions, limits, bottlenecks, dependency capacity, failure behavior, and capacity headroom MUST be documented. Evidence: scalability, state, elasticity, and dependency analysis.
 4. **Baseline and regression.** Teams MUST establish reproducible baselines and MUST compare material changes against approved regression thresholds. Evidence: benchmark and comparison report.
-5. **Test coverage.** Applicable load, stress, spike, soak, scalability, failover, and regression tests MUST execute in an environment whose differences from production are documented and assessed. Evidence: test plan, environment profile, and results.
-6. **Bounded work.** Requests, collections, queues, retries, concurrency, resource pools, and background work MUST have validated bounds, timeouts, backpressure, and overload behavior. Evidence: design review and tests.
-7. **Efficiency controls.** Caching, asynchronous processing, connection management, database queries, pagination, rate limits, and circuit breakers MUST be selected and validated according to workload and failure risk. Evidence: rationale and measured result.
+5. **Test coverage.** Applicable load, stress, spike, endurance or soak, scalability, failover, benchmark, and regression tests MUST execute in an environment whose differences from production are documented and assessed. Evidence: test plan, environment profile, and results.
+6. **Resource management.** CPU, memory, threads, requests, collections, queues, retries, concurrency, connection pools, caches, and background work MUST have measured utilization, validated bounds, timeouts, backpressure, and overload behavior appropriate to the workload. Evidence: resource profile, configuration review, and tests.
+7. **Data-access efficiency.** Database queries, index strategies, connection management, pagination, data-transfer volume, caching, and asynchronous processing MUST be selected and validated against representative data sizes and access patterns. Evidence: query plan, index and connection review, and measured result.
 8. **Capacity gate.** Production promotion MUST NOT proceed when forecast demand exceeds approved capacity or performance objectives fail without documented human risk disposition and recovery controls. Evidence: readiness decision.
-9. **Production operation.** Owners MUST monitor latency percentiles, throughput, saturation, resource utilization, errors under load, dependency health, and capacity thresholds with actionable escalation. Evidence: dashboard and alert review.
+9. **Production operation.** Owners MUST monitor latency percentiles, throughput, error rates, saturation indicators, CPU, memory, thread and connection-pool utilization, cache effectiveness, dependency health, and capacity thresholds with actionable escalation. Evidence: dashboard and alert review.
 10. **Trend and incidents.** Performance regressions and capacity risks MUST have owners, severity, mitigation, target dates, and incident handling where service impact occurs. Evidence: trend record and corrective action.
 11. **Metrics integrity.** Owners MUST report regression percentage, capacity headroom, target attainment, and performance incidents using defined calculation scopes; findings MUST NOT be suppressed to improve metrics. Evidence: dated metrics definition and report.
 12. **Approval.** Material target changes, accepted regressions, reduced headroom, and capacity exceptions MUST receive authorized human approval. AI agents MUST NOT lower objectives or accept performance risk. Evidence: decision record.
@@ -80,7 +80,9 @@ Teams MUST define performance applicability and risk for every production-bound 
 
 ## AI Implementation Guidance
 
-AI agents MAY draft objectives, workload models, test plans, analyses, optimization options, and evidence summaries. Agents MUST identify assumptions, use authorized data, preserve failed results, and request human direction for trade-offs affecting cost, security, correctness, availability, or accepted risk. Agents MUST NOT approve thresholds, production capacity, or exceptions.
+AI agents MAY analyze performance reports, recommend optimizations, generate benchmark documentation, identify performance bottlenecks, and draft objectives, workload models, test plans, or evidence summaries. Agents MUST identify assumptions, use authorized data, preserve failed results, and request human direction for trade-offs affecting cost, security, correctness, availability, or accepted risk.
+
+AI agents MUST NOT approve production performance exceptions, waive required testing, override capacity decisions, approve release readiness, lower objectives, or accept performance risk.
 
 ## Human Review Guidance
 
@@ -131,3 +133,4 @@ None. Future performance playbook relationships remain planned until identified 
 | Version | Date | Change | Author | Approval |
 | --- | --- | --- | --- | --- |
 | 0.4.0 | 2026-07-28 | Initial draft | Framework PMO | Pending Product Owner approval |
+| 0.4.0 | 2026-08-07 | Clarified scalability, resource, data-access, observability, and AI governance requirements | Framework PMO | Pending Product Owner approval |
