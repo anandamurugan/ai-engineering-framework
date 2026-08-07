@@ -49,7 +49,7 @@ Applies to application, configuration, infrastructure, database, data, feature-c
 
 ## Principles
 
-Build once, promote immutable artifacts, separate build from deployment, automate repeatable controls, use least privilege, make changes reversible, and require human production authority.
+Build once, promote immutable artifacts, separate build from deployment, automate repeatable and consistent controls, preserve end-to-end traceability, use least privilege, make changes reversible, and require human production authority.
 
 ## Applicability
 
@@ -59,16 +59,16 @@ Every production change MUST use a governed deployment process. Risk determines 
 
 1. **Pipeline control.** Build and deployment processes MUST be repeatable, version-controlled, attributable, least-privileged, and separated by duty; production changes MUST NOT originate from unreviewed local actions. Evidence: pipeline definition and execution record.
 2. **Artifact integrity.** Deployments MUST reference an immutable artifact with source revision, build evidence, dependency inventory, integrity verification, and approved repository location. Evidence: artifact digest and provenance.
-3. **Configuration and secrets.** Environment-specific configuration MUST be externalized, validated, access-controlled, and separated from artifacts; secrets MUST be injected through approved mechanisms. Evidence: configuration and secret-control review.
+3. **Configuration and secrets.** Environment-specific configuration MUST be externalized, versioned, validated, access-controlled, and separated from artifacts; deployments MUST use approved secret references, and secret values MUST be injected through approved mechanisms. Evidence: configuration version, validation result, and secret-control review.
 4. **Infrastructure.** Material infrastructure MUST be managed as reviewed code where feasible, with environment consistency, drift detection, validation, ownership, and recovery. Evidence: infrastructure change and drift report.
-5. **Environment separation.** Development, test, staging, and production MUST have defined purposes, access boundaries, data controls, and promotion gates. Evidence: environment control record.
-6. **Promotion.** A release candidate MUST preserve identity across environments and satisfy required test, security, performance, observability, documentation, and approval gates before promotion. Evidence: promotion record.
+5. **Environment separation.** Development, Integration, QA, UAT, and Production environments, or documented equivalents, MUST have defined purposes, access boundaries, data controls, promotion gates, and sufficient configuration consistency to validate the release candidate. Evidence: environment definition, comparison, and control record.
+6. **Deployment readiness.** A release candidate MUST preserve identity across environments and have an approved change record, approved architecture where required, successful test results, security verification, required documentation, and validated rollback readiness before promotion. Evidence: readiness checklist and promotion record.
 7. **Strategy.** Rolling, blue/green, canary, feature flags, progressive delivery, or another strategy MUST be selected from risk, compatibility, capacity, observability, and recovery needs. Evidence: deployment plan and rationale.
 8. **Data changes.** Schema and data migrations MUST be validated for compatibility, duration, locking, data loss, backup, reconciliation, rollback or roll-forward, and interruption behavior. Irreversible or loss-capable changes MUST receive explicit human approval. Evidence: migration plan and rehearsal results.
-9. **Pre-deployment validation.** Approved artifact, environment readiness, dependencies, capacity, security controls, observability, backups, recovery, and change window MUST be checked before execution. Evidence: readiness checklist.
-10. **Post-deployment verification.** Smoke, health, security, telemetry, performance, and business checks appropriate to risk MUST execute after deployment with an accountable observation period. Evidence: verification results.
-11. **Recovery.** Every material deployment MUST define tested rollback, roll-forward, feature disablement, recovery-time expectations, and failed-deployment escalation. Evidence: recovery plan and test.
-12. **Human controls.** An authorized human independent from sole implementation MUST approve production deployment, emergency changes, and exception use. AI agents MUST NOT approve or initiate production deployment without that recorded gate. Evidence: approval record.
+9. **Deployment execution.** Approved artifacts, environment readiness, dependencies, capacity, security controls, observability, backups, recovery, and deployment windows MUST pass automated or recorded validation checkpoints before execution. Deployment automation MUST produce attributable logs of actions, actors, artifacts, environments, timestamps, validation results, and failures. Evidence: readiness checklist and deployment log.
+10. **Post-deployment verification.** Smoke, health, security, telemetry, performance, and business checks appropriate to risk MUST execute after deployment with an accountable observation period. Failed checks MUST stop promotion or invoke the approved recovery decision. Evidence: smoke-test and post-deployment verification results.
+11. **Recovery.** Every material deployment MUST define rollback criteria, documented rollback or roll-forward procedures, feature disablement where applicable, recovery-time and recovery-point objectives, failed-deployment escalation, and validation that recovery restored an acceptable state. Evidence: rollback plan, procedure, rehearsal, and validation result.
+12. **Human controls.** An authorized human independent from sole implementation MUST approve the change record, production deployment, emergency changes, and exception use. Production authorization and segregation of duties MUST be recorded before execution. AI agents MUST NOT approve or initiate production deployment without that recorded gate. Evidence: change and deployment approval records.
 13. **Operational metrics.** Owners MUST review deployment frequency, duration, verification success, change failure, rollback, recovery, and unauthorized-change rates without discouraging accurate failure reporting. Evidence: metric definitions and review.
 
 ## Recommended Practices
@@ -84,7 +84,9 @@ Every production change MUST use a governed deployment process. Risk determines 
 
 ## AI Implementation Guidance
 
-AI agents MAY draft plans, pipeline changes, migration checks, evidence summaries, and recovery recommendations in authorized non-production scope. Agents MUST verify context, preserve failed evidence, disclose uncertainty, and stop for production, destructive, irreversible, sensitive-data, or unclear changes. Agents MUST NOT approve releases, approve deployments, bypass gates, or execute destructive recovery without authorization.
+AI agents MAY prepare deployment documentation, verify deployment prerequisites, recommend deployment sequences, analyze deployment logs, summarize deployment results, and draft pipeline, migration, evidence, or recovery recommendations in authorized non-production scope. Agents MUST verify context, preserve failed evidence, disclose uncertainty, and stop for production, destructive, irreversible, sensitive-data, or unclear changes.
+
+AI agents MUST NOT approve production deployments, bypass change management, authorize production changes, override deployment gates, suppress deployment failures, approve releases, or execute destructive recovery without authorization.
 
 ## Human Review Guidance
 
@@ -92,7 +94,7 @@ Engineering confirms artifact and implementation; QA confirms test evidence; sec
 
 ## Required Evidence
 
-- Deployment plan, immutable artifact reference, source revision, provenance, pipeline run, and approval record
+- Deployment plan, immutable artifact reference, source revision, provenance, pipeline run, deployment logs, deployment approvals, change record, and release record
 - Environment and configuration validation, infrastructure drift result, security and observability readiness
 - Migration, backup, reconciliation, rollback or roll-forward plan and rehearsal evidence
 - Smoke, health, business, post-deployment, monitoring, failure, incident, and metrics records
@@ -138,3 +140,4 @@ None. Future deployment playbook relationships remain planned until identified a
 | Version | Date | Change | Author | Approval |
 | --- | --- | --- | --- | --- |
 | 0.4.0 | 2026-07-28 | Initial draft | Framework PMO | Pending Product Owner approval |
+| 0.4.0 | 2026-08-07 | Clarified readiness, environment, configuration, execution, rollback, evidence, and AI governance requirements | Framework PMO | Pending Product Owner approval |
