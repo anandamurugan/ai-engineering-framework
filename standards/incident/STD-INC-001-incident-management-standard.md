@@ -48,22 +48,23 @@ Response is impact-led, role-based, time-conscious, evidence-preserving, communi
 
 ## Applicability
 
-Suspected material impact MUST be assessed promptly under the organization’s incident process. Uncertainty MUST NOT delay safe escalation.
+Suspected material impact MUST be assessed promptly under the approved incident policy. Uncertainty MUST NOT delay safe escalation.
 
 ## Mandatory Rules
 
-1. **Lifecycle.** Incident processes MUST cover detection, declaration, classification, severity, triage, containment, mitigation, recovery, validation, and authorized closure. Evidence: incident record and timeline.
+1. **Lifecycle.** Incident processes MUST cover detection, initial assessment, declaration, classification, severity, triage, containment, mitigation, root-cause isolation, recovery, service restoration, validation, and authorized closure. Evidence: incident record and timeline.
 2. **Severity.** Severity criteria MUST consider business, customer, security, privacy, data, regulatory, financial, and availability impact with defined escalation and response expectations. Evidence: severity decision and rationale.
 3. **Roles.** Material incidents MUST assign an Incident Commander, Technical Lead, Communications Lead, operations or SRE role, and applicable security, business, product, or executive roles. Evidence: role assignment log.
 4. **Authority.** Severity changes, destructive remediation, production access, external communication, regulatory notification, and closure MUST require authorized human decisions. Evidence: dated decision record.
-5. **Containment and recovery.** Actions MUST state owner, expected impact, risk, authorization, result, and rollback where applicable; recovery MUST be validated against technical and business criteria. Evidence: action and recovery log.
-6. **Communication.** Internal, customer, executive, contractual, and regulatory updates MUST use approved channels, authorized senders, accurate known facts, uncertainty labels, and defined cadence. Evidence: communication log.
-7. **Evidence preservation.** Timelines, decisions, actions, system and diagnostic evidence, change records, and failed attempts MUST be preserved with access and retention controls. Evidence: evidence inventory.
-8. **Security involvement.** Suspected security, privacy, identity, supply-chain, or sensitive-data incidents MUST engage the authorized security response and notification process. Evidence: escalation record.
-9. **Closure.** Closure MUST confirm stable recovery, monitoring, stakeholder disposition, evidence completeness, follow-up ownership, and authorized approval. AI agents MUST NOT declare final closure. Evidence: closure checklist and approval.
-10. **Post-incident review.** Material incidents MUST analyze root causes, contributing factors, control gaps, response effectiveness, and systemic corrective and preventive actions without unsupported certainty. Evidence: approved review.
-11. **Knowledge and follow-up.** Actions MUST have owners, priority, due dates, validation, and traceability to runbook, test, standard, architecture, or problem-management updates. Evidence: action register.
-12. **Metrics.** Owners MUST monitor time to acknowledge, mitigate, recover, repeat-incident rate, communication performance, and corrective-action completion without gaming severity or suppressing incidents. Evidence: defined metrics and trend review.
+5. **Detection and response.** Monitoring integrations, alert sources, automated detection, manual reporting, and event correlation MUST feed an owned triage process with an initial assessment, assigned Incident Commander, approved communication channel, and severity-based escalation procedure. Evidence: detection source inventory, alert or report, triage record, and role assignment.
+6. **Containment and recovery.** Mitigation, containment, and recovery actions MUST state owner, expected impact, risk, authorization, result, and rollback where applicable; root-cause isolation and service restoration MUST be validated against technical and business criteria. Evidence: action and recovery log.
+7. **Communication.** Internal status updates, executive updates, stakeholder notifications, customer communications, contractual notices, and regulatory updates MUST use approved channels, authorized senders, accurate known facts, uncertainty labels, and defined cadence. Evidence: communication log.
+8. **Evidence preservation.** Incident documentation, timelines, decisions, actions, system and diagnostic evidence, communication records, change records, and failed attempts MUST form a protected audit trail retained according to policy and applicable obligations. Evidence: evidence inventory and retention configuration.
+9. **Security involvement.** Suspected security, privacy, identity, supply-chain, or sensitive-data incidents MUST engage the authorized security response and notification process. Evidence: escalation record.
+10. **Closure.** Closure MUST confirm stable recovery, SLA disposition, monitoring, stakeholder disposition, evidence completeness, follow-up ownership, and authorized approval. AI agents MUST NOT declare final closure. Evidence: closure checklist and approval.
+11. **Post-incident review.** Material incidents MUST produce a root cause analysis that addresses causes, contributing factors, control gaps, response effectiveness, lessons learned, and systemic corrective and preventive actions without unsupported certainty. Evidence: approved RCA document.
+12. **Knowledge and follow-up.** Actions MUST have owners, priority, due dates, validation, and traceability to corrective action plans, knowledge-base updates, runbooks, tests, standards, architecture, or problem-management updates. Evidence: corrective action register and updated knowledge references.
+13. **Metrics.** Owners MUST monitor mean time to detect (MTTD), mean time to acknowledge (MTTA), mean time to recovery or resolve (MTTR), incident recurrence, SLA compliance, customer impact, communication performance, and corrective-action completion without gaming severity or suppressing incidents. Evidence: defined metrics and trend review.
 
 ## Recommended Practices
 
@@ -78,7 +79,9 @@ Suspected material impact MUST be assessed promptly under the organization’s i
 
 ## AI Implementation Guidance
 
-AI agents MAY correlate events, retrieve knowledge, draft timelines and summaries, generate hypotheses, and recommend diagnostics within authorized access. Agents MUST label hypotheses, cite evidence, protect sensitive data, retain failed actions, and escalate uncertainty. Agents cannot act as Incident Commander or final accountable authority.
+AI agents MAY summarize incident timelines, correlate logs and alerts, recommend likely root causes, draft incident reports, generate RCA drafts, suggest corrective actions, retrieve knowledge, and recommend diagnostics within authorized access. Agents MUST label hypotheses, cite evidence, protect sensitive data, retain failed actions, and escalate uncertainty.
+
+AI agents MUST NOT close incidents, approve RCA documents, declare service restoration, suppress critical alerts, override incident severity, approve production recovery, act as Incident Commander, or serve as the final accountable authority.
 
 ## Human Review Guidance
 
@@ -127,3 +130,4 @@ None. Future incident playbook relationships remain planned until identified ass
 | Version | Date | Change | Author | Approval |
 | --- | --- | --- | --- | --- |
 | 0.4.0 | 2026-07-28 | Initial draft | Framework PMO | Pending Product Owner approval |
+| 0.4.0 | 2026-08-07 | Clarified detection, response, communication, learning, metrics, evidence, and AI authority requirements | Framework PMO | Pending Product Owner approval |
