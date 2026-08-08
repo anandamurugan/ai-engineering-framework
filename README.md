@@ -19,6 +19,7 @@ The project mission, scope, values, and capability direction are defined in the 
 | [Agents](agents/) | Role definitions for framework agents |
 | [Playbooks](playbooks/) | Reusable end-to-end delivery guidance |
 | [Workflows](workflows/) | Executable, phase-oriented procedures |
+| [Validation tools](tools/validation/) | Read-only validation execution and evidence foundation |
 
 Start with the [feature development playbook](playbooks/feature-development.md) and its [analyze and plan workflow](workflows/01-analyze-plan.md).
 
@@ -26,7 +27,7 @@ Start with the [feature development playbook](playbooks/feature-development.md) 
 
 The [master architecture](docs/architecture/ARCHITECTURE.md) is the entry point for the architecture document set. Supporting documents define repository organization, structured knowledge, future plugins, agent collaboration, governance, execution, security, and framework releases. Architecture decisions are recorded in [`docs/adr/`](docs/adr/).
 
-The current repository provides the first capability layer: a knowledge and governance platform made of human-readable and AI-consumable documents. Developer tooling, validators, a CLI, plugin loading, adapters, and governed agent orchestration are planned future capabilities; they are not implemented.
+The current repository provides a knowledge and governance platform made of human-readable and AI-consumable documents plus a foundational, read-only [validation runner](tools/validation/README.md). Substantive validators, a broader CLI, plugin loading, adapters, and governed agent orchestration remain planned future capabilities.
 
 ## Product Management
 
@@ -48,7 +49,7 @@ The v0.4 Standards Foundation defines the contracts future enterprise standards 
 - [Standards Review Process](docs/governance/STANDARD_REVIEW_PROCESS.md)
 - [Documentation Style Guide](docs/contributing/DOCUMENTATION_STYLE_GUIDE.md)
 
-These foundation artifacts remain subject to Product Owner review and do not provide an automated validation engine.
+These foundation artifacts remain subject to Product Owner review. The validation runner does not yet implement metadata, schema, ID, structure, link, catalog, or traceability validation.
 
 ## Core Engineering Standards
 

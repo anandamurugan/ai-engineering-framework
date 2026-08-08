@@ -1,0 +1,3 @@
+/.validation-reports/
+__pycache__/
+*.py[cod]
