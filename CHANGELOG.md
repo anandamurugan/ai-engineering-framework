@@ -22,6 +22,7 @@ This project follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) an
 - Reusable validation framework foundation with a static registry, structured results, deterministic exit behavior, JSON evidence, documentation, and standard-library tests.
 - Automated product and standard metadata, schema, framework-ID uniqueness, required-section, and standard section-order validation.
 - Automated relative-link, standard cross-reference, standards-catalog parity, and product-traceability validation.
+- Automated placeholder, trailing-whitespace, basic Markdown, and tracked-artifact hygiene validation with governed exclusions.
 
 ### Changed
 
