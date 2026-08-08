@@ -88,9 +88,9 @@ The Enterprise Standards Framework enables:
 | SPR-004-001 | Sprint 4.1 | Standards Foundation | In Progress |
 | SPR-004-002 | Sprint 4.2 | Core Engineering Standards | In Progress |
 | SPR-004-003 | Sprint 4.3 | Enterprise Engineering Standards | Completed |
-| SPR-004-004 | Sprint 4.4 | Governance and Validation | Planned |
+| SPR-004-004 | Sprint 4.4 | Governance and Validation | In Progress |
 
-Sprint 4.3 implementation is complete. EPIC-001 remains In Progress pending Sprint 4.4, required reviews, and Product Owner approval.
+Sprint 4.3 implementation is complete. [SPR-004-004](../sprints/SPR-004-004-governance-validation.md) establishes the governance and validation foundation. EPIC-001 remains In Progress pending Sprint 4.4 implementation, required reviews, and Product Owner approval.
 
 ## Dependencies
 
