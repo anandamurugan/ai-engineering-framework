@@ -54,9 +54,24 @@ Findings name the source asset, framework ID, target, relationship type, and rea
 
 Placeholder exclusions are intentionally narrow: `templates/` authoring markers, `tests/` fixtures, historical `CHANGELOG.md` text, validation and style-guide explanations, the VAL-HYGIENE-001 specification, explicitly explanatory planning statements, and REL-004's Product Owner-owned `target_release: TBD`. Generated reports and cache directories are excluded from content scans but fail artifact hygiene if Git tracks them.
 
-No supported Markdown linter dependency or configuration exists, so this milestone implements only deterministic repository-defined checks. Full Markdown lint integration remains VAL-CI-001 work. No repository-owned secret scanner exists; the external commit hook remains supplemental evidence and is not replaced by these hygiene validators.
+No supported Markdown linter dependency or configuration exists, so CI runs the deterministic repository-defined Markdown hygiene checks rather than adding a separate toolchain. No repository-owned secret scanner exists; the external commit hook remains supplemental evidence and is not replaced by these validators. Repository-owned secret scanning remains a governance and release-readiness gap for VAL-GOV-001.
 
-CI integration and governance closeout remain intentionally deferred to their approved Sprint 4.4 stories.
+Governance closeout remains intentionally deferred to its approved Sprint 4.4 story.
+
+## Continuous integration
+
+`.github/workflows/framework-validation.yml` runs for pull requests targeting `main`, pushes to `main`, and manual dispatches. It uses Python 3.9 with no third-party dependencies and executes the same framework command and standard-library test suite documented here. Both commands run even if one fails, the final enforcement step fails the job on either failure, and warnings remain visible without being converted into errors.
+
+The workflow uploads `.validation-reports/validation-report.json` as the `framework-validation-report` artifact for 14 days, including after validation failure when a report was produced. Reports remain ignored by Git. Reproduce CI locally with:
+
+```sh
+python3 -m tools.validation
+python3 -m unittest discover -s tests
+```
+
+For protected branches, a repository administrator should configure `Framework Validation / Framework validation` as a required status check. The workflow does not enable branch protection or approve a pull request; a successful check is conformance evidence only and human approval remains mandatory.
+
+When CI fails, inspect the validation step summary and download the JSON artifact for file-level findings. Re-run both local commands from the repository root. If the report is absent, inspect the runner setup and import failure before treating the result as validation evidence.
 
 ## Governance boundaries
 

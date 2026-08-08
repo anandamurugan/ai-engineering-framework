@@ -23,6 +23,7 @@ This project follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) an
 - Automated product and standard metadata, schema, framework-ID uniqueness, required-section, and standard section-order validation.
 - Automated relative-link, standard cross-reference, standards-catalog parity, and product-traceability validation.
 - Automated placeholder, trailing-whitespace, basic Markdown, and tracked-artifact hygiene validation with governed exclusions.
+- GitHub Actions integration for framework validation, standard-library tests, and retained JSON conformance evidence on pull requests and default-branch changes.
 
 ### Changed
 
