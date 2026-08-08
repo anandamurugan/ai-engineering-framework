@@ -76,7 +76,7 @@ The repository currently contains root governance documents plus:
 - `standards/` with readiness, completion, risk, and human-oversight controls;
 - `docs/architecture/` and `docs/adr/` introduced by this blueprint.
 
-The target-only directories `framework/`, `plugins/`, `templates/`, `examples/`, `tools/`, and `reference/` do not currently exist and are not created by this sprint.
+The `templates/` directory supports standards authoring, and `tools/validation/` provides the initial validation execution foundation. The target-only directories `framework/`, `plugins/`, `examples/`, and `reference/` do not currently exist.
 
 ## Incremental migration
 
