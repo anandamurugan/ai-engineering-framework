@@ -41,6 +41,10 @@ The JSON report contains `report_version`, aggregate `summary`, and structured `
 - `VAL-REF-STD-001` checks standard relationship targets, matching navigation, prohibited directional cycles, and optional reciprocity. Missing optional `related_standards` reciprocity is a warning; conceptual cycles are permitted.
 - `VAL-TRACE-CATALOG-001` compares every catalog row with the standard ID, title, category, version, status, owner, mandatory flag, and path.
 - `VAL-TRACE-PRODUCT-001` checks release, epic, sprint, and story parents; parent tracking tables; story deliverables; and the explicit rule that a completed sprint cannot contain incomplete tracked stories.
+- `VAL-HYGIENE-PLACEHOLDER-001` detects case-insensitive `TODO`, `TBD`, `FIXME`, `PLACEHOLDER`, `Lorem ipsum`, and `coming soon` markers in governed text.
+- `VAL-HYGIENE-WHITESPACE-001` reports trailing spaces or tabs with file and line evidence across repository text files.
+- `VAL-HYGIENE-MARKDOWN-001` checks one H1, heading-level progression, empty or malformed headings, and balanced fenced code blocks without duplicating standard-section validation.
+- `VAL-HYGIENE-ARTIFACT-001` rejects tracked validation reports, Python caches, and compiled Python files using the repository's `.gitignore` conventions.
 
 An error finding makes the command return `1`; findings remain in console and JSON evidence. Conformance never implies substantive review or approval. Metadata contracts for asset types without an executable schema are not inferred by this milestone.
 
@@ -48,7 +52,11 @@ The implementation uses no third-party dependencies. Its YAML reader supports th
 
 Findings name the source asset, framework ID, target, relationship type, and reason where applicable. For example: `EPIC-001 -> SPR-004-404 (contains): tracked child is missing or does not belong to this parent.` External-site availability, generalized future relationship schemas, subjective relationship meaning, and lifecycle rules not stated by repository policy are excluded.
 
-Repository hygiene, Markdown lint integration, CI integration, and governance closeout remain intentionally deferred to their approved Sprint 4.4 stories.
+Placeholder exclusions are intentionally narrow: `templates/` authoring markers, `tests/` fixtures, historical `CHANGELOG.md` text, validation and style-guide explanations, the VAL-HYGIENE-001 specification, explicitly explanatory planning statements, and REL-004's Product Owner-owned `target_release: TBD`. Generated reports and cache directories are excluded from content scans but fail artifact hygiene if Git tracks them.
+
+No supported Markdown linter dependency or configuration exists, so this milestone implements only deterministic repository-defined checks. Full Markdown lint integration remains VAL-CI-001 work. No repository-owned secret scanner exists; the external commit hook remains supplemental evidence and is not replaced by these hygiene validators.
+
+CI integration and governance closeout remain intentionally deferred to their approved Sprint 4.4 stories.
 
 ## Governance boundaries
 
