@@ -2,7 +2,7 @@
 id: STORY-STD-RISK-001
 title: Deliver STD-RISK-001 Enterprise Risk Management Standard
 version: 0.4.0
-status: In Progress
+status: Completed
 owner: Framework PMO
 release: REL-004
 epic: EPIC-001

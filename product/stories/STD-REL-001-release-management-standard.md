@@ -2,7 +2,7 @@
 id: STORY-STD-REL-001
 title: Deliver STD-REL-001 Release Management Standard
 version: 0.4.0
-status: In Progress
+status: Completed
 owner: Framework PMO
 release: REL-004
 epic: EPIC-001
