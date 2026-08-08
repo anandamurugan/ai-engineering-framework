@@ -1,0 +1,63 @@
+name: Framework Validation
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: framework-validation-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  framework-validation:
+    name: Framework validation
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+
+      - name: Set up Python
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: "3.9"
+
+      - name: Run framework validation
+        id: validation
+        continue-on-error: true
+        run: python -m tools.validation
+
+      - name: Run validation tests
+        id: tests
+        continue-on-error: true
+        run: python -m unittest discover -s tests
+
+      - name: Upload validation evidence
+        if: ${{ always() }}
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: framework-validation-report
+          path: .validation-reports/validation-report.json
+          if-no-files-found: warn
+          retention-days: 14
+
+      - name: Enforce validation outcome
+        if: ${{ always() }}
+        env:
+          VALIDATION_OUTCOME: ${{ steps.validation.outcome }}
+          TEST_OUTCOME: ${{ steps.tests.outcome }}
+        run: |
+          if [ "$VALIDATION_OUTCOME" != "success" ] || [ "$TEST_OUTCOME" != "success" ]; then
+            echo "Framework validation or its test suite failed. Review the logs and uploaded evidence."
+            exit 1
+          fi
+          echo "Framework validation and its test suite passed."
