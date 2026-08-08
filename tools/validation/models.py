@@ -39,6 +39,7 @@ class ValidationResult:
     status: Status
     severity: Severity
     asset: Optional[str]
+    framework_id: Optional[str]
     message: str
 
     def to_dict(self) -> Dict[str, Any]:
@@ -67,6 +68,7 @@ class Validator:
         status: Status,
         message: str,
         asset: Optional[str] = None,
+        framework_id: Optional[str] = None,
         severity: Optional[Severity] = None,
     ) -> ValidationResult:
         """Build a result carrying this validator's identity and purpose."""
@@ -78,5 +80,6 @@ class Validator:
             status=status,
             severity=severity or self.default_severity,
             asset=asset,
+            framework_id=framework_id,
             message=message,
         )

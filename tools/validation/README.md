@@ -29,9 +29,20 @@ Add an approved validator by importing and instantiating it in `registry.py`. Re
 
 ## Reporting
 
-The JSON report contains `report_version`, aggregate `summary`, and structured `results`. The summary records validators executed, unique assets scanned, errors, warnings, passed checks, and overall `PASS` or `FAIL`. Later validators should use the same model so local and CI evidence stays consistent.
+The JSON report contains `report_version`, aggregate `summary`, and structured `results`. The summary records validators executed, unique assets scanned, errors, warnings, passed checks, and overall `PASS` or `FAIL`. Each result includes the validator, status, severity, asset, framework ID when available, and message.
 
-The only registered check in this foundation verifies repository-root resolution and registry loading. Metadata, IDs, document structure, links, cross-references, catalog parity, traceability, repository hygiene, Markdown lint integration, and lifecycle governance checks remain intentionally deferred to their approved Sprint 4.4 stories.
+## Registered validation
+
+- `VAL-FWK-SELF-001` verifies repository-root resolution and registry loading.
+- `VAL-META-001` validates release, epic, sprint, and story metadata against the contracts in the Framework Asset Taxonomy. It validates standard front matter directly against `schemas/standard.schema.yaml`, including required and additional properties, types, controlled values, patterns, lengths, unique arrays, and date formats.
+- `VAL-META-ID-001` detects duplicate IDs across all metadata-bearing Markdown files and reports every conflicting file. Defined product and standard ID formats are enforced by `VAL-META-001`.
+- `VAL-STRUCT-001` derives the required standard sections and order from `templates/standard-template.md`. It also checks H1 identity, duplicate sections, numbered mandatory-rule presence, and the revision-history table structure.
+
+An error finding makes the command return `1`; findings remain in console and JSON evidence. Conformance never implies substantive review or approval. Metadata contracts for asset types without an executable schema are not inferred by this milestone.
+
+The implementation uses no third-party dependencies. Its YAML reader supports the mapping, sequence, and scalar forms used by current repository front matter and the standard schema; it is not a general-purpose YAML implementation.
+
+Link and cross-reference validation, catalog parity, lifecycle traceability, repository hygiene, Markdown lint integration, and CI integration remain intentionally deferred to their approved Sprint 4.4 stories.
 
 ## Governance boundaries
 
@@ -44,5 +55,5 @@ AI may analyze failures, recommend corrections, draft remediation, and summarize
 Run the standard-library test suite from the repository root:
 
 ```sh
-python3 -m unittest discover -s tests -p 'test_validation_foundation.py'
+python3 -m unittest discover -s tests
 ```
