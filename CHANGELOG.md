@@ -20,6 +20,8 @@ This project follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) an
 - Sprint 4.3 specification, seven product stories, catalog updates, and seven Draft enterprise security, performance, observability, deployment, release, incident, and risk standards.
 - Sprint 4.4 Governance & Validation planning foundation with eight implementation stories, inherited Sprint 4.3 findings, validation boundaries, and governed review requirements.
 - Reusable validation framework foundation with a static registry, structured results, deterministic exit behavior, JSON evidence, documentation, and standard-library tests.
+- Automated product and standard metadata, schema, framework-ID uniqueness, required-section, and standard section-order validation.
+- Automated relative-link, standard cross-reference, standards-catalog parity, and product-traceability validation.
 
 ### Changed
 

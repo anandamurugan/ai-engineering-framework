@@ -21,10 +21,11 @@ The roadmap communicates intended outcomes rather than delivery commitments. Pri
 - [ ] Establish controlled vocabularies, module lifecycle, discovery, and content validation contracts.
 - [ ] Expand vendor-neutral enterprise engineering knowledge.
 
-### v0.4 Agent Catalog — Planned
+### v0.4 Enterprise Standards Framework — In Progress
 
-- [ ] Publish bounded role specifications and collaboration patterns.
-- [ ] Define role conformance and evidence expectations.
+- [x] Establish the standards metadata, authoring, catalog, and cross-reference foundation.
+- [x] Publish the core and enterprise engineering standards as Drafts.
+- [ ] Complete governance validation, required reviews, and Product Owner approval.
 
 ### v0.5 Playbooks and Workflows — Planned
 

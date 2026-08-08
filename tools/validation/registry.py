@@ -3,7 +3,20 @@
 from typing import Tuple
 
 from .models import Validator
+from .metadata import FrameworkIdValidator, MetadataValidator
+from .references import RelativeLinkValidator, StandardReferenceValidator
 from .self_check import FoundationSelfCheck
+from .structure import DocumentStructureValidator
+from .traceability import ProductTraceabilityValidator, StandardsCatalogValidator
 
 
-VALIDATORS = (FoundationSelfCheck(),)  # type: Tuple[Validator, ...]
+VALIDATORS = (
+    FoundationSelfCheck(),
+    MetadataValidator(),
+    FrameworkIdValidator(),
+    DocumentStructureValidator(),
+    RelativeLinkValidator(),
+    StandardReferenceValidator(),
+    StandardsCatalogValidator(),
+    ProductTraceabilityValidator(),
+)  # type: Tuple[Validator, ...]

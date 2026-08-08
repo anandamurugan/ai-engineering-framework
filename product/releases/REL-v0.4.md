@@ -54,7 +54,7 @@ This release introduces the foundational standards that govern engineering pract
 | ID | Deliverable |
 | --- | --- |
 | EPIC-001 | Enterprise Standards Framework |
-| SPR-004-001 | Standards Foundation |
+| SPR-004-001B | Standards Foundation |
 | SPR-004-002 | Core Engineering Standards |
 | SPR-004-003 | Enterprise Engineering Standards |
 | SPR-004-004 | Governance and Validation |

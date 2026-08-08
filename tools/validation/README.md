@@ -29,9 +29,26 @@ Add an approved validator by importing and instantiating it in `registry.py`. Re
 
 ## Reporting
 
-The JSON report contains `report_version`, aggregate `summary`, and structured `results`. The summary records validators executed, unique assets scanned, errors, warnings, passed checks, and overall `PASS` or `FAIL`. Later validators should use the same model so local and CI evidence stays consistent.
+The JSON report contains `report_version`, aggregate `summary`, and structured `results`. The summary records validators executed, unique assets scanned, errors, warnings, passed checks, and overall `PASS` or `FAIL`. Each result includes the validator, status, severity, asset, framework ID when available, and message.
 
-The only registered check in this foundation verifies repository-root resolution and registry loading. Metadata, IDs, document structure, links, cross-references, catalog parity, traceability, repository hygiene, Markdown lint integration, and lifecycle governance checks remain intentionally deferred to their approved Sprint 4.4 stories.
+## Registered validation
+
+- `VAL-FWK-SELF-001` verifies repository-root resolution and registry loading.
+- `VAL-META-001` validates release, epic, sprint, and story metadata against the contracts in the Framework Asset Taxonomy. It validates standard front matter directly against `schemas/standard.schema.yaml`, including required and additional properties, types, controlled values, patterns, lengths, unique arrays, and date formats.
+- `VAL-META-ID-001` detects duplicate IDs across all metadata-bearing Markdown files and reports every conflicting file. Defined product and standard ID formats are enforced by `VAL-META-001`.
+- `VAL-STRUCT-001` derives the required standard sections and order from `templates/standard-template.md`. It also checks H1 identity, duplicate sections, numbered mandatory-rule presence, and the revision-history table structure.
+- `VAL-REF-LINK-001` checks repository-relative Markdown paths with exact filename case, `../` resolution, URL-decoding, and local heading fragments. External URI schemes are excluded.
+- `VAL-REF-STD-001` checks standard relationship targets, matching navigation, prohibited directional cycles, and optional reciprocity. Missing optional `related_standards` reciprocity is a warning; conceptual cycles are permitted.
+- `VAL-TRACE-CATALOG-001` compares every catalog row with the standard ID, title, category, version, status, owner, mandatory flag, and path.
+- `VAL-TRACE-PRODUCT-001` checks release, epic, sprint, and story parents; parent tracking tables; story deliverables; and the explicit rule that a completed sprint cannot contain incomplete tracked stories.
+
+An error finding makes the command return `1`; findings remain in console and JSON evidence. Conformance never implies substantive review or approval. Metadata contracts for asset types without an executable schema are not inferred by this milestone.
+
+The implementation uses no third-party dependencies. Its YAML reader supports the mapping, sequence, and scalar forms used by current repository front matter and the standard schema; it is not a general-purpose YAML implementation.
+
+Findings name the source asset, framework ID, target, relationship type, and reason where applicable. For example: `EPIC-001 -> SPR-004-404 (contains): tracked child is missing or does not belong to this parent.` External-site availability, generalized future relationship schemas, subjective relationship meaning, and lifecycle rules not stated by repository policy are excluded.
+
+Repository hygiene, Markdown lint integration, CI integration, and governance closeout remain intentionally deferred to their approved Sprint 4.4 stories.
 
 ## Governance boundaries
 
@@ -44,5 +61,5 @@ AI may analyze failures, recommend corrections, draft remediation, and summarize
 Run the standard-library test suite from the repository root:
 
 ```sh
-python3 -m unittest discover -s tests -p 'test_validation_foundation.py'
+python3 -m unittest discover -s tests
 ```
