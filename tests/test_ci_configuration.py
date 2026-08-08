@@ -38,6 +38,7 @@ class FrameworkValidationWorkflowTests(unittest.TestCase):
         self.assertIn("run: python -m unittest discover -s tests", self.workflow)
         self.assertIn("if: ${{ always() }}", self.workflow)
         self.assertIn("path: .validation-reports/validation-report.json", self.workflow)
+        self.assertIn("include-hidden-files: true", self.workflow)
         self.assertIn("retention-days: 14", self.workflow)
 
 
