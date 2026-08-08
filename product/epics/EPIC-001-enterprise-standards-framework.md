@@ -85,7 +85,7 @@ The Enterprise Standards Framework enables:
 
 | Sprint ID | Sprint | Goal | Progress |
 | --- | --- | --- | --- |
-| SPR-004-001 | Sprint 4.1 | Standards Foundation | In Progress |
+| SPR-004-001B | Sprint 4.1B | Standards Foundation | In Progress |
 | SPR-004-002 | Sprint 4.2 | Core Engineering Standards | In Progress |
 | SPR-004-003 | Sprint 4.3 | Enterprise Engineering Standards | Completed |
 | SPR-004-004 | Sprint 4.4 | Governance and Validation | In Progress |
