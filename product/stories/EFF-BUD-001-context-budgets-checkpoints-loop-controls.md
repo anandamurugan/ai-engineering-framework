@@ -2,7 +2,7 @@
 id: STORY-EFF-BUD-001
 title: Deliver EFF-BUD-001 Context Budgets, Checkpoints & Loop Controls
 version: 0.5.0
-status: Proposed
+status: In Review
 owner: Framework PMO
 release: REL-005
 epic: EPIC-002
@@ -42,7 +42,7 @@ Universal numeric limits, checkpoints as approvals, hidden automatic budget incr
 
 ## Required Deliverable
 
-Budget, checkpoint, resume, and loop-control implementation with configurable profiles, evidence, tests, and documentation.
+[Execution Budgets, Checkpoints, and Routing](../../tools/execution/README.md), including configurable budget evaluation, explicit execution state, provenance-aware checkpoint persistence and resume checks, deterministic loop signatures and responses, evidence, tests, and operational commands.
 
 ## Acceptance Criteria
 
@@ -62,6 +62,8 @@ Budget dimensions, profile ownership, checkpoint schema, loop equivalence, reten
 ## Definition of Done
 
 The implementation and failure paths are tested, documented, validated, measured, and approved by required humans.
+
+Implementation, automated tests, documentation, and validation evidence are complete. Human review and Product Owner approval remain pending, so this story remains **In Review**.
 
 ## Product Owner Approval
 

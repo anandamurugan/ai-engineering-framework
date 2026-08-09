@@ -2,7 +2,7 @@
 id: STORY-EFF-ROUTE-001
 title: Deliver EFF-ROUTE-001 Risk-Aware Capability Routing & Escalation
 version: 0.5.0
-status: Proposed
+status: In Review
 owner: Framework PMO
 release: REL-005
 epic: EPIC-002
@@ -42,7 +42,7 @@ Vendor model names, price tables, automatic risk acceptance, or routing that byp
 
 ## Required Deliverable
 
-Routing and escalation policy implementation with configurable profiles, evidence, tests, and vendor-neutral documentation.
+[Execution Budgets, Checkpoints, and Routing](../../tools/execution/README.md), including generic Tier 1–5 policy, structured routing factors, deterministic recommendation and transition evidence, bounded failure escalation, de-escalation, and non-substitutable Tier 5 human authority.
 
 ## Acceptance Criteria
 
@@ -62,6 +62,8 @@ Tier semantics, risk dimensions, profile authority, evidence fields, and mandato
 ## Definition of Done
 
 Routing is implemented, deterministic where defined, tested, documented, audited, validated, and human-reviewed.
+
+Implementation, automated tests, documentation, and validation evidence are complete. Human review and Product Owner approval remain pending, so this story remains **In Review**.
 
 ## Product Owner Approval
 
