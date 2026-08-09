@@ -45,6 +45,8 @@ Establish vendor-neutral contracts for efficient, bounded, auditable AI-assisted
 
 Sprint 5.1 has established the proposed normative context-management and efficiency-measurement contracts. They remain subject to human review; later execution mechanisms are not represented as implemented.
 
+Sprint 5.2 has implemented the proposed derived repository view and deterministic targeted-context selector. They remain subject to human review; budgets, checkpoints, routing, and targeted validation are not represented as implemented.
+
 ## Deliverables
 
 | ID | Deliverable |

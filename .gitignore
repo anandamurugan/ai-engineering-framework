@@ -1,3 +1,4 @@
 /.validation-reports/
+/.context-reports/
 __pycache__/
 *.py[cod]

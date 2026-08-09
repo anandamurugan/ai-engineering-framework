@@ -10,6 +10,7 @@ This project follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) an
 
 - REL-005 planning foundation for vendor-neutral efficient agentic execution and context engineering, including EPIC-002, five planned sprints, eight planning stories, measurable efficiency contracts, v0.4 backlog dispositions, and governed human-authority boundaries. No v0.5 implementation is included.
 - Sprint 5.1 proposed architecture contracts for Minimum Sufficient Context, progressive loading, bounded execution, context budgets, capability tiers, escalation, loop detection, checkpoints, Least Context Privilege, durable evidence, and vendor-neutral efficiency measurement. Repository indexing, routing, targeted validation, and vendor integrations remain unimplemented.
+- Sprint 5.2 dependency-free repository intelligence tooling with a derived metadata-only asset index, commit and content freshness, immutable-per-run repository view, deterministic relationship-aware context selection, exclusions, restricted-context evidence, explicit completeness and fallback, JSON manifests, local commands, and focused tests. Sprint 5.3 routing and Sprint 5.4 targeted validation remain unimplemented.
 
 ## [0.4.0] - 2026-08-08
 

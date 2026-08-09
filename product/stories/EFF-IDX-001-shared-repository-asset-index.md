@@ -2,7 +2,7 @@
 id: STORY-EFF-IDX-001
 title: Deliver EFF-IDX-001 Shared Repository Asset Index
 version: 0.5.0
-status: Proposed
+status: In Review
 owner: Framework PMO
 release: REL-005
 epic: EPIC-002
@@ -42,7 +42,7 @@ Replacing repository sources of truth, remote indexing products, semantic search
 
 ## Required Deliverable
 
-A repository-conforming index contract and implementation with tests, evidence, documentation, and safe fallback behavior.
+[Repository Index and Targeted Context](../../tools/context/README.md), including the reusable repository view, versioned JSON index, CLI entry point, provenance, freshness behavior, tests, and generated evidence conventions.
 
 ## Acceptance Criteria
 
@@ -62,6 +62,8 @@ Index consumers, authoritative sources, schema, lifecycle, exclusion, security, 
 ## Definition of Done
 
 The index implementation, tests, documentation, evidence, validation, and human review satisfy the story contract.
+
+Implementation, automated tests, documentation, and validation evidence are complete. Human review and Product Owner approval remain pending, so this story remains **In Review**.
 
 ## Product Owner Approval
 
