@@ -10,7 +10,7 @@ tags:
   - governance
 ai_consumable: true
 human_reviewed: false
-last_updated: 2026-07-23
+last_updated: 2026-08-08
 ---
 
 # Framework Architecture
@@ -19,7 +19,7 @@ last_updated: 2026-07-23
 
 The Enterprise Agentic SDLC Framework is a vendor-neutral set of governance, knowledge, collaboration, and execution contracts for responsible AI-assisted software delivery. Its architecture separates enduring enterprise authority and engineering guidance from replaceable agents, tools, and delivery platforms.
 
-The repository currently implements only the knowledge and governance layer as Markdown artifacts. Developer tooling, validators, plugin loading, adapters, and orchestration are future-state concepts; this document defines boundaries for their eventual design without claiming they exist.
+The repository implements the knowledge and governance layer as Markdown artifacts and the REL-004 read-only [validation framework](../../tools/validation/README.md). The validation framework provides a centralized registry, common result and severity contracts, JSON evidence, repository conformance checks, and GitHub Actions execution. A broader CLI, plugin loading, adapters, and orchestration remain future-state concepts; this document defines boundaries for their eventual design without claiming they exist.
 
 ## Context and problem statement
 
@@ -116,7 +116,7 @@ Cross-cutting controls for risk, access, decisions, approvals, evidence, excepti
 | Templates and examples | Provide reusable non-authoritative artifacts | Planned |
 | Plugins | Package technology-specific extensions | Proposed concept only |
 | Adapters | Connect vendors and engineering tools | Planned |
-| Validation tooling | Check structure, metadata, links, and policy contracts | Planned |
+| Validation tooling | Check metadata, schema, IDs, structure, links, relationships, catalog and product traceability, defined lifecycle rules, and repository hygiene | Implemented for REL-004 with JSON evidence and CI execution; documented limitations remain |
 | Orchestration | Coordinate bounded execution and approvals | Planned |
 
 ## Information flow
@@ -153,13 +153,13 @@ The repository separates authoritative policy, reusable knowledge, role definiti
 
 ## Current state
 
-Version `0.2.0` is a proposed architecture blueprint layered on an initial Markdown knowledge and governance foundation. No framework CLI, validator, plugin runtime, plugin manifest schema, adapter runtime, orchestration engine, or release automation is implemented.
+Version `0.2.0` remains a proposed architecture blueprint layered on the Markdown knowledge and governance foundation. REL-004 adds an executable, dependency-free Python validation framework and CI conformance workflow without introducing a broader framework CLI, plugin runtime, plugin manifest schema, adapter runtime, orchestration engine, or release automation. Detailed validator behavior and limitations are maintained in the [validation documentation](../../tools/validation/README.md).
 
 ## Future state
 
 Subject to approved ADRs and incremental delivery, the framework may add:
 
-- metadata and link validation;
+- shared repository indexing and more targeted validation execution as scale warrants;
 - search and indexing of structured knowledge;
 - packaging and compatibility checks for plugins;
 - vendor-specific adapters behind neutral contracts;
