@@ -264,7 +264,7 @@ When efficiency and governance conflict, governance controls and accountable hum
 
 ### Sprint 5.2 — Repository Index and Targeted Context
 
-Later indexing and selection MUST preserve source-of-truth authority, identify source revision and freshness, honor exclusions and restricted context, expose incomplete relationships, record selection and expansion, and fall back safely when affected context cannot be established. This section does not implement an index.
+The Sprint 5.2 [repository index and targeted-context tooling](../../tools/context/README.md) preserves source-of-truth authority, identifies source revision and freshness, honors exclusions and restricted context, exposes incomplete relationships, records selection and expansion, and falls back safely when affected context cannot be established.
 
 ### Sprint 5.3 — Budgets, Checkpoints, and Routing
 

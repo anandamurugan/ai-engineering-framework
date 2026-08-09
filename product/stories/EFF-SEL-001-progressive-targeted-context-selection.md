@@ -2,7 +2,7 @@
 id: STORY-EFF-SEL-001
 title: Deliver EFF-SEL-001 Progressive & Targeted Context Selection
 version: 0.5.0
-status: Proposed
+status: In Review
 owner: Framework PMO
 release: REL-005
 epic: EPIC-002
@@ -42,7 +42,7 @@ Vendor retrieval APIs, opaque ranking as sole authority, or bypass of user autho
 
 ## Required Deliverable
 
-Targeted context-selection implementation, configuration contract, evidence, tests, and contributor documentation.
+[Repository Index and Targeted Context](../../tools/context/README.md), including deterministic story/asset/target selection, progressive expansion, exclusions, restricted-context evidence, completeness indicators, fallback, JSON manifests, and tests.
 
 ## Acceptance Criteria
 
@@ -62,6 +62,8 @@ The index, selection policy, sensitive-path controls, evaluation fixtures, and r
 ## Definition of Done
 
 Selection behavior is implemented, measured, tested, documented, validated, and human-reviewed.
+
+Implementation, automated tests, documentation, and validation evidence are complete. Human review and Product Owner approval remain pending, so this story remains **In Review**.
 
 ## Product Owner Approval
 

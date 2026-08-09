@@ -2,7 +2,7 @@
 id: SPR-005-002
 title: Sprint 5.2 - Repository Index & Targeted Context
 version: 0.5.0
-status: Planned
+status: In Review
 owner: Framework PMO
 release: REL-005
 epic: EPIC-002
@@ -49,3 +49,17 @@ Provide derived repository knowledge and deterministic selection behavior that r
 ## Definition of Done
 
 Both stories meet their Definitions of Done, validation passes, and human review confirms that reduced scanning cannot bypass required context or governance.
+
+## Implementation Evidence
+
+- [Repository Index and Targeted Context](../../tools/context/README.md) documents the derived-state authority, versioned JSON index, commit and fingerprint freshness, immutable-per-run repository view, progressive selector, exclusions, restrictions, fallback, manifests, commands, and limitations.
+- `python3 -m tools.context index` builds generated metadata-only repository evidence using one source read per metadata-bearing governed asset.
+- `python3 -m tools.context select --story EFF-IDX-001` selects deterministic context and explains category, reason, relationship path, mandatory state, restriction, expansion level, completeness, and fallback.
+- Focused standard-library tests cover determinism, identity conflicts, relationships, freshness, stability, exclusions, absence of source bodies, hierarchy, standards, targets, dependencies, restrictions, unresolved references, stale regeneration, expansion, and serialization.
+- EFF-IDX-001 and EFF-SEL-001 are **In Review**. Sprint 5.2 is not complete until human review and Product Owner approval are recorded.
+
+## Carried Finding
+
+| Finding | Sprint 5.2 disposition |
+| --- | --- |
+| ARCH-REL004-006 | Materially addressed for indexing and context selection: one immutable repository view parses every metadata-bearing asset once per build and is reusable by later consumers. Existing validators were not broadly rewritten; validator integration and changed-file execution remain assigned to EFF-VAL-001 in Sprint 5.4. |
