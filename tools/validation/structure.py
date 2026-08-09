@@ -5,7 +5,7 @@ from pathlib import Path
 from typing import Dict, List, Optional, Sequence, Tuple
 
 from .metadata import standard_files
-from .models import Severity, Status, ValidationContext, ValidationResult, Validator
+from .models import ScopeCapability, Severity, Status, ValidationContext, ValidationResult, Validator
 from .yaml_subset import YamlError, extract_frontmatter
 
 
@@ -18,6 +18,7 @@ class DocumentStructureValidator(Validator):
     name = "Standard document structure"
     description = "Validate standard H1 identity, required sections, order, and structural tables."
     default_severity = Severity.ERROR
+    scope_capability = ScopeCapability.TARGETABLE
 
     def validate(self, context: ValidationContext):
         root = context.repository_root
@@ -36,6 +37,8 @@ class DocumentStructureValidator(Validator):
 
         results = []  # type: List[ValidationResult]
         for path in standard_files(root):
+            if not context.includes(path):
+                continue
             asset = path.relative_to(root).as_posix()
             try:
                 metadata, body = extract_frontmatter(path.read_text(encoding="utf-8"))

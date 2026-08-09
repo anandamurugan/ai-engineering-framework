@@ -73,7 +73,8 @@ class ValidationFoundationTests(unittest.TestCase):
             validation_run.write_json(output)
             report = json.loads(output.read_text(encoding="utf-8"))
 
-        self.assertEqual(report["report_version"], "1.0")
+        self.assertEqual(report["report_version"], "2.0")
+        self.assertIn("provenance", report)
         self.assertEqual(report["results"][0]["validator_id"], "TEST-VALIDATOR")
         self.assertEqual(report["results"][0]["severity"], "INFO")
         self.assertEqual(report["results"][0]["status"], "PASS")
@@ -97,17 +98,11 @@ class ValidationFoundationTests(unittest.TestCase):
             ),
         )
 
-        self.assertEqual(
-            validation_run.summary(),
-            {
-                "validators_executed": 2,
-                "assets_scanned": 2,
-                "errors": 0,
-                "warnings": 1,
-                "passed_checks": 1,
-                "overall": "PASS",
-            },
-        )
+        summary = validation_run.summary()
+        self.assertEqual(summary["validators_executed"], 2)
+        self.assertEqual(summary["governed_assets_evaluated"], 2)
+        self.assertEqual(summary["findings"], 1)
+        self.assertEqual(summary["overall"], "PASS")
         self.assertIn("Overall: PASS", format_console_report(validation_run))
 
 
