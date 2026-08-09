@@ -26,7 +26,7 @@ The roadmap communicates intended outcomes rather than delivery commitments. Pri
 - [x] Establish the standards metadata, authoring, catalog, and cross-reference foundation.
 - [x] Publish the core and enterprise engineering standards as Drafts.
 - [x] Implement governed validation and CI conformance evidence.
-- [ ] Complete required human reviews and Product Owner approval.
+- [ ] Complete required architecture, domain, documentation, and security reviews and perform the controlled release.
 
 ### v0.5 Playbooks and Workflows — Planned
 

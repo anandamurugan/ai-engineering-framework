@@ -27,7 +27,7 @@ Start with the [feature development playbook](playbooks/feature-development.md) 
 
 The [master architecture](docs/architecture/ARCHITECTURE.md) is the entry point for the architecture document set. Supporting documents define repository organization, structured knowledge, future plugins, agent collaboration, governance, execution, security, and framework releases. Architecture decisions are recorded in [`docs/adr/`](docs/adr/).
 
-The current repository provides a knowledge and governance platform made of human-readable and AI-consumable documents plus a foundational, read-only [validation runner](tools/validation/README.md). Substantive validators, a broader CLI, plugin loading, adapters, and governed agent orchestration remain planned future capabilities.
+The current repository provides a knowledge and governance platform made of human-readable and AI-consumable documents plus a read-only [validation framework](tools/validation/README.md). Registered validators cover metadata, schema, IDs, document structure, links, standard references, catalog parity, product traceability, and repository hygiene, with JSON evidence and CI execution. A broader CLI, plugin loading, adapters, and governed agent orchestration remain planned future capabilities.
 
 ## Product Management
 
@@ -49,7 +49,7 @@ The v0.4 Standards Foundation defines the contracts future enterprise standards 
 - [Standards Review Process](docs/governance/STANDARD_REVIEW_PROCESS.md)
 - [Documentation Style Guide](docs/contributing/DOCUMENTATION_STYLE_GUIDE.md)
 
-These foundation artifacts remain subject to Product Owner review. The validation runner does not yet implement metadata, schema, ID, structure, link, catalog, or traceability validation.
+These foundation artifacts remain subject to the required human review gates. Automated validation produces conformance evidence and does not approve governed artifacts.
 
 ## Core Engineering Standards
 
