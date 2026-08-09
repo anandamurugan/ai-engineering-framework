@@ -6,7 +6,9 @@ This project follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) an
 
 ## [Unreleased]
 
-No unreleased changes.
+### Added
+
+- REL-005 planning foundation for vendor-neutral efficient agentic execution and context engineering, including EPIC-002, five planned sprints, eight planning stories, measurable efficiency contracts, v0.4 backlog dispositions, and governed human-authority boundaries. No v0.5 implementation is included.
 
 ## [0.4.0] - 2026-08-08
 

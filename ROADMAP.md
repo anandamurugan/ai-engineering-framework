@@ -28,10 +28,14 @@ The roadmap communicates intended outcomes rather than delivery commitments. Pri
 - [x] Implement governed validation and CI conformance evidence.
 - [x] Complete required architecture, domain, documentation, and security reviews and perform the controlled release.
 
-### v0.5 Playbooks and Workflows — Planned
+### v0.5 Efficient Agentic Execution & Context Engineering — Planned
 
-- [ ] Add implementation, validation, review, release, and operations workflows.
-- [ ] Provide risk-adjusted playbook composition guidance.
+- [ ] Establish vendor-neutral context minimization, progressive loading, task isolation, budgets, checkpoints, loop controls, and risk-aware routing.
+- [ ] Introduce shared repository indexing, targeted context selection, changed-file validation, and richer execution evidence with safe full-scan fallback.
+- [ ] Measure efficiency across context, retrieval, execution, retries, validation scope, capability tiers, and reuse without making token count the primary contract.
+- [ ] Preserve quality, security, privacy, validation, and human authority ahead of resource optimization.
+
+Playbooks and workflows remain future work outside REL-005; their former v0.5 placement was a planned milestone rather than released scope.
 
 ### v0.6 Technology Plugins — Planned
 
