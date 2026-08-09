@@ -2,7 +2,7 @@
 id: STORY-STD-API-001
 title: Deliver STD-API-001 API Design Standard
 version: 0.4.0
-status: In Progress
+status: Completed
 owner: Framework PMO
 release: REL-004
 epic: EPIC-001

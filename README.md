@@ -33,7 +33,7 @@ The current repository provides a knowledge and governance platform made of huma
 
 The framework is managed as a product using versioned releases, epics, sprints, stories, decisions, and review checkpoints.
 
-- [Release v0.4 – Enterprise Standards Framework](product/releases/REL-v0.4.md)
+- [Release v0.4.0 – Enterprise Standards Framework](product/releases/REL-v0.4.md) — released 2026-08-08
 - [EPIC-001 – Enterprise Standards Framework](product/epics/EPIC-001-enterprise-standards-framework.md)
 
 ## Standards Foundation
@@ -49,7 +49,7 @@ The v0.4 Standards Foundation defines the contracts future enterprise standards 
 - [Standards Review Process](docs/governance/STANDARD_REVIEW_PROCESS.md)
 - [Documentation Style Guide](docs/contributing/DOCUMENTATION_STYLE_GUIDE.md)
 
-These foundation artifacts remain subject to the required human review gates. Automated validation produces conformance evidence and does not approve governed artifacts.
+The v0.4.0 release-level human review gates are complete. Individual standards remain Draft because the standards lifecycle requires standard-specific approval records. Automated validation produces conformance evidence and does not approve governed artifacts.
 
 ## Core Engineering Standards
 
@@ -64,7 +64,7 @@ Sprint [SPR-004-002](product/sprints/SPR-004-002-core-engineering-standards.md) 
 - [STD-PR-001 — Pull Request Standard](standards/pull-request/STD-PR-001-pull-request-standard.md)
 - [STD-DEP-001 — Dependency Management Standard](standards/dependency-management/STD-DEP-001-dependency-management-standard.md)
 
-These standards are not Approved until required reviews and Product Owner approval are recorded.
+These delivered standards remain Draft until their standard-specific approval records satisfy the Standards Review Process; REL-004 release approval does not mass-promote them.
 
 ## Enterprise Engineering Standards
 
@@ -78,7 +78,7 @@ Sprint [SPR-004-003](product/sprints/SPR-004-003-enterprise-engineering-standard
 - [STD-INC-001 — Incident Management Standard](standards/incident/STD-INC-001-incident-management-standard.md)
 - [STD-RISK-001 — Enterprise Risk Management Standard](standards/risk/STD-RISK-001-enterprise-risk-management-standard.md)
 
-These standards define operational controls, evidence, metrics, AI boundaries, and human authority. They remain Draft until required specialist reviews and Product Owner approval are recorded.
+These standards define operational controls, evidence, metrics, AI boundaries, and human authority. They remain Draft until standard-specific approval records identify the required reviewers, decision, date, evidence, and residual risk.
 
 ## Core principles
 

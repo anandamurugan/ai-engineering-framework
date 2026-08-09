@@ -57,11 +57,11 @@ A Product Owner architecture checkpoint occurred outside the repository before S
 - Seven stories and seven Draft standards exist and follow approved conventions.
 - Each standard defines enforceable rules, operational controls, evidence, validation, metrics, AI boundaries, and human approval.
 - IDs, links, relationships, catalog entries, terminology, and documentation checks pass.
-- The Sprint 4.3 implementation and closeout pull requests are merged. Product Owner approval for REL-004 / v0.4.0 is recorded; Architecture and Domain reviews are complete, Documentation Review conditions are satisfied, and Security Review remains pending.
+- The Sprint 4.3 implementation and closeout pull requests are merged. Product Owner approval for REL-004 / v0.4.0 is recorded; Architecture and Domain reviews are complete, Documentation Review conditions are satisfied, and Security Review is Approved with Accepted Residual Risk.
 
 ## Definition of Done
 
-Sprint implementation is complete because the acceptance criteria and available validation checks pass. Product Owner approval for REL-004 / v0.4.0 is recorded, but Security Review and final release authorization remain required; merge status or automated evidence alone does not confer approval.
+Sprint implementation is complete because the acceptance criteria and available validation checks pass. All release-level human reviews and Product Owner approval for REL-004 / v0.4.0 are recorded; merge status or automated evidence alone does not confer approval.
 
 ## Sprint Completion Report
 
@@ -93,17 +93,17 @@ The seven stories listed in this sprint are marked Completed. Their standards re
 - Sprint 4.3 standards and product artifacts contain no prohibited placeholder text.
 - Markdown whitespace validation passes.
 
-### Repository Gaps
+### Repository Gaps at Sprint 4.3 Closeout
 
 - No executable repository validator or Markdown linter exists; validation was performed with manual repository-wide checks.
-- The REL-004 target release date remains unspecified; no approved target date exists in the repository.
+- At Sprint 4.3 closeout, the REL-004 target release date remained unspecified; it was set only during the later controlled release closeout.
 - The authorization checkpoint has no committed formal architecture review report, related ADR, or improvement backlog.
 
-### Warnings
+### Warnings at Sprint 4.3 Closeout
 
 - All seven standards remain Draft and do not become Approved or Released through sprint completion.
-- Product Owner, architecture, documentation, and applicable specialist approvals are not recorded.
-- REL-004 and EPIC-001 remain In Progress; no release tag has been created.
+- Product Owner, architecture, documentation, and applicable specialist approvals were not recorded at Sprint 4.3 closeout.
+- REL-004 and EPIC-001 remained In Progress at Sprint 4.3 closeout; no release tag had been created.
 
 ### Deferred Work
 

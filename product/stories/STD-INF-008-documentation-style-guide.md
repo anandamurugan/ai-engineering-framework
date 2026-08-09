@@ -2,7 +2,7 @@
 id: STD-INF-008
 title: Framework Documentation Style Guide
 version: 0.4.0
-status: In Progress
+status: Completed
 owner: Framework PMO
 release: REL-004
 epic: EPIC-001

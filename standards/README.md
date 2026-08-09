@@ -32,7 +32,7 @@ Categories group standards by durable engineering concern, such as Architecture,
 
 ## Versioned standards
 
-The following v0.4 standards are Drafts awaiting required review and Product Owner approval.
+The following standards were delivered by v0.4.0 and remain Draft. Release-wide reviews and Product Owner approval do not replace the standard-specific approval record required by the [Standards Review Process](../docs/governance/STANDARD_REVIEW_PROCESS.md), including the standard ID and version, reviewers, decision, date, evidence, and residual risk.
 
 | ID | Title | Category | Version | Status | Owner | Mandatory | Link |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -65,7 +65,7 @@ The repository contains pre-v0.4 controls that remain applicable but have not ye
 
 ## Governance and validation status
 
-Sprint 4.4 implements executable framework validation, JSON conformance evidence, and GitHub Actions CI integration as documented in the [validation framework](../tools/validation/README.md). Governance review remains in progress, and REL-004 has not been released. Future v0.5 capabilities remain outside this catalog and are not represented as implemented requirements.
+Sprint 4.4 implements executable framework validation, JSON conformance evidence, and GitHub Actions CI integration as documented in the [validation framework](../tools/validation/README.md). REL-004 / v0.4.0 release review is complete; the catalog does not confer approval on its Draft standards. Future v0.5 capabilities remain outside this catalog and are not represented as implemented requirements.
 
 ## Catalog maintenance
 

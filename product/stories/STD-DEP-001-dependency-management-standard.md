@@ -2,7 +2,7 @@
 id: STORY-STD-DEP-001
 title: Deliver STD-DEP-001 Dependency Management Standard
 version: 0.4.0
-status: In Progress
+status: Completed
 owner: Framework PMO
 release: REL-004
 epic: EPIC-001

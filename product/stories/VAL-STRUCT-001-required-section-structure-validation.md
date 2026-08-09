@@ -2,7 +2,7 @@
 id: STORY-VAL-STRUCT-001
 title: Deliver VAL-STRUCT-001 Required-Section and Document-Structure Validation
 version: 0.4.0
-status: In Review
+status: Done
 owner: Framework PMO
 release: REL-004
 epic: EPIC-001
@@ -40,7 +40,7 @@ Subjective content approval, editorial rewriting, standard-template redesign, an
 
 ## Required Deliverable
 
-Planned standard-structure validation rules under `tools/validation/`.
+[Required-section and document-structure validator](../../tools/validation/structure.py) registered in the validation framework.
 
 ## Acceptance Criteria
 

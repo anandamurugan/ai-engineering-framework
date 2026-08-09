@@ -2,7 +2,7 @@
 id: STORY-VAL-FWK-001
 title: Deliver VAL-FWK-001 Validation Framework Foundation
 version: 0.4.0
-status: In Review
+status: Done
 owner: Framework PMO
 release: REL-004
 epic: EPIC-001
@@ -41,7 +41,7 @@ Individual validation rules, governed-artifact mutation, approval automation, un
 
 ## Required Deliverable
 
-Planned validation framework foundation under `tools/validation/`; exact implementation files are determined during this story.
+[Validation Framework Foundation](../../tools/validation/README.md) with runner, registry, result model, reporting, and tests.
 
 ## Acceptance Criteria
 

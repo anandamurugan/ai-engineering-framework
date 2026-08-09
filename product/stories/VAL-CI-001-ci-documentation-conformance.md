@@ -2,7 +2,7 @@
 id: STORY-VAL-CI-001
 title: Deliver VAL-CI-001 CI and Documentation-Conformance Integration
 version: 0.4.0
-status: In Review
+status: Done
 owner: Framework PMO
 release: REL-004
 epic: EPIC-001
@@ -40,7 +40,7 @@ Deployment automation, release approval, vendor-specific framework coupling, unr
 
 ## Required Deliverable
 
-Planned local validation entry point and CI/documentation-conformance integration using repository-supported mechanisms.
+[Framework Validation workflow](../../.github/workflows/framework-validation.yml) and its documented local equivalent.
 
 ## Acceptance Criteria
 

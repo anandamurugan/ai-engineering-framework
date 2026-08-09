@@ -2,7 +2,7 @@
 id: STORY-STD-DOC-001
 title: Deliver STD-DOC-001 Documentation Standard
 version: 0.4.0
-status: In Progress
+status: Completed
 owner: Framework PMO
 release: REL-004
 epic: EPIC-001

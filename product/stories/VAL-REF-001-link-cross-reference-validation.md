@@ -2,7 +2,7 @@
 id: STORY-VAL-REF-001
 title: Deliver VAL-REF-001 Relative-Link and Cross-Reference Validation
 version: 0.4.0
-status: In Review
+status: Done
 owner: Framework PMO
 release: REL-004
 epic: EPIC-001
@@ -40,7 +40,7 @@ External-site availability, speculative future relationships, automatic link rew
 
 ## Required Deliverable
 
-Planned relative-link and cross-reference validation rules under `tools/validation/`.
+[Relative-link and cross-reference validators](../../tools/validation/references.py) registered in the validation framework.
 
 ## Acceptance Criteria
 
