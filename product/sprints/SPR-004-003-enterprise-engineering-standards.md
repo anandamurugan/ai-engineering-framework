@@ -57,7 +57,7 @@ A Product Owner architecture checkpoint occurred outside the repository before S
 - Seven stories and seven Draft standards exist and follow approved conventions.
 - Each standard defines enforceable rules, operational controls, evidence, validation, metrics, AI boundaries, and human approval.
 - IDs, links, relationships, catalog entries, terminology, and documentation checks pass.
-- The open pull request awaits Product Owner approval.
+- The Sprint 4.3 implementation and closeout pull requests are merged; Product Owner release approval remains pending and is not implied by merge status.
 
 ## Definition of Done
 

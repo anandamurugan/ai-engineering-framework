@@ -2,7 +2,7 @@
 id: STORY-VAL-STRUCT-001
 title: Deliver VAL-STRUCT-001 Required-Section and Document-Structure Validation
 version: 0.4.0
-status: In Progress
+status: In Review
 owner: Framework PMO
 release: REL-004
 epic: EPIC-001

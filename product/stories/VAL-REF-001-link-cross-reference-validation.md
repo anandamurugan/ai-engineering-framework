@@ -2,7 +2,7 @@
 id: STORY-VAL-REF-001
 title: Deliver VAL-REF-001 Relative-Link and Cross-Reference Validation
 version: 0.4.0
-status: In Progress
+status: In Review
 owner: Framework PMO
 release: REL-004
 epic: EPIC-001

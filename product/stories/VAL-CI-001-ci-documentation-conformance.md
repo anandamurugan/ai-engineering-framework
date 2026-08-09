@@ -2,7 +2,7 @@
 id: STORY-VAL-CI-001
 title: Deliver VAL-CI-001 CI and Documentation-Conformance Integration
 version: 0.4.0
-status: In Progress
+status: In Review
 owner: Framework PMO
 release: REL-004
 epic: EPIC-001
