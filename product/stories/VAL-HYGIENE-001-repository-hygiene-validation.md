@@ -2,7 +2,7 @@
 id: STORY-VAL-HYGIENE-001
 title: Deliver VAL-HYGIENE-001 Repository Hygiene Validation
 version: 0.4.0
-status: In Review
+status: Done
 owner: Framework PMO
 release: REL-004
 epic: EPIC-001
@@ -40,7 +40,7 @@ Content rewriting, subjective prose grading, template-placeholder removal, and a
 
 ## Required Deliverable
 
-Planned repository-hygiene validation rules and supported Markdown configuration under `tools/validation/`.
+[Repository hygiene validators](../../tools/validation/hygiene.py) registered in the validation framework.
 
 ## Acceptance Criteria
 

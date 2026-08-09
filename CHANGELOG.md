@@ -6,6 +6,10 @@ This project follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) an
 
 ## [Unreleased]
 
+No unreleased changes.
+
+## [0.4.0] - 2026-08-08
+
 ### Added
 
 - Initial repository governance, standards, knowledge, agent, playbook, and workflow foundation.
@@ -25,8 +29,18 @@ This project follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) an
 - Automated placeholder, trailing-whitespace, basic Markdown, and tracked-artifact hygiene validation with governed exclusions.
 - GitHub Actions integration for framework validation, standard-library tests, and retained JSON conformance evidence on pull requests and default-branch changes.
 - Sprint 4.4 governance closeout evidence, inherited-finding dispositions, validation-coverage summary, and REL-004 release-readiness checklist.
+- Human-governed Architecture, Domain, Documentation, Security, and Product Owner review evidence with accepted residual risks kept visible.
 
 ### Changed
 
 - Completed Sprint 4.3 implementation for seven Enterprise Standards, including product tracking closeout, catalog and cross-reference verification, and repository-wide metadata, structure, ID, link, placeholder, and documentation-health review.
 - Clarified Sprint and release tracking, aligned the roadmap with REL-004 validation scope, and named the final-accountability evidence required by STD-REL-001.
+
+### Deferred
+
+- Dedicated Markdown linting beyond deterministic repository hygiene checks.
+- Repository-owned secret scanning and repository `SECURITY.md` guidance.
+- Branch-protection verification, checkout credential hardening, and governed workflow ownership or CODEOWNERS.
+- Richer validation-evidence provenance, registry integrity, resource bounds, and scalable repository indexing.
+- Architecture and domain review follow-up recorded in SPR-004-004.
+- EFF-CTX-001 execution efficiency and context management remains future v0.5 backlog and is not implemented.

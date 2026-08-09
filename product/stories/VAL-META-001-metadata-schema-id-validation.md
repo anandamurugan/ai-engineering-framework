@@ -2,7 +2,7 @@
 id: STORY-VAL-META-001
 title: Deliver VAL-META-001 Metadata, Schema, and Framework-ID Validation
 version: 0.4.0
-status: In Review
+status: Done
 owner: Framework PMO
 release: REL-004
 epic: EPIC-001
@@ -40,7 +40,7 @@ Schema redesign, lifecycle approval, automatic metadata repair, and validation o
 
 ## Required Deliverable
 
-Planned metadata, schema, and framework-ID validation rules under `tools/validation/`.
+[Metadata, schema, and framework-ID validators](../../tools/validation/metadata.py) registered in the validation framework.
 
 ## Acceptance Criteria
 

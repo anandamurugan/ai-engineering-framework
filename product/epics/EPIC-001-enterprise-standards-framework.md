@@ -2,7 +2,7 @@
 id: EPIC-001
 title: Enterprise Standards Framework
 version: 0.4.0
-status: In Progress
+status: Completed
 owner: Framework PMO
 release: REL-004
 priority: Critical
@@ -85,12 +85,12 @@ The Enterprise Standards Framework enables:
 
 | Sprint ID | Sprint | Goal | Progress |
 | --- | --- | --- | --- |
-| SPR-004-001B | Sprint 4.1B | Standards Foundation | Implementation Complete — Awaiting Approval |
-| SPR-004-002 | Sprint 4.2 | Core Engineering Standards | Implementation Complete — Awaiting Approval |
+| SPR-004-001B | Sprint 4.1B | Standards Foundation | Completed |
+| SPR-004-002 | Sprint 4.2 | Core Engineering Standards | Completed |
 | SPR-004-003 | Sprint 4.3 | Enterprise Engineering Standards | Completed |
-| SPR-004-004 | Sprint 4.4 | Governance and Validation | Implementation Complete — Awaiting Approval |
+| SPR-004-004 | Sprint 4.4 | Governance and Validation | Completed |
 
-All four REL-004 sprint implementations are complete. [SPR-004-004](../sprints/SPR-004-004-governance-validation.md) supplies governed automated conformance evidence. Architecture Review conditions are satisfied, Domain Review is Approved, Documentation Review conditions are satisfied, and Product Owner approval is recorded. EPIC-001 remains In Progress pending Security Review, final release-readiness review, and release completion.
+All four REL-004 sprints are complete. [SPR-004-004](../sprints/SPR-004-004-governance-validation.md) supplies governed automated conformance evidence. Architecture Review conditions are satisfied, Domain Review is Approved, Documentation Review conditions are satisfied, Security Review is Approved with Accepted Residual Risk, and Product Owner approval is recorded. EPIC-001's approved scope is complete; later releases remain outside this epic.
 
 ## Dependencies
 
@@ -129,3 +129,5 @@ All four REL-004 sprint implementations are complete. [SPR-004-004](../sprints/S
 - Architecture review is approved.
 - Documentation review is approved.
 - Product Owner approves the epic.
+
+All Definition of Done criteria are satisfied for the REL-004 scope. The 15 standards remain Draft because their independent lifecycle requires standard-specific approval records; product delivery completion does not infer that approval.

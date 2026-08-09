@@ -2,7 +2,7 @@
 id: STD-INF-002
 title: Standard Metadata Schema
 version: 0.4.0
-status: In Progress
+status: Completed
 owner: Framework PMO
 release: REL-004
 epic: EPIC-001

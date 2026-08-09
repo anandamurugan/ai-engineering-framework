@@ -2,7 +2,7 @@
 id: STORY-VAL-TRACE-001
 title: Deliver VAL-TRACE-001 Standards Catalog and Traceability Validation
 version: 0.4.0
-status: In Review
+status: Done
 owner: Framework PMO
 release: REL-004
 epic: EPIC-001
@@ -40,7 +40,7 @@ Inventing missing approvals or dates, silently repairing governed artifacts, cha
 
 ## Required Deliverable
 
-Planned catalog and product-traceability validation rules under `tools/validation/`, plus disposition evidence for S44-FIND-002 and S44-FIND-003.
+[Catalog and product-traceability validators](../../tools/validation/traceability.py), with finding dispositions recorded in [SPR-004-004](../sprints/SPR-004-004-governance-validation.md).
 
 ## Acceptance Criteria
 

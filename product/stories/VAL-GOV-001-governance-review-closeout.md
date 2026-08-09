@@ -2,7 +2,7 @@
 id: STORY-VAL-GOV-001
 title: Deliver VAL-GOV-001 Governance, Review Evidence, and Sprint Closeout
 version: 0.4.0
-status: In Review
+status: Done
 owner: Framework PMO
 release: REL-004
 epic: EPIC-001
@@ -41,7 +41,7 @@ Inventing approval, setting an unapproved release date, silently changing standa
 
 ## Required Deliverable
 
-Governed review evidence and Sprint 4.4 closeout artifacts at repository-conventional locations selected during implementation.
+[SPR-004-004 governance and closeout evidence](../sprints/SPR-004-004-governance-validation.md).
 
 ## Acceptance Criteria
 

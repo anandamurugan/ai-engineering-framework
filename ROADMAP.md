@@ -21,12 +21,12 @@ The roadmap communicates intended outcomes rather than delivery commitments. Pri
 - [ ] Establish controlled vocabularies, module lifecycle, discovery, and content validation contracts.
 - [ ] Expand vendor-neutral enterprise engineering knowledge.
 
-### v0.4 Enterprise Standards Framework — In Progress
+### v0.4 Enterprise Standards Framework — Released
 
 - [x] Establish the standards metadata, authoring, catalog, and cross-reference foundation.
 - [x] Publish the core and enterprise engineering standards as Drafts.
 - [x] Implement governed validation and CI conformance evidence.
-- [ ] Complete required architecture, domain, documentation, and security reviews and perform the controlled release.
+- [x] Complete required architecture, domain, documentation, and security reviews and perform the controlled release.
 
 ### v0.5 Playbooks and Workflows — Planned
 
