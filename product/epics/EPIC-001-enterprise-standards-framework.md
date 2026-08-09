@@ -90,7 +90,7 @@ The Enterprise Standards Framework enables:
 | SPR-004-003 | Sprint 4.3 | Enterprise Engineering Standards | Completed |
 | SPR-004-004 | Sprint 4.4 | Governance and Validation | Implementation Complete — Awaiting Approval |
 
-All four REL-004 sprint implementations are complete. [SPR-004-004](../sprints/SPR-004-004-governance-validation.md) supplies governed automated conformance evidence. EPIC-001 remains In Progress pending architecture, documentation, specialist, and Product Owner decisions; final release-readiness review; and release completion.
+All four REL-004 sprint implementations are complete. [SPR-004-004](../sprints/SPR-004-004-governance-validation.md) supplies governed automated conformance evidence. Architecture Review conditions are satisfied, Domain Review is Approved, Documentation Review conditions are satisfied, and Product Owner approval is recorded. EPIC-001 remains In Progress pending Security Review, final release-readiness review, and release completion.
 
 ## Dependencies
 

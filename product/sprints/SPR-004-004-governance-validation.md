@@ -57,7 +57,7 @@ Establish governed, repeatable validation and review controls for the Enterprise
 
 | Finding | Classification | Description | Owning story | Required disposition |
 | --- | --- | --- | --- | --- |
-| S44-FIND-001 | Minor | SPR-004-003 retains stale wording about an open pull request. | VAL-GOV-001 | Correct through governed tracking cleanup and validate the resulting references. |
+| S44-FIND-001 | Minor | At Sprint 4.4 planning, SPR-004-003 retained stale wording about an open pull request. | VAL-GOV-001 | Correct through governed tracking cleanup and validate the resulting references. |
 | S44-FIND-002 | Minor | REL-004 and EPIC-001 reference SPR-004-001 while the repository contains SPR-004-001B. | VAL-TRACE-001 | Reconcile or explicitly document the authoritative relationship. |
 | S44-FIND-003 | Minor | ROADMAP.md conflicts with authoritative REL-004 milestone and version planning. | VAL-TRACE-001 | Align roadmap traceability with the approved release model. |
 | S44-FIND-004 | Minor | REL-004 has no approved target release date. | VAL-GOV-001 | Preserve the unspecified value until the Product Owner records a decision. |
@@ -135,7 +135,7 @@ Sprint 4.4 implementation is complete and awaiting governed human review. The va
 
 | Finding | Disposition | Evidence |
 | --- | --- | --- |
-| S44-FIND-001 | Resolved | SPR-004-003 now states that implementation and closeout pull requests are merged while Product Owner release approval remains pending. |
+| S44-FIND-001 | Resolved | The Sprint 4.3 record was corrected at closeout to state that its pull requests were merged; the later Product Owner approval is now reflected in current governance status. |
 | S44-FIND-002 | Resolved previously by VAL-TRACE-001 | REL-004, EPIC-001, the cross-reference model, and product relationships consistently use SPR-004-001B; traceability validation passes. |
 | S44-FIND-003 | Resolved | ROADMAP.md assigns implemented governed validation to v0.4 and retains only vendor-neutral CLI work in the planned v0.7 milestone. |
 | S44-FIND-004 | Pending Product Owner decision | REL-004 retains an unspecified target release date permitted by current repository validation. No date was invented. |
@@ -149,8 +149,8 @@ Sprint 4.4 implementation is complete and awaiting governed human review. The va
 | Automated tests | Complete | Validation framework | On 2026-08-08, the complete standard-library test suite passed. |
 | Hosted CI | Complete | GitHub Actions | The default-branch `Framework Validation / Framework validation` check completed successfully with no annotations. |
 | Architecture Review | Approve with Conditions — Condition Satisfied | Enterprise Architect | ARCH-REL004-001 required current-state architecture documentation to reflect the implemented validation framework before release. The remediation aligns the authoritative documents and passes repository validation; no reviewer identity, signature, or timestamp is inferred. |
-| Domain Review | Pending | Applicable Domain Reviewers | Review technical correctness, practicality, evidence, and applicability of the Draft standards; record attributable decisions. |
-| Documentation Review | Pending | Documentation Reviewer | Review clarity, structure, roadmap and tracking accuracy, and readiness evidence; record an attributable decision. |
+| Domain Review | Approved | Applicable Domain Reviewers | The human Domain Review decision is Approved with no Blocker or Major findings; six non-blocking findings remain tracked. No reviewer identity, signature, or timestamp is inferred. |
+| Documentation Review | Approve with Conditions — Conditions Satisfied | Documentation Reviewer | DOC-REL004-001 through DOC-REL004-006 were remediated and repository validation passed. No reviewer identity, signature, or timestamp is inferred. |
 | Security Review | Pending | Security Reviewer | Determine applicability and release disposition for repository-owned secret scanning; the external local commit hook is not CI enforcement. |
 | Product Owner Approval | Approved | Product Owner | Explicit approval applies to REL-004 / v0.4.0; no reviewer identity, timestamp, or approval for another role is inferred. |
 
@@ -166,7 +166,7 @@ Remaining limitations are a dedicated Markdown linter, repository-owned secret s
 
 - Implementation and automated evidence: Complete.
 - Inherited findings: Four resolved or previously resolved; release-date decision remains explicitly pending.
-- Required human reviews: Pending.
+- Required human reviews: Architecture, Domain, and Documentation decisions are recorded; Security Review remains pending.
 - Product Owner approval: Approved for REL-004 / v0.4.0; other mandatory human reviews remain pending.
 - Sprint lifecycle: In Review; implementation complete and awaiting approval.
 - REL-004 release: Not authorized; final readiness review and tag remain pending.
@@ -192,3 +192,31 @@ Remaining limitations are a dedicated Markdown linter, repository-owned secret s
 | ARCH-REL004-007 | Add executable schemas and relationship contracts when new asset types are introduced. |
 
 These findings are non-blocking architecture debt and are not implemented by this remediation.
+
+### Domain Review Evidence
+
+- Decision: **APPROVED**
+- Findings: No Blocker or Major findings; six Minor or Future findings were accepted for tracked follow-up.
+- Authority boundary: This record captures the supplied human decision without inferring reviewer identity, signature, timestamp, or credentials.
+
+### Deferred Domain Findings
+
+| Finding | Deferred disposition |
+| --- | --- |
+| DOM-REL004-001 | Improve domain ownership visibility in a future governed update. |
+| DOM-REL004-002 | Clarify mean time to recovery or restore terminology where domain context requires it. |
+| DOM-REL004-003 | Develop a shared evidence taxonomy through future governed design. |
+| DOM-REL004-004 | Improve Observability Standard metrics-heading clarity in a future editorial revision. |
+| DOM-REL004-005 | Consider additional dependency-management and documentation operational metrics. |
+| DOM-REL004-006 | Evaluate future privacy, data governance, reliability, and accessibility standards through the product backlog. |
+
+These findings are non-blocking domain debt and are not implemented by this remediation.
+
+### Documentation Review Evidence
+
+- Decision: **APPROVE WITH CONDITIONS**
+- Conditions: DOC-REL004-001, DOC-REL004-002, and DOC-REL004-003 required correction before release; DOC-REL004-004 through DOC-REL004-006 were included in the same remediation.
+- Condition status: **SATISFIED**
+- Remediation scope: Current validation capability, governance status, standards-catalog status, merged sprint history, the Sprint 4.2 relationship example, and secret-scanning disposition now reflect repository state.
+- Validation evidence: Full framework validation and the complete automated test suite pass after remediation.
+- Authority boundary: This record captures the supplied human decision without inferring reviewer identity, signature, timestamp, or approval by Security Review.

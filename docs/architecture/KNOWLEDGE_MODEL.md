@@ -122,7 +122,7 @@ An agent should:
 
 ## Validation expectations
 
-Current validation is manual. Future tooling may check front matter, unique identifiers, required sections, link integrity, status vocabulary, version syntax, relationship targets, and prohibited conflicts. Such tooling will require a separate approved contract and must not infer human approval.
+REL-004 provides executable repository validation and CI conformance evidence through the [validation framework](../../tools/validation/README.md). The framework checks the governed contracts currently supported by its registered validators; future knowledge indexing and asset-type coverage require separately approved contracts. Automated validation does not infer or replace human approval.
 
 ## Related documents
 

@@ -57,11 +57,11 @@ A Product Owner architecture checkpoint occurred outside the repository before S
 - Seven stories and seven Draft standards exist and follow approved conventions.
 - Each standard defines enforceable rules, operational controls, evidence, validation, metrics, AI boundaries, and human approval.
 - IDs, links, relationships, catalog entries, terminology, and documentation checks pass.
-- The Sprint 4.3 implementation and closeout pull requests are merged; Product Owner release approval remains pending and is not implied by merge status.
+- The Sprint 4.3 implementation and closeout pull requests are merged. Product Owner approval for REL-004 / v0.4.0 is recorded; Architecture and Domain reviews are complete, Documentation Review conditions are satisfied, and Security Review remains pending.
 
 ## Definition of Done
 
-Sprint implementation is complete when the acceptance criteria and available validation checks pass. Product Owner approval is still required before release; merge status or automated evidence alone does not confer approval.
+Sprint implementation is complete because the acceptance criteria and available validation checks pass. Product Owner approval for REL-004 / v0.4.0 is recorded, but Security Review and final release authorization remain required; merge status or automated evidence alone does not confer approval.
 
 ## Sprint Completion Report
 

@@ -63,9 +63,9 @@ The repository contains pre-v0.4 controls that remain applicable but have not ye
 | Human-in-the-Loop Standard | Existing control | [Read](human-in-the-loop.md) |
 | Risk Classification Standard | Existing control | [Read](risk-classification.md) |
 
-## Planned standards
+## Governance and validation status
 
-Sprint 4.4 governance and validation assets remain planned and are not active requirements until their files exist and complete approval.
+Sprint 4.4 implements executable framework validation, JSON conformance evidence, and GitHub Actions CI integration as documented in the [validation framework](../tools/validation/README.md). Governance review remains in progress, and REL-004 has not been released. Future v0.5 capabilities remain outside this catalog and are not represented as implemented requirements.
 
 ## Catalog maintenance
 

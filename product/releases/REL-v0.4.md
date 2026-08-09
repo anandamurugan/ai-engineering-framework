@@ -59,7 +59,7 @@ This release introduces the foundational standards that govern engineering pract
 | SPR-004-003 | Enterprise Engineering Standards |
 | SPR-004-004 | Governance and Validation |
 
-Sprint 4.1B through Sprint 4.4 implementation is complete. Required human reviews, Product Owner approval, final release-readiness decision, and the `v0.4.0` tag remain pending.
+Sprint 4.1B through Sprint 4.4 implementation is complete. Architecture Review conditions are satisfied, Domain Review is Approved, Documentation Review conditions are satisfied, and Product Owner approval is recorded. Security Review, the final release-readiness decision, and the `v0.4.0` tag remain pending.
 
 ## Risks
 
@@ -94,8 +94,8 @@ Sprint 4.1B through Sprint 4.4 implementation is complete. Required human review
 | Changelog | Complete | Sprint 4.4 work remains under Unreleased. |
 | README and roadmap accuracy | Complete | Current v0.4 scope and deferred CLI work are represented without duplicating validation scope. |
 | Architecture review | Approved with Conditions — Satisfied | ARCH-REL004-001 documentation remediation and validation evidence are recorded in [SPR-004-004](../sprints/SPR-004-004-governance-validation.md#architecture-review-evidence). |
-| Domain review | Pending | Applicable Domain Reviewers must record attributable decisions for the Draft standards. |
-| Documentation review | Pending | Documentation Reviewer must record an attributable decision. |
+| Domain review | Approved | The human Domain Review decision is Approved; six non-blocking findings remain tracked for future follow-up. No reviewer identity, signature, or timestamp is inferred. |
+| Documentation review | Approved with Conditions — Satisfied | DOC-REL004-001 through DOC-REL004-006 were remediated and repository validation passed. No reviewer identity, signature, or timestamp is inferred. |
 | Security specialist review | Pending | Security Reviewer must disposition secret-scanning coverage and relevant controls. |
 | Product Owner approval | Complete | Product Owner explicitly approved REL-004 / v0.4.0 for release; this decision does not satisfy other required reviews. |
 | Known gaps accepted or deferred | Complete | Product Owner dispositions are recorded below; advisory findings remain visible. |
@@ -119,4 +119,4 @@ No reviewer identity, signature, timestamp, or approval for another role is infe
 | Branch protection | Repository administration action. | Enable or verify the required status check `Framework Validation / Framework validation`; current protection status is unverified. |
 | Five non-reciprocal `related_standards` findings | Accepted for v0.4 while the validator classifies them as optional advisory warnings. | Findings remain visible as WARNING results and are not suppressed. |
 
-These dispositions do not waive the pending Architecture, Domain, Documentation, or Security Review gates.
+These dispositions do not waive the pending Security Review or final release-readiness gate. Architecture Review conditions and Documentation Review conditions are satisfied, and Domain Review and Product Owner approval are recorded separately.

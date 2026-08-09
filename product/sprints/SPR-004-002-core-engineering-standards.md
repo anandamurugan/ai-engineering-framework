@@ -54,7 +54,7 @@ Define eight vendor-neutral standards governing core enterprise architecture, im
 - Every standard conforms to the metadata schema and template.
 - Rules are testable, evidence-based, vendor-neutral, and human-governed.
 - All IDs, links, relationships, catalog entries, and documentation checks pass.
-- The open pull request awaits Product Owner approval.
+- The implementation pull requests were merged and sprint implementation is complete; lifecycle approval remains a separate governed decision.
 
 ## Definition of Done
 

@@ -17,7 +17,7 @@ last_updated: 2026-07-23
 
 ## Status
 
-Proposed. This decision has not received human approval, and automated validation or indexing is not implemented.
+Proposed. This decision has not received human approval. At the time of this decision, automated validation and indexing were not implemented. REL-004 subsequently introduced the repository [validation framework](../../tools/validation/README.md); machine indexing remains unimplemented.
 
 ## Context
 
@@ -77,6 +77,6 @@ Mitigations include accountable ownership, review status, validation, useful “
 
 - New architecture and ADR documents use the initial metadata convention.
 - Knowledge migration should be incremental and separately reviewed.
-- Future validators may check structure but cannot confer human approval.
+- Registered validators may check approved structures but cannot confer human approval.
 - Future indexing must preserve source, version, authority, and review status.
 - Conflicts use the documented precedence model and human escalation.

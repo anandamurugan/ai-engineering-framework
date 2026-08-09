@@ -32,7 +32,7 @@ This document defines the target logical organization and ownership boundaries o
 ├── standards/   # Mandatory requirements and controls
 ├── templates/   # Reusable, non-authoritative starting artifacts
 ├── examples/    # Illustrative applications of framework content
-├── tools/       # Future framework development and validation utilities
+├── tools/       # Framework development and validation utilities
 ├── docs/        # Architecture, ADRs, and contributor documentation
 └── reference/   # Stable reference material and controlled vocabularies
 ```
@@ -50,7 +50,7 @@ This document defines the target logical organization and ownership boundaries o
 | `standards/` | Mandatory requirements within a declared scope | Must have clear ownership and avoid implementation recipes |
 | `templates/` | Reusable document, prompt, and configuration starting points | Examples of form, not automatically approved policy |
 | `examples/` | Demonstrations and learning scenarios | Non-normative and clearly labeled |
-| `tools/` | Future validators, generators, and maintenance utilities | Tool behavior must implement approved contracts |
+| `tools/` | Validators and future generators or maintenance utilities | Tool behavior must implement approved contracts; current validation is documented in [`tools/validation/`](../../tools/validation/README.md) |
 | `docs/` | Architecture, decisions, contributor guidance, and explanatory documentation | Architecture and ADRs govern structural evolution |
 | `reference/` | Controlled terms, identifiers, and stable lookup material | Changes require compatibility review |
 
