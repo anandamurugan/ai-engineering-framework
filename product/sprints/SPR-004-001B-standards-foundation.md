@@ -61,7 +61,7 @@ The previously merged release and epic artifacts were preparatory product-manage
 - The schema, template, and authoring guide use consistent metadata fields.
 - Stable identifiers, lifecycle, normative language, evidence, exceptions, and human approval are defined.
 - YAML, links, IDs, required sections, formatting, and terminology are validated.
-- The Product Owner reviews the open pull request before approval.
+- The implementation pull request was merged and sprint implementation is complete; lifecycle approval remains a separate governed decision.
 
 ## Definition of Done
 

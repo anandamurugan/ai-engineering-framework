@@ -106,7 +106,7 @@ A future Sprint 4.2 story may `produce` a standard. This is a planned relationsh
 
 ### Standard to Standard
 
-A standard lists existing peers under `related_standards`; a replacement lists the prior standard under `supersedes`. Sprint 4.2 relationships remain planned until files exist.
+A standard lists existing peers under `related_standards`; a replacement lists the prior standard under `supersedes`. Sprint 4.2 standard files now exist, so their active relationships use stable IDs and resolvable links; references to nonexistent future assets remain planned text only.
 
 ### Standard to Playbook
 
