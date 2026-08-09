@@ -2,7 +2,7 @@
 id: STORY-EFF-MET-001
 title: Deliver EFF-MET-001 Efficiency Measurement & Evidence Contract
 version: 0.5.0
-status: Proposed
+status: In Review
 owner: Framework PMO
 release: REL-005
 epic: EPIC-002
@@ -42,7 +42,7 @@ Universal targets, vendor billing data, leaderboards, or metrics that reward uns
 
 ## Required Deliverable
 
-A shared efficiency measurement and evidence contract suitable for later checkpoints, routing, indexing, and validation reports.
+[Efficiency Measurement and Evidence Contract](../../docs/architecture/EFFICIENCY_MEASUREMENT_EVIDENCE.md), the proposed authoritative measurement contract for human review.
 
 ## Acceptance Criteria
 
@@ -62,6 +62,8 @@ Consumers, authoritative terminology, platform-neutral fields, and governance li
 ## Definition of Done
 
 The contract is reviewed, validated, traceable, and ready for implementation stories.
+
+Implementation is complete and validation evidence is available. Human review and Product Owner approval remain pending, so the story remains **In Review**.
 
 ## Product Owner Approval
 

@@ -2,7 +2,7 @@
 id: SPR-005-001
 title: Sprint 5.1 - Release Architecture, Requirements & Efficiency Contracts
 version: 0.5.0
-status: Planned
+status: In Review
 owner: Framework PMO
 release: REL-005
 epic: EPIC-002
@@ -46,8 +46,24 @@ Define the governed, vendor-neutral execution-efficiency architecture, context m
 - The context progression, expansion evidence, isolation boundary, durable reuse, exclusions, security controls, and human authority are explicit.
 - Metrics cover resource use and quality or governance outcomes and do not reward unsafe under-contexting.
 - Later sprints have stable input contracts and measurable acceptance criteria.
-- Planning metadata, IDs, links, traceability, and hygiene pass repository validation.
+- Contract metadata, IDs, links, traceability, and hygiene pass repository validation.
 
 ## Definition of Done
 
 Both stories are approved through the repository lifecycle, their governed contracts are implementation-ready, required human review is recorded, and no implementation is inferred from planning completion.
+
+## Implementation Evidence
+
+- [Execution Efficiency and Context Management](../../docs/architecture/EXECUTION_EFFICIENCY_CONTEXT_MANAGEMENT.md) defines EFF-CTX-001 context classes, Minimum Sufficient Context, progression, task boundary, budgets, tiers, escalation, loops, checkpoints, reuse, Least Context Privilege, evidence, and future conformance requirements.
+- [Efficiency Measurement and Evidence Contract](../../docs/architecture/EFFICIENCY_MEASUREMENT_EVIDENCE.md) defines EFF-MET-001 metrics, measurement boundaries, unavailable-data behavior, paired quality measures, anti-gaming controls, and later-sprint evidence interfaces.
+- EFF-CTX-001 and EFF-MET-001 are **In Review**. Sprint 5.1 is not complete until required human review and Product Owner approval are recorded.
+- No repository index, routing engine, checkpoint runtime, changed-file validator, vendor adapter, or local-model integration is included.
+
+## Carried Findings
+
+| Finding | Sprint 5.1 disposition |
+| --- | --- |
+| ARCH-REL004-003 | The measurement contract establishes provenance, scope, unit, source-revision, unavailable-value, and scan-count semantics. Machine-readable implementation remains assigned to EFF-VAL-001 in Sprint 5.4. |
+| DOM-REL004-003 | EFF-MET-001 establishes shared execution-evidence terminology for Sprint 5.1. Broader cross-standard evidence-taxonomy harmonization remains outside this sprint. |
+
+No other v0.4 deferred finding is implemented by Sprint 5.1 merely because it is adjacent to execution efficiency work.
