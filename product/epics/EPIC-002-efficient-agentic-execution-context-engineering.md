@@ -2,7 +2,7 @@
 id: EPIC-002
 title: Efficient Agentic Execution & Context Engineering
 version: 0.5.0
-status: Planned
+status: In Progress
 owner: Framework PMO
 release: REL-005
 priority: Critical
@@ -60,7 +60,7 @@ Enable bounded AI-assisted engineering execution that selects only justified con
 
 | Sprint ID | Sprint | Goal | Progress |
 | --- | --- | --- | --- |
-| [SPR-005-001](../sprints/SPR-005-001-release-architecture-efficiency-contracts.md) | Sprint 5.1 | Release Architecture, Requirements & Efficiency Contracts | Planned |
+| [SPR-005-001](../sprints/SPR-005-001-release-architecture-efficiency-contracts.md) | Sprint 5.1 | Release Architecture, Requirements & Efficiency Contracts | In Review |
 | [SPR-005-002](../sprints/SPR-005-002-repository-index-targeted-context.md) | Sprint 5.2 | Repository Index & Targeted Context | Planned |
 | [SPR-005-003](../sprints/SPR-005-003-budgets-checkpoints-routing.md) | Sprint 5.3 | Budgets, Checkpoints & Routing | Planned |
 | [SPR-005-004](../sprints/SPR-005-004-targeted-validation-evidence.md) | Sprint 5.4 | Targeted Validation & Evidence Provenance | Planned |

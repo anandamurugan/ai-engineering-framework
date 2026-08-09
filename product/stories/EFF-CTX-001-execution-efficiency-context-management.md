@@ -2,7 +2,7 @@
 id: STORY-EFF-CTX-001
 title: Deliver EFF-CTX-001 Execution Efficiency & Context Management
 version: 0.5.0
-status: Proposed
+status: In Review
 owner: Framework PMO
 release: REL-005
 epic: EPIC-002
@@ -46,7 +46,7 @@ Vendor model names, adapters, execution runtime implementation, fixed universal 
 
 ## Required Deliverable
 
-A reviewed execution-efficiency and context-management capability contract; its authoritative implementation location will be selected during this story without creating a vendor-specific parallel framework.
+[Execution Efficiency and Context Management](../../docs/architecture/EXECUTION_EFFICIENCY_CONTEXT_MANAGEMENT.md), the proposed authoritative capability contract for human review.
 
 ## Acceptance Criteria
 
@@ -66,6 +66,8 @@ The repository taxonomy, v0.4 governance baseline, measurement contract, reviewe
 ## Definition of Done
 
 The governed capability is documented, reviewed, validated, traceable, and approved through the applicable lifecycle without claiming runtime implementation that does not exist.
+
+Implementation is complete and validation evidence is available. Human review and Product Owner approval remain pending, so the story remains **In Review**.
 
 ## Product Owner Approval
 

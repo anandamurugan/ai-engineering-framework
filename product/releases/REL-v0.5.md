@@ -2,7 +2,7 @@
 id: REL-005
 title: Release v0.5 - Efficient Agentic Execution & Context Engineering
 version: 0.5.0
-status: Planned
+status: In Progress
 owner: Framework PMO
 target_release: Unscheduled
 ---
@@ -42,6 +42,8 @@ Establish vendor-neutral contracts for efficient, bounded, auditable AI-assisted
 - Targeted validation identifies affected scope and deterministically falls back to full validation whenever impact cannot be proven complete.
 - Efficiency evidence remains useful when exact token telemetry is unavailable.
 - Quality, security, privacy, and governance gates take precedence over cost or context reduction.
+
+Sprint 5.1 has established the proposed normative context-management and efficiency-measurement contracts. They remain subject to human review; later execution mechanisms are not represented as implemented.
 
 ## Deliverables
 

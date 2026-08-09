@@ -17,7 +17,7 @@ last_updated: 2026-07-23
 
 ## Purpose and current state
 
-The execution model defines how work should progress through governed AI-assisted delivery. It is a conceptual lifecycle for humans and tools, not an implemented workflow engine, state machine, CLI, or orchestration runtime.
+The execution model defines how work should progress through governed AI-assisted delivery. It is a conceptual lifecycle for humans and tools, not an implemented workflow engine, state machine, CLI, or orchestration runtime. The [Execution Efficiency and Context Management contract](EXECUTION_EFFICIENCY_CONTEXT_MANAGEMENT.md) governs bounded context selection, budgets, capability tiers, checkpoints, retries, and associated evidence.
 
 ## Lifecycle
 
