@@ -24,7 +24,9 @@ This project follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) an
 - Automated relative-link, standard cross-reference, standards-catalog parity, and product-traceability validation.
 - Automated placeholder, trailing-whitespace, basic Markdown, and tracked-artifact hygiene validation with governed exclusions.
 - GitHub Actions integration for framework validation, standard-library tests, and retained JSON conformance evidence on pull requests and default-branch changes.
+- Sprint 4.4 governance closeout evidence, inherited-finding dispositions, validation-coverage summary, and REL-004 release-readiness checklist.
 
 ### Changed
 
 - Completed Sprint 4.3 implementation for seven Enterprise Standards, including product tracking closeout, catalog and cross-reference verification, and repository-wide metadata, structure, ID, link, placeholder, and documentation-health review.
+- Clarified Sprint and release tracking, aligned the roadmap with REL-004 validation scope, and named the final-accountability evidence required by STD-REL-001.

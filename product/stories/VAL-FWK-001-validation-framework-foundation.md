@@ -2,7 +2,7 @@
 id: STORY-VAL-FWK-001
 title: Deliver VAL-FWK-001 Validation Framework Foundation
 version: 0.4.0
-status: In Progress
+status: In Review
 owner: Framework PMO
 release: REL-004
 epic: EPIC-001

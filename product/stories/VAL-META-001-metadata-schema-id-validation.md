@@ -2,7 +2,7 @@
 id: STORY-VAL-META-001
 title: Deliver VAL-META-001 Metadata, Schema, and Framework-ID Validation
 version: 0.4.0
-status: In Progress
+status: In Review
 owner: Framework PMO
 release: REL-004
 epic: EPIC-001

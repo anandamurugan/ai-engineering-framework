@@ -30,6 +30,7 @@ This release introduces the foundational standards that govern engineering pract
 - Observability Standards
 - Performance Standards
 - Governance Standards
+- Governance validation and CI conformance evidence
 
 ### Excluded
 
@@ -37,7 +38,6 @@ This release introduces the foundational standards that govern engineering pract
 - Agent Catalog planned for v0.6
 - Workflow Library planned for v0.7
 - Prompt and Tool Adapter Framework planned for v0.8
-- Validation Framework planned for v0.9
 
 ## Success Criteria
 
@@ -59,6 +59,8 @@ This release introduces the foundational standards that govern engineering pract
 | SPR-004-003 | Enterprise Engineering Standards |
 | SPR-004-004 | Governance and Validation |
 
+Sprint 4.1B through Sprint 4.4 implementation is complete. Required human reviews, Product Owner approval, final release-readiness decision, and the `v0.4.0` tag remain pending.
+
 ## Risks
 
 | Risk | Response |
@@ -66,7 +68,7 @@ This release introduces the foundational standards that govern engineering pract
 | Inconsistent documentation | Enforce a common authoring template and style guide. |
 | Missing traceability | Require stable asset identifiers and cross-references. |
 | Unclear ownership | Require ownership metadata for every standard. |
-| Scope expansion | Keep playbooks, agents, workflows, prompts, and validation engine outside v0.4. |
+| Scope expansion | Keep validation bounded to approved Sprint 4.4 conformance checks and defer playbooks, agents, prompts, vendor integrations, and unrelated tooling. |
 | Weak AI usability | Include explicit AI guidance and machine-readable metadata. |
 
 ## Exit Criteria
@@ -78,3 +80,23 @@ This release introduces the foundational standards that govern engineering pract
 - Documentation review is approved.
 - Product Owner approves the release.
 - Release is tagged as `v0.4.0`.
+
+## Release Readiness Checklist
+
+| Gate | Status | Evidence or required action |
+| --- | --- | --- |
+| All REL-004 planned sprint implementations complete | Complete | SPR-004-001B through SPR-004-004 deliverables exist; lifecycle approval remains separate. |
+| Standards catalog complete | Complete | Catalog parity validator reports no mismatches. |
+| Standards lifecycle status correct | Complete | All 15 versioned standards remain Draft pending human approval. |
+| Full validation | Complete | Twelve registered validators report PASS with no errors. |
+| Test suite | Complete | Standard-library validation tests pass. |
+| Hosted CI | Complete | `Framework Validation / Framework validation` passes on the default branch. |
+| Changelog | Complete | Sprint 4.4 work remains under Unreleased. |
+| README and roadmap accuracy | Complete | Current v0.4 scope and deferred CLI work are represented without duplicating validation scope. |
+| Architecture review | Pending | Enterprise Architect must record an attributable decision. |
+| Documentation review | Pending | Documentation Reviewer must record an attributable decision. |
+| Security specialist review | Pending | Security Reviewer must disposition secret-scanning coverage and relevant controls. |
+| Product Owner approval | Pending | Product Owner must approve scope, residual gaps, and release readiness. |
+| Known gaps accepted or deferred | Pending | Authorized humans must accept or assign the documented gaps. |
+| Release version and target confirmed | Pending | Version is `0.4.0`; Product Owner must decide the target release date. |
+| Release tag | Pending | Create `v0.4.0` only after all release gates are approved. |

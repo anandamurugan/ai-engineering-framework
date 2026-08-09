@@ -25,7 +25,8 @@ The roadmap communicates intended outcomes rather than delivery commitments. Pri
 
 - [x] Establish the standards metadata, authoring, catalog, and cross-reference foundation.
 - [x] Publish the core and enterprise engineering standards as Drafts.
-- [ ] Complete governance validation, required reviews, and Product Owner approval.
+- [x] Implement governed validation and CI conformance evidence.
+- [ ] Complete required human reviews and Product Owner approval.
 
 ### v0.5 Playbooks and Workflows — Planned
 
@@ -37,9 +38,8 @@ The roadmap communicates intended outcomes rather than delivery commitments. Pri
 - [ ] Approve plugin schemas, compatibility, trust, and lifecycle contracts.
 - [ ] Introduce initial technology extensions without coupling the core.
 
-### v0.7 Validation and CLI Tooling — Planned
+### v0.7 CLI Tooling — Planned
 
-- [ ] Implement local metadata, link, structure, and compatibility validation.
 - [ ] Provide a vendor-neutral command-line experience.
 
 ### v0.8 Reference Implementations — Planned
