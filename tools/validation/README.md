@@ -56,7 +56,9 @@ Placeholder exclusions are intentionally narrow: `templates/` authoring markers,
 
 No supported Markdown linter dependency or configuration exists, so CI runs the deterministic repository-defined Markdown hygiene checks rather than adding a separate toolchain. No repository-owned secret scanner exists; the external commit hook remains supplemental evidence and is not replaced by these validators. Repository-owned secret scanning remains a governance and release-readiness gap for VAL-GOV-001.
 
-Governance closeout remains intentionally deferred to its approved Sprint 4.4 story.
+Sprint 4.4 implementation and governance closeout evidence are recorded in [SPR-004-004](../../product/sprints/SPR-004-004-governance-validation.md). Architecture, Domain, Documentation, and Security Review remain human governance gates and are not satisfied by validator or CI success.
+
+The current implementation intentionally has no dedicated Markdown linter or repository-owned secret scanner, and branch protection remains unverified. Product asset types other than standards do not yet have executable schemas; their current contracts are derived from the [Framework Asset Taxonomy](../../docs/framework/FRAMEWORK_ASSETS.md). Shared repository indexing, changed-file execution, and richer evidence provenance remain deferred improvements rather than implemented capabilities.
 
 ## Continuous integration
 

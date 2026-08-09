@@ -152,7 +152,7 @@ Locations marked future do not imply that a catalog, runtime, or implementation 
 - **Lifecycle:** Draft → Tested → Approved → Deprecated → Retired.
 - **Relationships:** Validates an asset or standard; produces a finding and evidence.
 - **Representation:** Future machine-readable rule plus human explanation.
-- **Machine considerations:** Inputs, deterministic result, severity, and remediation MUST be defined. No validation engine exists yet.
+- **Machine considerations:** Inputs, deterministic result, severity, and remediation MUST be defined. The REL-004 [validation framework](../../tools/validation/README.md) implements registered checks through a common result model; a separate governed validation-rule catalog and executable schemas for future asset types do not yet exist.
 
 ### Architecture Decision Record
 

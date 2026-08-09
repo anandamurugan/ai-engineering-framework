@@ -93,7 +93,7 @@ Sprint 4.1B through Sprint 4.4 implementation is complete. Required human review
 | Hosted CI | Complete | `Framework Validation / Framework validation` passes on the default branch. |
 | Changelog | Complete | Sprint 4.4 work remains under Unreleased. |
 | README and roadmap accuracy | Complete | Current v0.4 scope and deferred CLI work are represented without duplicating validation scope. |
-| Architecture review | Pending | Enterprise Architect must record an attributable decision. |
+| Architecture review | Approved with Conditions — Satisfied | ARCH-REL004-001 documentation remediation and validation evidence are recorded in [SPR-004-004](../sprints/SPR-004-004-governance-validation.md#architecture-review-evidence). |
 | Domain review | Pending | Applicable Domain Reviewers must record attributable decisions for the Draft standards. |
 | Documentation review | Pending | Documentation Reviewer must record an attributable decision. |
 | Security specialist review | Pending | Security Reviewer must disposition secret-scanning coverage and relevant controls. |

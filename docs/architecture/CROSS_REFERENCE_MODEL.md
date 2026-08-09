@@ -122,7 +122,7 @@ The existing [analyze and plan workflow](../../workflows/01-analyze-plan.md) `im
 
 ### Validation Rule to Standard
 
-A future validation rule `implements` a deterministic check and is referenced by a standard through `validated_by`. No validation catalog or engine currently exists.
+REL-004 provides registered validators for repository links, standard references, catalog parity, and product traceability through the [validation framework](../../tools/validation/README.md). A future governed validation-rule catalog may express `validated_by` relationships; no such catalog or generalized relationship schema currently exists.
 
 ## Review
 

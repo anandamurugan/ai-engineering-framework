@@ -148,7 +148,7 @@ Sprint 4.4 implementation is complete and awaiting governed human review. The va
 | Automated validation | Complete | Validation framework | On 2026-08-08, twelve validators completed with zero errors; JSON evidence was generated. |
 | Automated tests | Complete | Validation framework | On 2026-08-08, the complete standard-library test suite passed. |
 | Hosted CI | Complete | GitHub Actions | The default-branch `Framework Validation / Framework validation` check completed successfully with no annotations. |
-| Architecture Review | Pending | Enterprise Architect | Review framework boundaries, cross-standard consistency, evidence model, and deferred gaps; record reviewer, decision, conditions, date, findings, and follow-up. |
+| Architecture Review | Approve with Conditions — Condition Satisfied | Enterprise Architect | ARCH-REL004-001 required current-state architecture documentation to reflect the implemented validation framework before release. The remediation aligns the authoritative documents and passes repository validation; no reviewer identity, signature, or timestamp is inferred. |
 | Domain Review | Pending | Applicable Domain Reviewers | Review technical correctness, practicality, evidence, and applicability of the Draft standards; record attributable decisions. |
 | Documentation Review | Pending | Documentation Reviewer | Review clarity, structure, roadmap and tracking accuracy, and readiness evidence; record an attributable decision. |
 | Security Review | Pending | Security Reviewer | Determine applicability and release disposition for repository-owned secret scanning; the external local commit hook is not CI enforcement. |
@@ -170,3 +170,25 @@ Remaining limitations are a dedicated Markdown linter, repository-owned secret s
 - Product Owner approval: Approved for REL-004 / v0.4.0; other mandatory human reviews remain pending.
 - Sprint lifecycle: In Review; implementation complete and awaiting approval.
 - REL-004 release: Not authorized; final readiness review and tag remain pending.
+
+### Architecture Review Evidence
+
+- Decision: **APPROVE WITH CONDITIONS**
+- Condition: ARCH-REL004-001 must be resolved before release.
+- Condition status: **Satisfied**
+- Remediation scope: Current-state statements in the framework architecture, asset taxonomy, cross-reference model, and validation documentation now describe the implemented REL-004 validation framework and link to authoritative detail rather than duplicating validator rules.
+- Validation evidence: Full framework validation and the complete automated test suite pass after remediation.
+- Authority boundary: This record does not infer reviewer identity, signature, timestamp, or approval by Domain, Documentation, Security, or another role.
+
+### Deferred Architecture Findings
+
+| Finding | Deferred disposition |
+| --- | --- |
+| ARCH-REL004-002 | Consider executable schemas for product metadata contracts in future governed validation work. |
+| ARCH-REL004-003 | Add richer validation-evidence provenance and clarify aggregate scan-count semantics in a compatible future report revision. |
+| ARCH-REL004-004 | Add registry-ID uniqueness and focused unexpected-validator-exception tests. |
+| ARCH-REL004-005 | Evaluate governed Markdown parser or linter support under an approved dependency policy. |
+| ARCH-REL004-006 | Consider a shared repository index and changed-file execution as repository scale warrants. |
+| ARCH-REL004-007 | Add executable schemas and relationship contracts when new asset types are introduced. |
+
+These findings are non-blocking architecture debt and are not implemented by this remediation.
