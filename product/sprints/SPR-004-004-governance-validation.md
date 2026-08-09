@@ -149,9 +149,10 @@ Sprint 4.4 implementation is complete and awaiting governed human review. The va
 | Automated tests | Complete | Validation framework | On 2026-08-08, the complete standard-library test suite passed. |
 | Hosted CI | Complete | GitHub Actions | The default-branch `Framework Validation / Framework validation` check completed successfully with no annotations. |
 | Architecture Review | Pending | Enterprise Architect | Review framework boundaries, cross-standard consistency, evidence model, and deferred gaps; record reviewer, decision, conditions, date, findings, and follow-up. |
+| Domain Review | Pending | Applicable Domain Reviewers | Review technical correctness, practicality, evidence, and applicability of the Draft standards; record attributable decisions. |
 | Documentation Review | Pending | Documentation Reviewer | Review clarity, structure, roadmap and tracking accuracy, and readiness evidence; record an attributable decision. |
 | Security Review | Pending | Security Reviewer | Determine applicability and release disposition for repository-owned secret scanning; the external local commit hook is not CI enforcement. |
-| Product Owner Approval | Pending | Product Owner | Decide the target release date, accept or assign residual gaps, and approve or return the sprint and release-readiness package. |
+| Product Owner Approval | Approved | Product Owner | Explicit approval applies to REL-004 / v0.4.0; no reviewer identity, timestamp, or approval for another role is inferred. |
 
 No reviewer identity or approval is inferred from implementation, merge history, validator output, or elapsed time.
 
@@ -166,6 +167,6 @@ Remaining limitations are a dedicated Markdown linter, repository-owned secret s
 - Implementation and automated evidence: Complete.
 - Inherited findings: Four resolved or previously resolved; release-date decision remains explicitly pending.
 - Required human reviews: Pending.
-- Product Owner approval: Pending.
+- Product Owner approval: Approved for REL-004 / v0.4.0; other mandatory human reviews remain pending.
 - Sprint lifecycle: In Review; implementation complete and awaiting approval.
 - REL-004 release: Not authorized; final readiness review and tag remain pending.
