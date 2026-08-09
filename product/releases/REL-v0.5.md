@@ -47,6 +47,8 @@ Sprint 5.1 has established the proposed normative context-management and efficie
 
 Sprint 5.2 has implemented the proposed derived repository view and deterministic targeted-context selector. They remain subject to human review; budgets, checkpoints, routing, and targeted validation are not represented as implemented.
 
+Sprint 5.3 has implemented proposed deterministic execution budgets, provenance-aware checkpoints, bounded loop detection, and generic capability-tier recommendations. They remain subject to human review; no model execution, vendor routing, or Sprint 5.4 targeted validation is represented as implemented.
+
 ## Deliverables
 
 | ID | Deliverable |

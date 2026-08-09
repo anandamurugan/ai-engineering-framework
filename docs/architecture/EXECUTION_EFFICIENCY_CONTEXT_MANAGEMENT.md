@@ -268,7 +268,7 @@ The Sprint 5.2 [repository index and targeted-context tooling](../../tools/conte
 
 ### Sprint 5.3 — Budgets, Checkpoints, and Routing
 
-Later budget, checkpoint, loop, and routing mechanisms MUST implement configurable profiles, evidence-driven transitions, Tier 5 human authority, safe budget exhaustion, protected checkpoint state, and bounded failure handling. This section does not implement a routing or checkpoint engine.
+The Sprint 5.3 [execution-governance tooling](../../tools/execution/README.md) implements configurable budget profiles, evidence-driven tier recommendations, Tier 5 human authority, safe budget exhaustion, provenance-aware checkpoint state, and bounded failure handling. It does not invoke models or provide vendor execution adapters.
 
 ### Sprint 5.4 — Targeted Validation and Evidence Provenance
 
