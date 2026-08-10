@@ -14,9 +14,30 @@ The command executes the statically registered validators, prints a concise summ
 
 Use `--root PATH` to validate an explicitly selected repository root or `--report PATH` to select another report path. Relative report paths are resolved from the repository root. The default report directory is ignored by Git.
 
+Full validation remains the default:
+
+```sh
+python3 -m tools.validation
+```
+
+Targeted modes are explicit:
+
+```sh
+python3 -m tools.validation --mode asset --asset EFF-VAL-001
+python3 -m tools.validation --mode affected --base main --head HEAD
+python3 -m tools.validation --mode changed --working-tree
+python3 -m tools.validation --mode asset --paths product/stories/EFF-VAL-001-targeted-validation-evidence-provenance.md
+```
+
+The modes are `FULL`, `TARGETED_ASSET`, `CHANGED_FILES`, and `AFFECTED_CLOSURE`. Git discovery uses fixed subprocess argument arrays and supports working-tree changes or a base/head range. Added, deleted, modified, and renamed paths are retained as evidence; ignored generated paths are excluded.
+
+Targeted planning maps changed paths and framework IDs through the derived Sprint 5.2 `RepositoryView`. The affected closure follows authoritative product parents, story deliverables, standard relationships, and their reverse references. It does not infer semantic source-code dependencies. Unknown paths, stale or ambiguous indexes, duplicate identities, schemas, templates, validator code or registry changes, validation workflows, taxonomy/relationship authorities, standards catalog changes, and release-governance changes force full validation.
+
+A targeted `PASS` covers only the selected and affected scope. Repository-wide validators still execute to preserve ID, relationship, catalog, traceability, lifecycle, and hygiene integrity. Targetable metadata, structure, and local-link checks receive the affected file scope. REL-005 release closeout MUST use full validation unless a future explicit governance decision changes that rule.
+
 ## Contract and registry
 
-A validator extends `Validator`, declares `validator_id`, `name`, `description`, and `default_severity`, and implements `validate(context)`. It returns one or more immutable `ValidationResult` values containing:
+A validator extends `Validator`, declares `validator_id`, `name`, `description`, `default_severity`, and a `scope_capability` of `TARGETABLE` or `REPOSITORY_WIDE`, then implements `validate(context)`. It returns one or more immutable `ValidationResult` values containing:
 
 - validator ID;
 - name and description;
@@ -25,11 +46,13 @@ A validator extends `Validator`, declares `validator_id`, `name`, `description`,
 - affected file or asset when available; and
 - an attributable message.
 
-Add an approved validator by importing and instantiating it in `registry.py`. Registration is intentionally explicit: this foundation has no dynamic discovery or plugin runtime.
+Add an approved validator by importing and instantiating it in `registry.py`. Registration is intentionally explicit: this foundation has no dynamic discovery or plugin runtime. Registry integrity rejects missing identities, non-validator entries, and duplicate validator IDs before execution.
 
 ## Reporting
 
-The JSON report contains `report_version`, aggregate `summary`, and structured `results`. The summary records validators executed, unique assets scanned, errors, warnings, passed checks, and overall `PASS` or `FAIL`. Each result includes the validator, status, severity, asset, framework ID when available, and message.
+JSON report format `2.0` contains `provenance`, an aggregate `summary`, and structured `results`. Provenance records repository/base/head revisions, governed-content fingerprint, UTC execution time, Python runtime identity and version, executed validator IDs, requested and effective modes, selected paths, affected closure, ignored paths, fallback reasons, and a registry-policy fingerprint. Each result includes the validator, status, severity, asset, framework ID when available, and message. Unexpected validator exceptions become error-severity evidence without printing a traceback or falsely producing success.
+
+Count semantics are explicit: `validators_executed` counts registered checks invoked; `governed_assets_evaluated` counts distinct result assets; `scoped_assets` counts directly requested paths; `affected_assets` counts the expanded closure; `repository_files_inspected` and `repository_source_reads` describe RepositoryView construction; `passed_checks` counts passing result records; and `findings` counts all failed result records, including advisory warnings. `elapsed_ms` measures runner execution and does not include Git discovery or index construction.
 
 ## Registered validation
 
@@ -58,7 +81,7 @@ No supported Markdown linter dependency or configuration exists, so CI runs the 
 
 Sprint 4.4 implementation and governance closeout evidence are recorded in [SPR-004-004](../../product/sprints/SPR-004-004-governance-validation.md). Architecture, Domain, Documentation, Security, and Product Owner decisions are recorded there. Human governance gates are not satisfied by validator or CI success.
 
-The current implementation intentionally has no dedicated Markdown linter or repository-owned secret scanner, and branch protection remains unverified. Product asset types other than standards do not yet have executable schemas; their current contracts are derived from the [Framework Asset Taxonomy](../../docs/framework/FRAMEWORK_ASSETS.md). Shared repository indexing, changed-file execution, and richer evidence provenance remain deferred improvements rather than implemented capabilities.
+The current implementation intentionally has no dedicated Markdown linter or repository-owned secret scanner, and branch protection remains unverified. Product asset types other than standards do not yet have executable schemas; their current contracts are derived from the [Framework Asset Taxonomy](../../docs/framework/FRAMEWORK_ASSETS.md). The shared repository view now supplies framework-ID integrity and targeted planning; broader adoption by every repository-wide validator remains an incremental efficiency opportunity.
 
 ## Continuous integration
 

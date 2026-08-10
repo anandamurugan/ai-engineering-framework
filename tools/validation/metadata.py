@@ -5,7 +5,7 @@ from datetime import date
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional, Sequence, Tuple
 
-from .models import Severity, Status, ValidationContext, ValidationResult, Validator
+from .models import ScopeCapability, Severity, Status, ValidationContext, ValidationResult, Validator
 from .yaml_subset import YamlError, extract_frontmatter, parse_yaml
 
 
@@ -128,6 +128,7 @@ class MetadataValidator(Validator):
     name = "Governed metadata and schema"
     description = "Validate product metadata contracts and the standard metadata schema."
     default_severity = Severity.ERROR
+    scope_capability = ScopeCapability.TARGETABLE
 
     def validate(self, context: ValidationContext):
         root = context.repository_root
@@ -139,6 +140,8 @@ class MetadataValidator(Validator):
             return [self.result(status=Status.FAIL, asset=_relative(schema_path, root), message=str(error))]
 
         for path, contract in governed_product_files(root):
+            if not context.includes(path):
+                continue
             asset = _relative(path, root)
             try:
                 metadata, _ = extract_frontmatter(path.read_text(encoding="utf-8"))
@@ -149,6 +152,8 @@ class MetadataValidator(Validator):
             results.extend(self._asset_results(asset, metadata.get("id"), errors))
 
         for path in standard_files(root):
+            if not context.includes(path):
+                continue
             asset = _relative(path, root)
             try:
                 metadata, _ = extract_frontmatter(path.read_text(encoding="utf-8"))
@@ -205,21 +210,28 @@ class FrameworkIdValidator(Validator):
     name = "Framework ID uniqueness"
     description = "Validate defined ID formats and repository-wide uniqueness."
     default_severity = Severity.ERROR
+    scope_capability = ScopeCapability.REPOSITORY_WIDE
 
     def validate(self, context: ValidationContext):
         root = context.repository_root
         results = []  # type: List[ValidationResult]
         occurrences = {}  # type: Dict[str, List[str]]
 
-        for path in metadata_bearing_files(root):
-            asset = _relative(path, root)
-            try:
-                metadata, _ = extract_frontmatter(path.read_text(encoding="utf-8"))
-            except (OSError, YamlError):
-                continue
-            framework_id = metadata.get("id")
-            if isinstance(framework_id, str):
-                occurrences.setdefault(framework_id, []).append(asset)
+        if context.repository_view is not None:
+            for record in context.repository_view.assets:
+                occurrences.setdefault(record.framework_id, []).append(record.path)
+            for framework_id, paths in context.repository_view.duplicates.items():
+                occurrences[framework_id] = list(paths)
+        else:
+            for path in metadata_bearing_files(root):
+                asset = _relative(path, root)
+                try:
+                    metadata, _ = extract_frontmatter(path.read_text(encoding="utf-8"))
+                except (OSError, YamlError):
+                    continue
+                framework_id = metadata.get("id")
+                if isinstance(framework_id, str):
+                    occurrences.setdefault(framework_id, []).append(asset)
 
         duplicates = {key: paths for key, paths in occurrences.items() if len(paths) > 1}
         for framework_id, paths in sorted(duplicates.items()):

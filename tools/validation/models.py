@@ -21,12 +21,43 @@ class Status(str, Enum):
     FAIL = "FAIL"
 
 
+class ValidationMode(str, Enum):
+    """Explicit validation coverage requested by a caller."""
+
+    FULL = "FULL"
+    TARGETED_ASSET = "TARGETED_ASSET"
+    CHANGED_FILES = "CHANGED_FILES"
+    AFFECTED_CLOSURE = "AFFECTED_CLOSURE"
+
+
+class ScopeCapability(str, Enum):
+    """Whether a validator can safely limit file-level evaluation."""
+
+    TARGETABLE = "TARGETABLE"
+    REPOSITORY_WIDE = "REPOSITORY_WIDE"
+
+
 @dataclass(frozen=True)
 class ValidationContext:
     """Read-only inputs shared with registered validators."""
 
     repository_root: Path
     registered_validator_ids: Tuple[str, ...]
+    mode: ValidationMode = ValidationMode.FULL
+    scoped_paths: Tuple[str, ...] = ()
+    affected_paths: Tuple[str, ...] = ()
+    repository_view: Optional[Any] = None
+
+    def includes(self, path: Path) -> bool:
+        """Return whether a path belongs to the active targeted scope."""
+
+        if self.mode is ValidationMode.FULL:
+            return True
+        try:
+            relative = path.resolve().relative_to(self.repository_root).as_posix()
+        except ValueError:
+            return False
+        return relative in set(self.affected_paths or self.scoped_paths)
 
 
 @dataclass(frozen=True)
@@ -60,6 +91,7 @@ class Validator:
     name = ""
     description = ""
     default_severity = Severity.ERROR
+    scope_capability = ScopeCapability.REPOSITORY_WIDE
 
     def validate(self, context: ValidationContext) -> Sequence[ValidationResult]:
         raise NotImplementedError

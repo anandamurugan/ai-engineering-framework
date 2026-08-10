@@ -2,7 +2,7 @@
 id: STORY-EFF-VAL-001
 title: Deliver EFF-VAL-001 Targeted Validation & Evidence Provenance
 version: 0.5.0
-status: Proposed
+status: In Review
 owner: Framework PMO
 release: REL-005
 epic: EPIC-002
@@ -42,7 +42,7 @@ Suppression, auto-fixing, approval, dedicated Markdown linter, secret scanner, o
 
 ## Required Deliverable
 
-Compatible validation-framework enhancements, executable product contracts, tests, JSON evidence, and operational documentation.
+[Validation Framework](../../tools/validation/README.md) enhancements providing full, targeted-asset, changed-file, and affected-closure planning; safe fallback; registry and exception integrity; provenance-rich JSON evidence; explicit count semantics; tests; and operational documentation.
 
 ## Acceptance Criteria
 
@@ -62,6 +62,8 @@ Index, relationship authority, selection policy, product contracts, fallback rul
 ## Definition of Done
 
 The enhancements pass complete and targeted validation, tests, CI, documentation review, security review, and Product Owner approval.
+
+Implementation, automated tests, documentation, and validation evidence are complete. Human review and Product Owner approval remain pending, so this story remains **In Review**.
 
 ## Product Owner Approval
 

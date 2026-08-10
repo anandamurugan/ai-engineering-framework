@@ -11,7 +11,7 @@ from .markdown import (
     resolve_local_target,
 )
 from .metadata import standard_files
-from .models import Severity, Status, ValidationContext, ValidationResult, Validator
+from .models import ScopeCapability, Severity, Status, ValidationContext, ValidationResult, Validator
 from .yaml_subset import YamlError, extract_frontmatter
 
 
@@ -20,6 +20,7 @@ class RelativeLinkValidator(Validator):
     name = "Repository-relative Markdown links"
     description = "Validate local Markdown paths, filename case, and heading fragments."
     default_severity = Severity.ERROR
+    scope_capability = ScopeCapability.TARGETABLE
 
     def validate(self, context: ValidationContext):
         root = context.repository_root
@@ -28,6 +29,8 @@ class RelativeLinkValidator(Validator):
         local_links = 0
         broken_links = 0
         for path in markdown_files(root):
+            if not context.includes(path):
+                continue
             files_scanned += 1
             text = path.read_text(encoding="utf-8")
             asset = path.relative_to(root).as_posix()
