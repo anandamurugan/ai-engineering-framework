@@ -64,7 +64,7 @@ Enable bounded AI-assisted engineering execution that selects only justified con
 | [SPR-005-002](../sprints/SPR-005-002-repository-index-targeted-context.md) | Sprint 5.2 | Repository Index & Targeted Context | In Review |
 | [SPR-005-003](../sprints/SPR-005-003-budgets-checkpoints-routing.md) | Sprint 5.3 | Budgets, Checkpoints & Routing | In Review |
 | [SPR-005-004](../sprints/SPR-005-004-targeted-validation-evidence.md) | Sprint 5.4 | Targeted Validation & Evidence Provenance | In Review |
-| [SPR-005-005](../sprints/SPR-005-005-governance-release-closeout.md) | Sprint 5.5 | Governance Validation & Release Closeout | Planned |
+| [SPR-005-005](../sprints/SPR-005-005-governance-release-closeout.md) | Sprint 5.5 | Governance Validation & Release Closeout | In Review |
 
 ## Dependencies
 

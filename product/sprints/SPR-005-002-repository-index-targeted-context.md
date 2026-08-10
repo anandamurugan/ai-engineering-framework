@@ -57,6 +57,7 @@ Both stories meet their Definitions of Done, validation passes, and human review
 - `python3 -m tools.context select --story EFF-IDX-001` selects deterministic context and explains category, reason, relationship path, mandatory state, restriction, expansion level, completeness, and fallback.
 - Focused standard-library tests cover determinism, identity conflicts, relationships, freshness, stability, exclusions, absence of source bodies, hierarchy, standards, targets, dependencies, restrictions, unresolved references, stale regeneration, expansion, and serialization.
 - EFF-IDX-001 and EFF-SEL-001 are **In Review**. Sprint 5.2 is not complete until human review and Product Owner approval are recorded.
+- Implementation status: **Complete**. Human approval status: **Pending**.
 
 ## Carried Finding
 

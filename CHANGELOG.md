@@ -8,11 +8,12 @@ This project follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) an
 
 ### Added
 
-- REL-005 planning foundation for vendor-neutral efficient agentic execution and context engineering, including EPIC-002, five planned sprints, eight planning stories, measurable efficiency contracts, v0.4 backlog dispositions, and governed human-authority boundaries. No v0.5 implementation is included.
-- Sprint 5.1 proposed architecture contracts for Minimum Sufficient Context, progressive loading, bounded execution, context budgets, capability tiers, escalation, loop detection, checkpoints, Least Context Privilege, durable evidence, and vendor-neutral efficiency measurement. Repository indexing, routing, targeted validation, and vendor integrations remain unimplemented.
+- REL-005 planning foundation for vendor-neutral efficient agentic execution and context engineering, including EPIC-002, five sprints, eight stories, measurable efficiency contracts, v0.4 backlog dispositions, and governed human-authority boundaries.
+- Sprint 5.1 architecture contracts for Minimum Sufficient Context, progressive loading, bounded execution, context budgets, capability tiers, escalation, loop detection, checkpoints, Least Context Privilege, durable evidence, and vendor-neutral efficiency measurement.
 - Sprint 5.2 dependency-free repository intelligence tooling with a derived metadata-only asset index, commit and content freshness, immutable-per-run repository view, deterministic relationship-aware context selection, exclusions, restricted-context evidence, explicit completeness and fallback, JSON manifests, local commands, and focused tests. Sprint 5.3 routing and Sprint 5.4 targeted validation remain unimplemented.
 - Sprint 5.3 dependency-free execution governance with configurable multidimensional budgets, explicit unavailable telemetry, durable provenance-aware checkpoints, bounded normalized loop detection, generic Tier 1–5 routing recommendations, de-escalation, non-substitutable human authority, context-manifest integration, JSON evidence, local commands, and focused failure-path tests. No model or vendor adapter is included.
 - Sprint 5.4 safe targeted validation with Git changed-file discovery, authoritative affected-closure planning, deterministic full fallback, scoped and repository-wide validator contracts, registry integrity, structured exception failures, shared RepositoryView reuse, provenance-rich JSON reports, explicit scan semantics, and focused tests. Full CI and release validation remain the default.
+- Sprint 5.5 deterministic cross-component integration and governance-invariant tests, release-level efficiency and performance evidence, vendor-neutrality and local-readiness assessment, security guidance and execution-CLI path containment, finding/backlog dispositions, acceptance reviews, and separate pending human-review packages. REL-005 remains In Progress pending hosted CI, required approvals, release authorization, date, and tag.
 
 ## [0.4.0] - 2026-08-08
 
@@ -49,4 +50,3 @@ This project follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) an
 - Branch-protection verification, checkout credential hardening, and governed workflow ownership or CODEOWNERS.
 - Richer validation-evidence provenance, registry integrity, resource bounds, and scalable repository indexing.
 - Architecture and domain review follow-up recorded in SPR-004-004.
-- EFF-CTX-001 execution efficiency and context management remains future v0.5 backlog and is not implemented.

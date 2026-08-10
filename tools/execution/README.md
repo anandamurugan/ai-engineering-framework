@@ -185,5 +185,5 @@ Evidence is written beneath `.execution-reports/`, which is ignored by Git. Evid
 - Checkpoint reconciliation across repository commits is not implemented.
 - Loop equivalence is intentionally limited to normalized structured events.
 - No workflow/orchestration engine is included.
-- Changed-file and affected-closure validation remain Sprint 5.4 work.
+- Changed-file and affected-closure validation are implemented by `tools.validation`; full validation remains the release gate.
 - No vendor routing, model invocation, local-model integration, adapter, playbook, workflow, or prompt catalog is included.

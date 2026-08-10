@@ -49,7 +49,9 @@ Sprint 5.2 has implemented the proposed derived repository view and deterministi
 
 Sprint 5.3 has implemented proposed deterministic execution budgets, provenance-aware checkpoints, bounded loop detection, and generic capability-tier recommendations. They remain subject to human review; no model execution, vendor routing, or Sprint 5.4 targeted validation is represented as implemented.
 
-Sprint 5.4 has implemented proposed targeted-asset, changed-file, and affected-closure validation with full fallback, registry integrity, exception evidence, RepositoryView reuse, provenance-rich reports, and explicit count semantics. It remains subject to human review; Sprint 5.5 closeout is not represented as implemented.
+Sprint 5.4 has implemented proposed targeted-asset, changed-file, and affected-closure validation with full fallback, registry integrity, exception evidence, RepositoryView reuse, provenance-rich reports, and explicit count semantics. It remains subject to human review.
+
+Sprint 5.5 has completed deterministic integration and governance-invariant testing, release-level efficiency evidence, security/privacy and vendor-neutrality assessment, v0.4 finding and backlog disposition, documentation updates, and separate human review packages. All eight stories are In Review. Hosted CI and required Architecture, Domain, Documentation, Security, and Product Owner decisions remain pending, so REL-005 remains In Progress and is not authorized for release or tagging.
 
 ## Deliverables
 
@@ -61,6 +63,7 @@ Sprint 5.4 has implemented proposed targeted-asset, changed-file, and affected-c
 | [SPR-005-003](../sprints/SPR-005-003-budgets-checkpoints-routing.md) | Budgets, Checkpoints & Routing |
 | [SPR-005-004](../sprints/SPR-005-004-targeted-validation-evidence.md) | Targeted Validation & Evidence Provenance |
 | [SPR-005-005](../sprints/SPR-005-005-governance-release-closeout.md) | Governance Validation & Release Closeout |
+| [REL-005 readiness](../../docs/reviews/REL-005-release-readiness.md) | Governance evidence and release-readiness checklist |
 
 ## Execution Model
 
