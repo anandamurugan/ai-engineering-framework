@@ -55,6 +55,34 @@ class ContextSelector:
         fallback_reasons = list(self.freshness_reasons)
         files_excluded = 0
 
+        repository_instruction_paths = ("AGENTS.md",)
+        missing_repository_instructions = []  # type: List[str]
+        missing_governance = []  # type: List[str]
+        for instruction_path in repository_instruction_paths:
+            if not (self.root / instruction_path).is_file():
+                unresolved.append(
+                    UnresolvedContext(
+                        instruction_path,
+                        "mandatory repository governing instruction is missing",
+                    )
+                )
+                missing_repository_instructions.append(instruction_path)
+                missing_governance.append(instruction_path)
+                fallback_reasons.append("mandatory repository governing instruction is unresolved")
+                continue
+            self._add(
+                selected,
+                restricted,
+                instruction_path,
+                None,
+                "repository_governing_instruction",
+                "mandatory repository-level agent instruction",
+                (instruction_path,),
+                None,
+                True,
+                0,
+            )
+
         task_asset = self._resolve_reference(task_reference) if task_reference else None
         if task_reference and task_asset is None:
             unresolved.append(
@@ -148,10 +176,71 @@ class ContextSelector:
 
         ordered_selected = tuple(sorted(selected.values(), key=self._selection_key))
         ordered_restricted = tuple(sorted(restricted.values(), key=self._selection_key))
+        restricted_governance = tuple(
+            item
+            for item in ordered_restricted
+            if item.mandatory
+            and item.category in {
+                "repository_governing_instruction",
+                "task_product_context",
+                "governing_standard",
+                "governing_context",
+            }
+        )
+        task_governance_resolved = task_asset is not None if task_reference else True
+        if task_asset is not None:
+            for target_id in (task_asset.release, task_asset.epic, task_asset.sprint):
+                if target_id and target_id not in self.by_id:
+                    task_governance_resolved = False
+                    missing_governance.append(target_id)
+        applicable_standard_ids = {
+            relation.target
+            for seed in seeds
+            for relation in seed.relationships
+            if relation.target.startswith("STD-")
+        }
+        unresolved_standard_ids = {
+            standard_id
+            for standard_id in applicable_standard_ids
+            if standard_id not in self.by_id
+        }
+        for standard_id in sorted(unresolved_standard_ids):
+            if not any(item.reference == standard_id for item in unresolved):
+                unresolved.append(
+                    UnresolvedContext(standard_id, "applicable governing standard is unresolved")
+                )
+            missing_governance.append(standard_id)
+            fallback_reasons.append("applicable governing standard is unresolved")
+        repository_instructions_resolved = not missing_repository_instructions and not any(
+            item.path in repository_instruction_paths for item in restricted_governance
+        )
+        selected_ids = {item.asset_id for item in ordered_selected}
+        applicable_standards_resolved = (
+            not unresolved_standard_ids
+            and applicable_standard_ids.issubset(selected_ids)
+            and not any(item.category == "governing_standard" for item in restricted_governance)
+        )
+        governing_context_complete = all(
+            (
+                repository_instructions_resolved,
+                task_governance_resolved,
+                applicable_standards_resolved,
+                not restricted_governance,
+                self.index_fresh,
+            )
+        )
+        if not governing_context_complete:
+            fallback_reasons.append("mandatory governing context is incomplete or unauthorized")
+            fallback_required = True
         levels = tuple(sorted({item.expansion_level for item in ordered_selected}))
         completeness = {
             "target_resolved": not any("target" in item.reason for item in unresolved),
-            "governing_context_resolved": task_asset is not None if task_reference else True,
+            "governing_context_resolved": governing_context_complete,
+            "repository_instructions_resolved": repository_instructions_resolved,
+            "applicable_standards_resolved": applicable_standards_resolved,
+            "task_governance_resolved": task_governance_resolved,
+            "restricted_governance_present": bool(restricted_governance),
+            "governing_context_complete": governing_context_complete,
             "dependencies_resolved": not any("relationship" in item.reason for item in unresolved),
             "index_fresh": self.index_fresh,
             "restricted_required_context_clear": not bool(ordered_restricted),

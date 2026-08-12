@@ -40,7 +40,10 @@ Evaluate failure repetition:
 python3 -m tools.execution loop \
   --events path/to/failure-events.json \
   --threshold 3 \
-  --response REASSESS
+  --response REASSESS \
+  --execution-id EXEC-001 \
+  --task-id STORY-001 \
+  --scope tools/execution
 ```
 
 Produce a capability-tier recommendation:
@@ -48,7 +51,10 @@ Produce a capability-tier recommendation:
 ```shell
 python3 -m tools.execution route \
   --factors path/to/routing-factors.json \
-  --current-tier 2
+  --current-tier 2 \
+  --execution-id EXEC-001 \
+  --task-id STORY-001 \
+  --scope tools/execution
 ```
 
 These commands are focused Sprint 5.3 developer interfaces, not a general framework CLI.
@@ -167,7 +173,11 @@ The routing contract can later be mapped to deterministic tools or appropriately
 
 Generated evidence records execution ID, repository commit, operation, budget evaluations, retries, loop evaluations, context expansions, restricted and fallback state, tier decisions, checkpoint references, and human-required state.
 
-Evidence is written beneath `.execution-reports/`, which is ignored by Git. Evidence contains explicit authority markers and cannot approve work or suppress a failed control.
+Context, budget, routing, loop, checkpoint, and validation artifacts share a small provenance envelope: evidence format/type, repository commit, optional index fingerprint, execution/task identity where applicable, UTC timestamp, runtime, operation, requested/effective scope, source asset, authority, and result. Unavailable optional fields are omitted rather than fabricated. Routing and loop commands require an execution ID and accept task/scope evidence; they contain no provider or model identity.
+
+Checkpoints record creation timestamp and runtime in addition to their repository commit. Existing checkpoint fields and stale-commit behavior remain compatible. Validation report format 2.0 is preserved while exposing compatible common provenance fields.
+
+Evidence is written beneath `.execution-reports/`, which is ignored by Git. Derived artifacts declare `DERIVED_EXECUTION_EVIDENCE_NOT_APPROVAL` in the common envelope. Checkpoints retain their more specific `DERIVED_EXECUTION_STATE_NOT_APPROVAL` marker as well. Evidence cannot approve work or suppress a failed control.
 
 ## Security, Privacy, and Anti-Gaming
 

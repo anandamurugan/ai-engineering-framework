@@ -3,6 +3,7 @@
 import json
 import tempfile
 import unittest
+from datetime import datetime
 from pathlib import Path
 
 from tools.execution.budget import BudgetEvaluator
@@ -18,6 +19,7 @@ from tools.execution.models import (
     BudgetStatus,
     CapabilityTier,
     ExecutionCheckpoint,
+    ExecutionEvidence,
     ExecutionStatus,
     FactorLevel,
     FailureEvent,
@@ -157,6 +159,8 @@ class CheckpointTests(unittest.TestCase):
             "next_recommended_action": "Run tests",
             "execution_status": ExecutionStatus.RUNNING,
             "restricted_context_present": True,
+            "created_at": "2026-08-12T00:00:00+00:00",
+            "runtime": "CPython test",
         }
         values.update(overrides)
         return ExecutionCheckpoint(**values)
@@ -170,6 +174,7 @@ class CheckpointTests(unittest.TestCase):
         self.assertEqual({"attempts": 1}, loaded.retry_state)
         self.assertEqual(CapabilityTier.GENERAL_ENGINEERING, loaded.routing_tier)
         self.assertTrue(loaded.restricted_context_present)
+        self.assertEqual("execution_checkpoint", loaded.to_dict()["provenance"]["evidence_type"])
 
     def test_current_checkpoint_resume(self):
         result = CheckpointStore.resume(self.checkpoint(), "abc123")
@@ -188,6 +193,11 @@ class CheckpointTests(unittest.TestCase):
     def test_checkpoint_is_explicitly_not_approval(self):
         value = self.checkpoint().to_dict()
         self.assertEqual("DERIVED_EXECUTION_STATE_NOT_APPROVAL", value["authority"])
+        self.assertEqual(
+            "DERIVED_EXECUTION_EVIDENCE_NOT_APPROVAL", value["provenance"]["authority"]
+        )
+        self.assertEqual("CPython test", value["provenance"]["runtime"])
+        self.assertIsNotNone(datetime.fromisoformat(value["provenance"]["generated_at"]))
         self.assertNotIn("approved", value)
 
     def test_checkpoint_does_not_store_source_bodies(self):
@@ -343,9 +353,102 @@ class ExecutionCliSecurityTests(unittest.TestCase):
                     "../outside.json",
                     "--current-tier",
                     "1",
+                    "--execution-id",
+                    "EXEC-SECURITY-001",
                 )
             ),
         )
+
+
+class ExecutionEvidenceProvenanceTests(unittest.TestCase):
+    def setUp(self):
+        self.root = Path(__file__).resolve().parents[1]
+        self.temporary = tempfile.TemporaryDirectory(dir=str(self.root))
+        self.directory = Path(self.temporary.name)
+
+    def tearDown(self):
+        self.temporary.cleanup()
+
+    def relative(self, name):
+        return (self.directory / name).relative_to(self.root).as_posix()
+
+    def assert_common_provenance(self, value, evidence_type):
+        provenance = value["provenance"]
+        self.assertEqual(evidence_type, provenance["evidence_type"])
+        self.assertEqual("DERIVED_EXECUTION_EVIDENCE_NOT_APPROVAL", provenance["authority"])
+        self.assertEqual("EXEC-PROV-001", provenance["execution_id"])
+        self.assertEqual("EFF-GOV-001", provenance["task_id"])
+        self.assertEqual(["tools/execution"], provenance["effective_scope"])
+        self.assertTrue(provenance["repository_commit"])
+        self.assertTrue(provenance["runtime"])
+        timestamp = datetime.fromisoformat(provenance["generated_at"])
+        self.assertEqual(0, timestamp.utcoffset().total_seconds())
+
+    def test_routing_and_loop_cli_evidence_share_common_provenance(self):
+        factors = self.directory / "factors.json"
+        factors.write_text('{"task_classification":"general_engineering"}\n', encoding="utf-8")
+        route_output = self.directory / "route.json"
+        self.assertEqual(
+            0,
+            main(
+                (
+                    "--root", str(self.root), "route",
+                    "--factors", self.relative("factors.json"),
+                    "--current-tier", "1",
+                    "--execution-id", "EXEC-PROV-001",
+                    "--task-id", "EFF-GOV-001",
+                    "--scope", "tools/execution",
+                    "--output", self.relative("route.json"),
+                )
+            ),
+        )
+        route = json.loads(route_output.read_text(encoding="utf-8"))
+        self.assert_common_provenance(route, "routing_decision")
+        self.assertIn("recommended_tier", route["decision"])
+        self.assertNotIn("provider", json.dumps(route))
+
+        events = self.directory / "events.json"
+        events.write_text(
+            '{"events":[{"action_type":"test","tool_identifier":"unit",'
+            '"outcome":"failed","error_category":"assertion"}]}\n',
+            encoding="utf-8",
+        )
+        loop_output = self.directory / "loop.json"
+        self.assertEqual(
+            0,
+            main(
+                (
+                    "--root", str(self.root), "loop",
+                    "--events", self.relative("events.json"),
+                    "--threshold", "1", "--response", "REASSESS",
+                    "--execution-id", "EXEC-PROV-001",
+                    "--task-id", "EFF-GOV-001",
+                    "--scope", "tools/execution",
+                    "--output", self.relative("loop.json"),
+                )
+            ),
+        )
+        loop = json.loads(loop_output.read_text(encoding="utf-8"))
+        self.assert_common_provenance(loop, "loop_evaluation")
+        self.assertEqual(64, len(loop["evaluation"]["signature"]))
+        self.assertNotIn("raw_log", json.dumps(loop))
+
+    def test_budget_evidence_remains_compatible_with_common_envelope(self):
+        evidence = ExecutionEvidence(
+            format_version="1.0",
+            execution_id="EXEC-PROV-001",
+            repository_commit="abc123",
+            operation="budget_evaluation",
+            task_id="EFF-GOV-001",
+            effective_scope=("tools/execution",),
+            generated_at="2026-08-12T00:00:00+00:00",
+            runtime="CPython test",
+            result="WITHIN_BUDGET",
+        ).to_dict()
+        self.assertEqual("abc123", evidence["repository_commit"])
+        self.assertEqual("abc123", evidence["provenance"]["repository_commit"])
+        self.assertEqual("execution_evidence", evidence["provenance"]["evidence_type"])
+        self.assertEqual("DERIVED_EXECUTION_EVIDENCE_NOT_APPROVAL", evidence["authority"])
 
 
 if __name__ == "__main__":

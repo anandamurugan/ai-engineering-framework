@@ -81,6 +81,8 @@ The selector uses explicit levels aligned with the [Sprint 5.1 contract](../../d
 | 4 | Assets that directly reference selected seeds |
 | 5 | Broader governed-asset fallback when requested and required |
 
+The root `AGENTS.md` is the repository's mandatory implementation-agent instruction source and is selected directly at level 0. It is not added to the metadata index and its body is not copied into derived evidence. Release, epic, sprint, story, explicitly applicable standards, and linked governance or architecture assets provide task-specific governing context.
+
 Selection uses declared repository relationships. It does not perform semantic dependency inference, call an AI model, use token APIs, or hard-code a universal standard set.
 
 ## Context Manifest
@@ -97,6 +99,10 @@ The JSON manifest explains:
 - selected, restricted, excluded, unresolved, expansion-level, and fallback counts.
 
 Completeness uses explainable booleans such as target resolved, dependencies resolved, index fresh, and restricted required context clear. It does not manufacture probabilistic confidence.
+
+Governing completeness separately reports repository instructions, task governance, applicable standards, restricted governance, and the aggregate `governing_context_complete`. The aggregate is true only when the mandatory root instruction exists and is authorized, the task hierarchy resolves, applicable standards at the active expansion level are selected, and no mandatory governance item is restricted. Missing or restricted mandatory governance forces fallback and cannot be represented as a normal complete result.
+
+The manifest also carries a common non-approval provenance envelope with evidence type/version, commit and index fingerprint, UTC generation time, runtime, operation, requested/effective scope, source task, authority, and completeness result.
 
 ## Exclusions
 

@@ -1,6 +1,7 @@
 """Focused tests for repository indexing and targeted context selection."""
 
 import json
+from datetime import datetime
 import tempfile
 import unittest
 from pathlib import Path
@@ -20,6 +21,9 @@ class ContextFixture:
         (self.root / "tools").mkdir()
         (self.root / ".gitignore").write_text(
             "/.context-reports/\n__pycache__/\n*.pyc\n", encoding="utf-8"
+        )
+        (self.root / "AGENTS.md").write_text(
+            "# Mandatory Repository Instructions\n", encoding="utf-8"
         )
         for directory in (
             "product/releases",
@@ -272,10 +276,23 @@ class ContextSelectionTests(unittest.TestCase):
         return ContextSelector(self.fixture.root, self.index, **kwargs)
 
     def test_story_resolves_product_hierarchy_and_governing_context(self):
-        manifest = self.selector().select(task_reference="EFF-IDX-001")
+        self.fixture.write(
+            "docs/architecture/UNRELATED.md",
+            "---\nid: architecture.unrelated\ntitle: Unrelated\nversion: 0.5.0\n"
+            "status: proposed\nowner: Maintainers\n---\n# Unrelated\n",
+        )
+        index = self.view.build(source_commit="abc123", generated_at="2026-08-09T00:00:00Z")
+        manifest = ContextSelector(self.fixture.root, index).select(task_reference="EFF-IDX-001")
         ids = {item.asset_id for item in manifest.selected}
         self.assertTrue({"REL-005", "EPIC-002", "SPR-005-002"}.issubset(ids))
         self.assertIn("architecture.context", ids)
+        self.assertIn("AGENTS.md", {item.path for item in manifest.selected})
+        self.assertTrue(manifest.completeness["repository_instructions_resolved"])
+        self.assertTrue(manifest.completeness["applicable_standards_resolved"])
+        self.assertTrue(manifest.completeness["task_governance_resolved"])
+        self.assertTrue(manifest.completeness["governing_context_complete"])
+        self.assertNotIn("architecture.unrelated", ids)
+        self.assertLess(len(manifest.selected), len(index.assets) + 1)  # AGENTS.md is direct context.
 
     def test_applicable_standard_and_direct_relationship_are_selected(self):
         manifest = self.selector().select(task_reference="EFF-IDX-001")
@@ -301,6 +318,30 @@ class ContextSelectionTests(unittest.TestCase):
         self.assertTrue(any(item.asset_id == "STD-API-001" for item in manifest.restricted))
         self.assertTrue(manifest.fallback_required)
         self.assertFalse(manifest.completeness["restricted_required_context_clear"])
+
+    def test_restricted_repository_instruction_makes_governance_incomplete(self):
+        manifest = self.selector(restricted_patterns=("AGENTS.md",)).select(
+            task_reference="EFF-IDX-001"
+        )
+        self.assertTrue(any(item.path == "AGENTS.md" for item in manifest.restricted))
+        self.assertTrue(manifest.completeness["restricted_governance_present"])
+        self.assertFalse(manifest.completeness["repository_instructions_resolved"])
+        self.assertFalse(manifest.completeness["governing_context_complete"])
+        self.assertTrue(manifest.fallback_required)
+
+    def test_missing_repository_instruction_makes_governance_incomplete(self):
+        (self.fixture.root / "AGENTS.md").unlink()
+        manifest = self.selector().select(task_reference="EFF-IDX-001")
+        self.assertFalse(manifest.completeness["repository_instructions_resolved"])
+        self.assertFalse(manifest.completeness["governing_context_complete"])
+        self.assertTrue(manifest.fallback_required)
+        self.assertTrue(any(item.reference == "AGENTS.md" for item in manifest.unresolved))
+
+    def test_level_zero_does_not_claim_unloaded_standards_complete(self):
+        manifest = self.selector().select(task_reference="EFF-IDX-001", expansion_level=0)
+        self.assertFalse(manifest.completeness["applicable_standards_resolved"])
+        self.assertFalse(manifest.completeness["governing_context_complete"])
+        self.assertTrue(manifest.fallback_required)
 
     def test_unresolved_relationship_requires_fallback(self):
         asset = next(item for item in self.index.assets if item.framework_id == "STORY-EFF-IDX-001")
@@ -338,10 +379,11 @@ class ContextSelectionTests(unittest.TestCase):
             task_reference="EFF-IDX-001", expansion_level=4
         )
         self.assertLess(len(level_zero.selected), len(level_four.selected))
-        self.assertEqual(
-            level_four.to_dict(),
-            self.selector().select(task_reference="EFF-IDX-001", expansion_level=4).to_dict(),
-        )
+        first = level_four.to_dict()
+        second = self.selector().select(task_reference="EFF-IDX-001", expansion_level=4).to_dict()
+        first["provenance"].pop("generated_at")
+        second["provenance"].pop("generated_at")
+        self.assertEqual(first, second)
 
     def test_manifest_serializes_with_completeness_and_metrics(self):
         value = self.selector().select(task_reference="EFF-IDX-001").to_dict()
@@ -349,6 +391,12 @@ class ContextSelectionTests(unittest.TestCase):
         self.assertIn("fallback_required", serialized)
         self.assertIn("files_selected", serialized)
         self.assertIn("relationship_path", serialized)
+        provenance = value["provenance"]
+        self.assertEqual("context_manifest", provenance["evidence_type"])
+        self.assertEqual("DERIVED_EXECUTION_EVIDENCE_NOT_APPROVAL", provenance["authority"])
+        self.assertTrue(provenance["runtime"])
+        self.assertIsNotNone(datetime.fromisoformat(provenance["generated_at"]))
+        self.assertNotIn("source_body", serialized)
 
 
 if __name__ == "__main__":

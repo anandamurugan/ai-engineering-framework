@@ -7,6 +7,7 @@ from typing import Any, Dict, Optional, Sequence
 
 from tools.context.cli import repository_root
 from tools.context.repository import RepositoryView
+from tools.provenance import evidence_document, evidence_provenance
 
 from .budget import BudgetEvaluator
 from .checkpoint import CheckpointStore
@@ -60,11 +61,17 @@ def parser() -> argparse.ArgumentParser:
     loop.add_argument("--threshold", required=True, type=int)
     loop.add_argument("--response", required=True, choices=[item.value for item in LoopResponse])
     loop.add_argument("--output", default=DEFAULT_DIRECTORY + "/loop-evidence.json")
+    loop.add_argument("--execution-id", required=True)
+    loop.add_argument("--task-id")
+    loop.add_argument("--scope", action="append", default=[])
 
     route = commands.add_parser("route", help="produce a vendor-neutral tier recommendation")
     route.add_argument("--factors", required=True)
     route.add_argument("--current-tier", required=True, type=int, choices=range(1, 6))
     route.add_argument("--output", default=DEFAULT_DIRECTORY + "/routing-evidence.json")
+    route.add_argument("--execution-id", required=True)
+    route.add_argument("--task-id")
+    route.add_argument("--scope", action="append", default=[])
     return value
 
 
@@ -113,6 +120,15 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             restricted = bool(manifest.get("restricted"))
             fallback = bool(manifest.get("fallback_required"))
             expansions = int(state.values.get("context_expansions") or 0)
+            index_fingerprint = manifest.get("index_fingerprint")
+            effective_scope = tuple(
+                item.get("path") for item in manifest.get("selected", []) if item.get("path")
+            )
+            task_id = manifest.get("task_reference")
+        else:
+            index_fingerprint = None
+            effective_scope = ()
+            task_id = None
         evaluations = BudgetEvaluator(profile).evaluate(state)
         evidence = ExecutionEvidence(
             format_version=EVIDENCE_FORMAT_VERSION,
@@ -127,6 +143,10 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
                 item.required_response is BudgetAction.REQUEST_HUMAN
                 for item in evaluations
             ),
+            task_id=task_id,
+            index_fingerprint=index_fingerprint,
+            effective_scope=effective_scope,
+            result=_budget_result(evaluations),
         )
         write_json(evidence.to_dict(), arguments.output)
         print("Evaluated {} budget dimensions.".format(len(evaluations)))
@@ -152,7 +172,18 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             threshold=arguments.threshold,
             response=LoopResponse(arguments.response),
         )
-        write_json(evaluation.to_dict(), arguments.output)
+        provenance = evidence_provenance(
+            evidence_type="loop_evaluation",
+            repository_commit=commit,
+            operation="loop_evaluation",
+            execution_id=arguments.execution_id,
+            task_id=arguments.task_id,
+            requested_scope=arguments.scope,
+            effective_scope=arguments.scope,
+            source_asset=arguments.task_id,
+            result=evaluation.response.value,
+        )
+        write_json(evidence_document(provenance, "evaluation", evaluation.to_dict()), arguments.output)
         print("{}: {}".format(evaluation.response.value, evaluation.reason))
         print("Evidence: {}".format(arguments.output))
         return 0
@@ -162,7 +193,18 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     decision = Router(RoutingPolicy.baseline()).decide(
         CapabilityTier(arguments.current_tier), factors
     )
-    write_json(decision.to_dict(), arguments.output)
+    provenance = evidence_provenance(
+        evidence_type="routing_decision",
+        repository_commit=commit,
+        operation="capability_routing",
+        execution_id=arguments.execution_id,
+        task_id=arguments.task_id,
+        requested_scope=arguments.scope,
+        effective_scope=arguments.scope,
+        source_asset=arguments.task_id,
+        result="HUMAN_REQUIRED" if decision.human_authority_required else decision.transition,
+    )
+    write_json(evidence_document(provenance, "decision", decision.to_dict()), arguments.output)
     print(
         "Tier {} -> Tier {} ({}).".format(
             int(decision.current_tier), int(decision.recommended_tier), decision.transition
@@ -194,6 +236,12 @@ def _profile(value: Dict[str, Any]) -> BudgetProfile:
             for item in value["limits"]
         ),
     )
+
+
+def _budget_result(evaluations) -> str:
+    priority = ("HUMAN_REQUIRED", "HARD_LIMIT", "REASSESS_REQUIRED", "SOFT_LIMIT", "UNAVAILABLE")
+    statuses = {item.status.value for item in evaluations}
+    return next((item for item in priority if item in statuses), "WITHIN_BUDGET")
 
 
 def _factors(value: Dict[str, Any]) -> RoutingFactors:
