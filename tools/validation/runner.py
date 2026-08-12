@@ -2,12 +2,12 @@
 
 import json
 import hashlib
-import platform
 import time
 from dataclasses import dataclass
-from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional, Sequence, Tuple
+
+from tools.provenance import evidence_provenance, runtime_identity, utc_timestamp
 
 from .models import (
     Severity, Status, ValidationContext, ValidationMode, ValidationResult, Validator,
@@ -91,9 +91,20 @@ class ValidationRun:
         }
 
     def to_dict(self) -> Dict[str, Any]:
+        common = evidence_provenance(
+            evidence_type="validation_report",
+            repository_commit=self.repository_commit,
+            generated_at=self.executed_at,
+            runtime=self.runtime,
+            operation="validation",
+            requested_scope=self.scoped_paths,
+            effective_scope=self.affected_paths,
+            result=self.overall,
+        )
         return {
             "report_version": "2.0",
             "provenance": {
+                **common,
                 "repository_commit": self.repository_commit,
                 "base_commit": self.base_commit,
                 "head_commit": self.head_commit or self.repository_commit,
@@ -180,8 +191,8 @@ def run_validators(
         validators_executed=len(registered), results=tuple(results), mode=mode,
         requested_mode=plan.requested_mode if plan else ValidationMode.FULL,
         repository_commit=plan.head_commit if plan else _git_commit(repository_root),
-        executed_at=datetime.now(timezone.utc).isoformat(),
-        runtime="{} {}".format(platform.python_implementation(), platform.python_version()),
+        executed_at=utc_timestamp(),
+        runtime=runtime_identity(),
         validator_ids=ids, scoped_paths=scoped, affected_paths=affected,
         changed_paths=plan.requested_paths if plan else (),
         ignored_paths=plan.ignored_paths if plan else (),

@@ -196,7 +196,7 @@ Anti-gaming controls are documented and executable at the relevant boundaries: i
 
 | Review | Status | Evidence prepared / required decision |
 | --- | --- | --- |
-| Architecture Review | Pending | Review core/adapters separation, repository-index authority, execution state, generic tiers, evidence, targeted safety, extensibility, neutrality, and human authority. |
+| Architecture Review | Approve with Conditions — Remediation Pending Human Confirmation | Human Architecture Reviewer | The supplied human decision requires ARCH-REL005-001 and ARCH-REL005-002 remediation. Implementation evidence records both as remediated after validation; the Architecture Review remains conditional until the human reviewer confirms satisfaction. |
 | Domain Review | Pending (mandatory under REL-005 exit criteria) | Review ownership visibility, shared execution terminology, and partial DOM-REL004-003 disposition. |
 | Documentation Review | Pending | Review README, roadmap, changelog, release/epic/sprints/stories, architecture contracts, tool READMEs, SECURITY.md, and this package. |
 | Security Review | Pending | Review containment fix, evidence minimization, restricted/stale controls, subprocess safety, and residual backlog. |
@@ -226,3 +226,14 @@ Anti-gaming controls are documented and executable at the relevant boundaries: i
 - [ ] v0.5 tag created after authorization
 
 REL-005 and EPIC-002 remain **In Progress**. EFF-GOV-001 and all prior EFF stories remain **In Review**. No release, merge, approval, risk acceptance, or tag is implied.
+
+## Architecture Review Conditional Remediation
+
+Decision: **APPROVE WITH CONDITIONS**. Architecture approval is not represented as final while the required conditions await human confirmation.
+
+| Finding | Implementation disposition | Evidence |
+| --- | --- | --- |
+| ARCH-REL005-001 | Remediated | Context selection includes the actual mandatory root `AGENTS.md` instruction directly, reports repository-instruction, task-governance, applicable-standard, restricted-governance, and aggregate completeness, and forces fallback for missing or restricted mandatory governance. No upstream-preload assumption is used. |
+| ARCH-REL005-002 | Remediated | A small shared provenance helper supplies evidence type/version, commit/fingerprint, execution/task identity, UTC time, runtime, operation, requested/effective scope, source asset, non-approval authority, and result across context and execution evidence. Checkpoint freshness remains unchanged and validation report 2.0 remains backward compatible. |
+
+Non-blocking findings remain tracked without implementation in this remediation: ARCH-REL005-003 common path containment, ARCH-REL005-004 generic future-release fallback, ARCH-REL005-005 alternating-cycle detection, and ARCH-REL005-006 broader RepositoryView/adapters/orchestration work.

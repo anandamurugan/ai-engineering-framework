@@ -213,6 +213,11 @@ class RunnerAndProvenanceTests(unittest.TestCase):
         self.assertEqual(provenance["validation_mode"], "TARGETED_ASSET")
         self.assertEqual(provenance["validation_scope"], ["one.md"])
         self.assertEqual(provenance["affected_closure"], ["one.md", "two.md"])
+        self.assertEqual(provenance["evidence_type"], "validation_report")
+        self.assertEqual(provenance["operation"], "validation")
+        self.assertEqual(
+            provenance["authority"], "DERIVED_EXECUTION_EVIDENCE_NOT_APPROVAL"
+        )
         self.assertTrue(provenance["runtime"].startswith("CPython"))
         self.assertIn("executed_at", provenance)
         self.assertIn("repository_fingerprint", provenance)

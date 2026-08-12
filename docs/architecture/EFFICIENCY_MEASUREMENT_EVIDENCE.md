@@ -144,6 +144,8 @@ Machine-readable evidence SHOULD support:
 
 The evidence format MUST NOT embed credentials, secrets, unnecessary personal data, or unrestricted sensitive context. Evidence retention and access follow applicable policy.
 
+The v0.5 derived context and execution artifacts use a small common provenance envelope containing evidence format/type, repository revision, applicable index fingerprint, execution/task identity, UTC timestamp, runtime, operation, requested/effective scope, source asset, authority, and result where available. Optional unavailable fields are omitted rather than invented. Validation report format 2.0 retains its established field names and adds compatible common fields without changing result or count semantics. Every shared envelope marks derived execution evidence as not approval.
+
 ## Baselines and Comparisons
 
 Projects MAY establish baselines by task class, risk level, repository scale, execution profile, or capability tier. Comparisons MUST disclose material differences in scope, quality gates, telemetry availability, and source state.

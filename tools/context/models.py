@@ -3,6 +3,8 @@
 from dataclasses import asdict, dataclass, field
 from typing import Any, Dict, Optional, Sequence, Tuple
 
+from tools.provenance import evidence_provenance, runtime_identity, utc_timestamp
+
 
 INDEX_FORMAT_VERSION = "1.0"
 MANIFEST_FORMAT_VERSION = "1.0"
@@ -170,8 +172,12 @@ class ContextManifest:
     fallback_required: bool
     fallback_reasons: Tuple[str, ...]
     metrics: SelectionMetrics
+    generated_at: str = field(default_factory=utc_timestamp)
+    runtime: str = field(default_factory=runtime_identity)
 
     def to_dict(self) -> Dict[str, Any]:
+        effective_scope = tuple(item.path for item in self.selected)
+        result = "COMPLETE" if self.completeness.get("governing_context_complete") else "INCOMPLETE"
         return {
             "format_version": self.format_version,
             "operation": self.operation,
@@ -187,4 +193,18 @@ class ContextManifest:
             "fallback_required": self.fallback_required,
             "fallback_reasons": list(self.fallback_reasons),
             "metrics": asdict(self.metrics),
+            "authority": "DERIVED_EXECUTION_EVIDENCE_NOT_APPROVAL",
+            "provenance": evidence_provenance(
+                evidence_type="context_manifest",
+                repository_commit=self.repository_commit,
+                index_fingerprint=self.index_fingerprint,
+                generated_at=self.generated_at,
+                runtime=self.runtime,
+                operation=self.operation,
+                task_id=self.task_reference,
+                requested_scope=self.target_paths,
+                effective_scope=effective_scope,
+                source_asset=self.task_reference,
+                result=result,
+            ),
         }

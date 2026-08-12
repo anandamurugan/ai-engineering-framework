@@ -4,6 +4,8 @@ from dataclasses import asdict, dataclass, field
 from enum import Enum, IntEnum
 from typing import Any, Dict, Optional, Tuple
 
+from tools.provenance import evidence_provenance, runtime_identity, utc_timestamp
+
 
 CHECKPOINT_FORMAT_VERSION = "1.0"
 EVIDENCE_FORMAT_VERSION = "1.0"
@@ -205,18 +207,34 @@ class ExecutionCheckpoint:
     next_recommended_action: str
     execution_status: ExecutionStatus
     restricted_context_present: bool = False
+    created_at: str = field(default_factory=utc_timestamp)
+    runtime: str = field(default_factory=runtime_identity)
 
     def to_dict(self) -> Dict[str, Any]:
         value = asdict(self)
         value["routing_tier"] = int(self.routing_tier)
         value["execution_status"] = self.execution_status.value
         value["authority"] = "DERIVED_EXECUTION_STATE_NOT_APPROVAL"
+        value["provenance"] = evidence_provenance(
+            evidence_type="execution_checkpoint",
+            repository_commit=self.repository_commit,
+            generated_at=self.created_at,
+            runtime=self.runtime,
+            operation="checkpoint",
+            execution_id=self.execution_id,
+            task_id=self.task_id,
+            requested_scope=self.scope,
+            effective_scope=self.selected_context,
+            source_asset=self.task_id,
+            result=self.execution_status.value,
+        )
         return value
 
     @classmethod
     def from_dict(cls, value: Dict[str, Any]) -> "ExecutionCheckpoint":
         copied = dict(value)
         copied.pop("authority", None)
+        copied.pop("provenance", None)
         for field_name in (
             "scope",
             "selected_context",
@@ -258,9 +276,16 @@ class ExecutionEvidence:
     routing_decisions: Tuple[RoutingDecision, ...] = ()
     checkpoint_references: Tuple[str, ...] = ()
     human_required: bool = False
+    task_id: Optional[str] = None
+    index_fingerprint: Optional[str] = None
+    requested_scope: Tuple[str, ...] = ()
+    effective_scope: Tuple[str, ...] = ()
+    generated_at: str = field(default_factory=utc_timestamp)
+    runtime: str = field(default_factory=runtime_identity)
+    result: Optional[str] = None
 
     def to_dict(self) -> Dict[str, Any]:
-        return {
+        value = {
             "format_version": self.format_version,
             "execution_id": self.execution_id,
             "repository_commit": self.repository_commit,
@@ -274,5 +299,20 @@ class ExecutionEvidence:
             "routing_decisions": [item.to_dict() for item in self.routing_decisions],
             "checkpoint_references": list(self.checkpoint_references),
             "human_required": self.human_required,
-            "authority": "EVIDENCE_ONLY_NOT_APPROVAL",
+            "authority": "DERIVED_EXECUTION_EVIDENCE_NOT_APPROVAL",
+            "provenance": evidence_provenance(
+                evidence_type="execution_evidence",
+                repository_commit=self.repository_commit,
+                index_fingerprint=self.index_fingerprint,
+                generated_at=self.generated_at,
+                runtime=self.runtime,
+                operation=self.operation,
+                execution_id=self.execution_id,
+                task_id=self.task_id,
+                requested_scope=self.requested_scope,
+                effective_scope=self.effective_scope,
+                source_asset=self.task_id,
+                result=self.result,
+            ),
         }
+        return value
