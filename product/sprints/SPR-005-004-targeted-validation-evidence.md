@@ -58,6 +58,7 @@ EFF-VAL-001 is complete, targeted and full paths are tested, provenance is revie
 - JSON report format 2.0 records repository and runtime provenance, modes, scope, closure, fallback, validator IDs, policy fingerprint, results, and explicit scan-count semantics.
 - Full validation remains the CI and REL-005 release-gate default.
 - EFF-VAL-001 is **In Review** pending human review and Product Owner approval; Sprint 5.4 is not complete.
+- Implementation status: **Complete**. Human approval status: **Pending**.
 
 ## Carried Findings
 

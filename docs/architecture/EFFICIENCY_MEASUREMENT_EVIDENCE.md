@@ -131,7 +131,7 @@ Efficiency evaluation MUST reject a favorable resource metric when paired qualit
 
 ## Evidence Representation
 
-Future machine-readable evidence SHOULD support:
+Machine-readable evidence SHOULD support:
 
 - stable field names and schema version;
 - source revision and execution identity;
@@ -164,7 +164,7 @@ Budgets, checkpoints, loops, and routing MUST expose configured dimensions, cons
 
 Targeted validation MUST expose requested scope, affected closure, actual files or assets scanned, full-population basis, fallback reason, validator set, errors, warnings, incomplete execution, and evidence provenance.
 
-These requirements define later conformance interfaces; they do not implement those mechanisms in Sprint 5.1.
+The v0.5 context, execution-governance, and validation packages implement these conformance interfaces where measurements are locally observable. External execution telemetry and cross-run aggregation remain outside v0.5.
 
 ## Human Authority
 

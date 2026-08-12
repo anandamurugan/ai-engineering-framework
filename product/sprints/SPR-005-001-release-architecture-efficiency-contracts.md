@@ -57,6 +57,7 @@ Both stories are approved through the repository lifecycle, their governed contr
 - [Execution Efficiency and Context Management](../../docs/architecture/EXECUTION_EFFICIENCY_CONTEXT_MANAGEMENT.md) defines EFF-CTX-001 context classes, Minimum Sufficient Context, progression, task boundary, budgets, tiers, escalation, loops, checkpoints, reuse, Least Context Privilege, evidence, and future conformance requirements.
 - [Efficiency Measurement and Evidence Contract](../../docs/architecture/EFFICIENCY_MEASUREMENT_EVIDENCE.md) defines EFF-MET-001 metrics, measurement boundaries, unavailable-data behavior, paired quality measures, anti-gaming controls, and later-sprint evidence interfaces.
 - EFF-CTX-001 and EFF-MET-001 are **In Review**. Sprint 5.1 is not complete until required human review and Product Owner approval are recorded.
+- Implementation status: **Complete**. Human approval status: **Pending**.
 - No repository index, routing engine, checkpoint runtime, changed-file validator, vendor adapter, or local-model integration is included.
 
 ## Carried Findings

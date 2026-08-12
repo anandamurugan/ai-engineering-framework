@@ -23,7 +23,7 @@ This document is the authoritative EFF-CTX-001 capability contract for bounded, 
 
 Efficiency means using the minimum sufficient authorized context and capability while still producing correct, secure, private, validated, and reviewable work. Reduced resource use is not success when required context, evidence, controls, or human decisions are omitted.
 
-This contract is vendor-neutral. It defines required behavior and evidence, not a repository index, routing engine, model adapter, local-model integration, checkpoint runtime, or targeted-validation implementation.
+This contract is vendor-neutral. The v0.5 repository index, routing policy, checkpoint persistence, and targeted-validation mechanisms implement parts of it; model adapters, local-model integration, and external execution remain outside its scope.
 
 ## Normative Language
 
@@ -272,11 +272,11 @@ The Sprint 5.3 [execution-governance tooling](../../tools/execution/README.md) i
 
 ### Sprint 5.4 — Targeted Validation and Evidence Provenance
 
-Later validation mechanisms MUST prove affected closure or choose full validation, retain current error semantics, report source revision and scope, make incomplete execution visible, and preserve full validation for release and ambiguous changes. This section does not implement changed-file validation.
+The Sprint 5.4 [validation tooling](../../tools/validation/README.md) proves affected closure or chooses full validation, retains error semantics, reports source revision and scope, makes incomplete execution visible, and preserves full validation for release and ambiguous changes.
 
 ## Conformance Evidence
 
-A future conforming execution SHOULD be able to produce evidence for:
+A conforming execution SHOULD be able to produce evidence for:
 
 - the bounded objective and governing context;
 - initial context and selection rationale;

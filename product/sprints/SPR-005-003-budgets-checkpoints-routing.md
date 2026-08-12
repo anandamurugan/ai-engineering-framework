@@ -58,6 +58,7 @@ Both stories are complete, failure and resumption paths are tested, and automate
 - Generic Tier 1–5 routing returns evidence-backed recommendations only. Tier 5 remains accountable human or specialist authority and cannot be replaced by Tier 4.
 - Focused standard-library tests cover budget boundaries, optional telemetry, checkpoint round trips and staleness, normalized loop signatures and responses, tier selection, escalation, de-escalation, and human-only decisions.
 - EFF-BUD-001 and EFF-ROUTE-001 are **In Review**. Sprint 5.3 is not complete until human review and Product Owner approval are recorded.
+- Implementation status: **Complete**. Human approval status: **Pending**.
 
 ## Carried Findings
 

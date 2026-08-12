@@ -19,7 +19,9 @@ The project mission, scope, values, and capability direction are defined in the 
 | [Agents](agents/) | Role definitions for framework agents |
 | [Playbooks](playbooks/) | Reusable end-to-end delivery guidance |
 | [Workflows](workflows/) | Executable, phase-oriented procedures |
-| [Validation tools](tools/validation/) | Read-only validation execution and evidence foundation |
+| [Context tools](tools/context/) | Derived repository index and explainable targeted context selection |
+| [Execution tools](tools/execution/) | Deterministic budgets, checkpoints, loop controls, and capability recommendations |
+| [Validation tools](tools/validation/) | Full and targeted validation with provenance-rich evidence |
 
 Start with the [feature development playbook](playbooks/feature-development.md) and its [analyze and plan workflow](workflows/01-analyze-plan.md).
 
@@ -27,7 +29,7 @@ Start with the [feature development playbook](playbooks/feature-development.md) 
 
 The [master architecture](docs/architecture/ARCHITECTURE.md) is the entry point for the architecture document set. Supporting documents define repository organization, structured knowledge, future plugins, agent collaboration, governance, execution, security, and framework releases. Architecture decisions are recorded in [`docs/adr/`](docs/adr/).
 
-The current repository provides a knowledge and governance platform made of human-readable and AI-consumable documents plus a read-only [validation framework](tools/validation/README.md). Registered validators cover metadata, schema, IDs, document structure, links, standard references, catalog parity, product traceability, and repository hygiene, with JSON evidence and CI execution. A broader CLI, plugin loading, adapters, and governed agent orchestration remain planned future capabilities.
+The current repository provides a knowledge and governance platform plus vendor-neutral [context](tools/context/README.md), [execution-governance](tools/execution/README.md), and [validation](tools/validation/README.md) tooling. The tools derive a repository index, select explainable context, evaluate configurable budgets, preserve checkpoints, detect loops, recommend generic capability tiers, and run full or safely targeted validation with JSON evidence. They do not invoke models or authorize human decisions. A broader CLI, plugin loading, vendor adapters, and governed agent orchestration remain future capabilities.
 
 ## Product Management
 
@@ -35,6 +37,8 @@ The framework is managed as a product using versioned releases, epics, sprints, 
 
 - [Release v0.4.0 – Enterprise Standards Framework](product/releases/REL-v0.4.md) — released 2026-08-08
 - [EPIC-001 – Enterprise Standards Framework](product/epics/EPIC-001-enterprise-standards-framework.md)
+- [Release v0.5 – Efficient Agentic Execution & Context Engineering](product/releases/REL-v0.5.md) — In Progress
+- [EPIC-002 – Efficient Agentic Execution & Context Engineering](product/epics/EPIC-002-efficient-agentic-execution-context-engineering.md) — In Progress
 
 ## Standards Foundation
 

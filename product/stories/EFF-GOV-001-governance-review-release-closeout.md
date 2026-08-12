@@ -2,7 +2,7 @@
 id: STORY-EFF-GOV-001
 title: Deliver EFF-GOV-001 Governance Review, Deferred Findings & Release Closeout
 version: 0.5.0
-status: Proposed
+status: In Review
 owner: Framework PMO
 release: REL-005
 epic: EPIC-002
@@ -66,3 +66,9 @@ All mandatory reviews and Product Owner approval are recorded without fabricatio
 ## Product Owner Approval
 
 Product Owner approval is required before this story is complete.
+
+## Implementation Review Evidence
+
+Implementation is complete and **In Review**. The [REL-005 release-readiness package](../../docs/reviews/REL-005-release-readiness.md) contains the end-to-end scenario, invariant coverage, efficiency and performance measurements, vendor-neutrality and security/privacy assessments, v0.4 finding dispositions, remaining-gap dispositions, acceptance reviews, and release checklist.
+
+Architecture, Domain, Documentation, Security, and Product Owner approvals remain Pending. Automated PASS evidence, checkpoints, routing decisions, and implementation completion do not satisfy those human gates.

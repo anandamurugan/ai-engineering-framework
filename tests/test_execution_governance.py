@@ -7,6 +7,7 @@ from pathlib import Path
 
 from tools.execution.budget import BudgetEvaluator
 from tools.execution.checkpoint import CheckpointStore
+from tools.execution.cli import main
 from tools.execution.loop import LoopDetector
 from tools.execution.models import (
     CHECKPOINT_FORMAT_VERSION,
@@ -326,6 +327,25 @@ class RoutingTests(unittest.TestCase):
         self.assertIn("triggering_factors", value)
         self.assertNotIn("model", value)
         self.assertNotIn("provider", value)
+
+
+class ExecutionCliSecurityTests(unittest.TestCase):
+    def test_paths_outside_repository_are_rejected(self):
+        root = Path(__file__).resolve().parents[1]
+        self.assertEqual(
+            2,
+            main(
+                (
+                    "--root",
+                    str(root),
+                    "route",
+                    "--factors",
+                    "../outside.json",
+                    "--current-tier",
+                    "1",
+                )
+            ),
+        )
 
 
 if __name__ == "__main__":

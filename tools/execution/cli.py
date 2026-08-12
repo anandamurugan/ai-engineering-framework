@@ -75,11 +75,28 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     except RuntimeError as error:
         print("ERROR: {}".format(error), file=sys.stderr)
         return 2
+    try:
+        for name in (
+            "profile",
+            "state",
+            "context_manifest",
+            "input",
+            "checkpoint",
+            "events",
+            "factors",
+            "output",
+        ):
+            raw_path = getattr(arguments, name, None)
+            if raw_path:
+                setattr(arguments, name, _repository_path(root, raw_path))
+    except ValueError as error:
+        print("ERROR: {}".format(error), file=sys.stderr)
+        return 2
     commit = RepositoryView(root).current_commit()
 
     if arguments.command == "budget":
-        profile = _profile(read_json(root / arguments.profile))
-        state_value = read_json(root / arguments.state)
+        profile = _profile(read_json(arguments.profile))
+        state_value = read_json(arguments.state)
         state = BudgetState(
             values=state_value.get("values", {}),
             triggering_event=state_value.get("triggering_event", "state_loaded"),
@@ -89,7 +106,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         fallback = False
         expansions = int(state.values.get("context_expansions") or 0)
         if arguments.context_manifest:
-            manifest = read_json(root / arguments.context_manifest)
+            manifest = read_json(arguments.context_manifest)
             state = BudgetEvaluator.from_context_manifest(
                 manifest, existing=state.values, triggering_event=state.triggering_event
             )
@@ -111,48 +128,57 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
                 for item in evaluations
             ),
         )
-        write_json(evidence.to_dict(), root / arguments.output)
+        write_json(evidence.to_dict(), arguments.output)
         print("Evaluated {} budget dimensions.".format(len(evaluations)))
-        print("Evidence: {}".format(root / arguments.output))
+        print("Evidence: {}".format(arguments.output))
         return 0
 
     if arguments.command == "checkpoint":
         if arguments.checkpoint_command == "create":
-            checkpoint = ExecutionCheckpoint.from_dict(read_json(root / arguments.input))
-            CheckpointStore.write(checkpoint, root / arguments.output)
-            print("Checkpoint: {}".format(root / arguments.output))
+            checkpoint = ExecutionCheckpoint.from_dict(read_json(arguments.input))
+            CheckpointStore.write(checkpoint, arguments.output)
+            print("Checkpoint: {}".format(arguments.output))
             return 0
-        checkpoint = CheckpointStore.read(root / arguments.checkpoint)
+        checkpoint = CheckpointStore.read(arguments.checkpoint)
         resume = CheckpointStore.resume(checkpoint, commit)
         print("{}: {}".format(resume.status, "; ".join(resume.reasons) or "compatible"))
         return 0 if resume.compatible else 1
 
     if arguments.command == "loop":
-        value = read_json(root / arguments.events)
+        value = read_json(arguments.events)
         events = tuple(FailureEvent(**item) for item in value.get("events", []))
         evaluation = LoopDetector().evaluate(
             events,
             threshold=arguments.threshold,
             response=LoopResponse(arguments.response),
         )
-        write_json(evaluation.to_dict(), root / arguments.output)
+        write_json(evaluation.to_dict(), arguments.output)
         print("{}: {}".format(evaluation.response.value, evaluation.reason))
-        print("Evidence: {}".format(root / arguments.output))
+        print("Evidence: {}".format(arguments.output))
         return 0
 
-    value = read_json(root / arguments.factors)
+    value = read_json(arguments.factors)
     factors = _factors(value)
     decision = Router(RoutingPolicy.baseline()).decide(
         CapabilityTier(arguments.current_tier), factors
     )
-    write_json(decision.to_dict(), root / arguments.output)
+    write_json(decision.to_dict(), arguments.output)
     print(
         "Tier {} -> Tier {} ({}).".format(
             int(decision.current_tier), int(decision.recommended_tier), decision.transition
         )
     )
-    print("Evidence: {}".format(root / arguments.output))
+    print("Evidence: {}".format(arguments.output))
     return 0
+
+
+def _repository_path(root: Path, raw_path: str) -> Path:
+    candidate = (root / raw_path).resolve()
+    try:
+        candidate.relative_to(root)
+    except ValueError:
+        raise ValueError("execution evidence path resolves outside the repository")
+    return candidate
 
 
 def _profile(value: Dict[str, Any]) -> BudgetProfile:
