@@ -50,7 +50,8 @@ This document defines the target logical organization and ownership boundaries o
 | `standards/` | Mandatory requirements within a declared scope | Must have clear ownership and avoid implementation recipes |
 | `templates/` | Reusable document, prompt, and configuration starting points | Examples of form, not automatically approved policy |
 | `examples/` | Demonstrations and learning scenarios | Non-normative and clearly labeled |
-| `tools/` | Validators and future generators or maintenance utilities | Tool behavior must implement approved contracts; current validation is documented in [`tools/validation/`](../../tools/validation/README.md) |
+| `tools/` | Deterministic repository intelligence, execution-governance, provenance, validation, and maintenance utilities | Tool behavior implements approved contracts and produces derived evidence; tools do not become normative authority or human approval |
+| `tests/` | Standard-library unit and integration tests for governed tooling and invariants | Tests provide conformance evidence and do not approve governed artifacts |
 | `docs/` | Architecture, decisions, contributor guidance, and explanatory documentation | Architecture and ADRs govern structural evolution |
 | `reference/` | Controlled terms, identifiers, and stable lookup material | Changes require compatibility review |
 
@@ -76,7 +77,14 @@ The repository currently contains root governance documents plus:
 - `standards/` with readiness, completion, risk, and human-oversight controls;
 - `docs/architecture/` and `docs/adr/` introduced by this blueprint.
 
-The `templates/` directory supports standards authoring, and `tools/validation/` provides the initial validation execution foundation. The target-only directories `framework/`, `plugins/`, `examples/`, and `reference/` do not currently exist.
+The `templates/` directory supports standards authoring. Current deterministic tooling is separated by responsibility:
+
+- `tools/context/` builds the derived `RepositoryView` index and selects explainable context; repository artifacts remain authoritative.
+- `tools/execution/` evaluates supplied budgets and structured factors, persists checkpoints, detects repeated failures, and recommends generic capability tiers without executing models.
+- `tools/validation/` provides FULL and safely targeted validation with explicit scope and fallback.
+- `tools/provenance.py` supplies the small shared non-approval provenance envelope used across derived evidence.
+
+Generated context, execution, and validation reports are ignored derived evidence rather than governed source artifacts. `tests/` verifies deterministic behavior and governance invariants. Future vendor adapters, semantic source dependency inference, persistent orchestration, and cross-session runtime reconciliation are not present. The target-only directories `framework/`, `plugins/`, `examples/`, and `reference/` do not currently exist.
 
 ## Incremental migration
 

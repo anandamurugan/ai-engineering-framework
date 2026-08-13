@@ -64,5 +64,5 @@ Both stories are complete, failure and resumption paths are tested, and automate
 
 | Finding | Sprint 5.3 disposition |
 | --- | --- |
-| ARCH-REL004-004 | Partially addressed through explicit failure-path tests for budget, checkpoint, loop, and routing controls. Validation-registry uniqueness and validator-specific exception coverage remain assigned to EFF-VAL-001 in Sprint 5.4. |
+| ARCH-REL004-004 | At the Sprint 5.3 milestone, explicit failure-path tests covered budget, checkpoint, loop, and routing controls; validation-registry uniqueness and validator exception coverage were assigned to EFF-VAL-001 and were subsequently implemented in Sprint 5.4. |
 | SEC-REL004-006 | Materially addressed for the Sprint 5.3 layer through configurable resource thresholds, bounded retries and equivalent failures, safe stop/human responses, minimal hashed signatures, and checkpoint compatibility checks. Broader validator resource bounds remain assigned to EFF-VAL-001. |

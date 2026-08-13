@@ -54,4 +54,4 @@ EFF-GOV-001 is complete, required human reviews are recorded without fabrication
 
 Sprint 5.5 implementation is complete and **In Review**. The deterministic integration scenario, governance-invariant tests, measurable efficiency evidence, finding and backlog dispositions, security/privacy analysis, performance observations, acceptance reviews, and separate human review packages are recorded in the [REL-005 release-readiness package](../../docs/reviews/REL-005-release-readiness.md).
 
-Implementation completion does not complete the sprint. Architecture, Domain, Documentation, Security, and Product Owner decisions remain Pending; hosted CI for the Sprint 5.5 pull request is also pending. REL-005 remains In Progress and no release tag is authorized.
+Implementation completion does not complete the sprint. Framework Validation CI passed for the merged Sprint 5.5 work and its Architecture-remediation follow-up. Architecture remains Approve with Conditions pending human confirmation; Domain, Documentation, Security, and Product Owner decisions remain Pending. REL-005 remains In Progress and no release tag is authorized.
