@@ -19,7 +19,7 @@ last_updated: 2026-08-08
 
 The Enterprise Agentic SDLC Framework is a vendor-neutral set of governance, knowledge, collaboration, and execution contracts for responsible AI-assisted software delivery. Its architecture separates enduring enterprise authority and engineering guidance from replaceable agents, tools, and delivery platforms.
 
-The repository implements the knowledge and governance layer as Markdown artifacts and the REL-004 read-only [validation framework](../../tools/validation/README.md). The validation framework provides a centralized registry, common result and severity contracts, JSON evidence, repository conformance checks, and GitHub Actions execution. A broader CLI, plugin loading, adapters, and orchestration remain future-state concepts; this document defines boundaries for their eventual design without claiming they exist.
+The repository implements governed Markdown artifacts plus the deterministic REL-005 execution-efficiency governance toolkit. Its [repository intelligence and context selection](../../tools/context/README.md) provide `RepositoryView`, derived indexing, Minimum Sufficient Context, and progressive loading; its [execution governance](../../tools/execution/README.md) provides budgets, checkpoints, loop detection, and generic Tier 1–5 routing; and its [validation framework](../../tools/validation/README.md) provides common non-approval provenance, targeted validation, deterministic FULL fallback, and CI evidence under accountable human authority. Detailed component boundaries appear in [Core components](#core-components) and [Current state](#current-state). Model execution, autonomous orchestration, and vendor adapters remain outside REL-005.
 
 ## Context and problem statement
 
