@@ -116,7 +116,12 @@ Cross-cutting controls for risk, access, decisions, approvals, evidence, excepti
 | Templates and examples | Provide reusable non-authoritative artifacts | Planned |
 | Plugins | Package technology-specific extensions | Proposed concept only |
 | Adapters | Connect vendors and engineering tools | Planned |
-| Validation tooling | Check metadata, schema, IDs, structure, links, relationships, catalog and product traceability, defined lifecycle rules, and repository hygiene | Implemented for REL-004 with JSON evidence and CI execution; documented limitations remain |
+| Validation tooling | Check metadata, schema, IDs, structure, links, relationships, catalog and product traceability, defined lifecycle rules, and repository hygiene | Implemented for REL-004; REL-005 adds safely targeted modes, affected closure, FULL fallback, and richer provenance |
+| RepositoryView and derived index | Build a deterministic, metadata-only view of governed assets, relationships, exclusions, source revision, and freshness without replacing repository authority | Implemented for REL-005 |
+| Context selection | Select explainable Minimum Sufficient Context, mandatory repository instructions, task governance, standards, targets, dependencies, and progressive fallback into a `ContextManifest` | Implemented for REL-005 |
+| Execution governance | Evaluate configurable budgets, persist non-approval checkpoints, detect repeated failures, and recommend generic Tier 1–5 capability transitions | Implemented for REL-005; deterministic recommendations only |
+| Evidence provenance | Attribute context, budget, routing, loop, checkpoint, and validation evidence through a shared non-approval provenance envelope | Implemented for REL-005 |
+| Targeted validation | Run targeted-asset, changed-file, or affected-closure validation with explicit scope and deterministic FULL fallback | Implemented for REL-005; FULL remains the release gate |
 | Orchestration | Coordinate bounded execution and approvals | Planned |
 
 ## Information flow
@@ -153,17 +158,20 @@ The repository separates authoritative policy, reusable knowledge, role definiti
 
 ## Current state
 
-Version `0.2.0` remains a proposed architecture blueprint layered on the Markdown knowledge and governance foundation. REL-004 adds an executable, dependency-free Python validation framework and CI conformance workflow without introducing a broader framework CLI, plugin runtime, plugin manifest schema, adapter runtime, orchestration engine, or release automation. Detailed validator behavior and limitations are maintained in the [validation documentation](../../tools/validation/README.md).
+The proposed architecture blueprint remains layered on the Markdown knowledge and governance foundation. REL-004 added the dependency-free validation framework and CI conformance workflow. The REL-005 implementation adds a deterministic, vendor-neutral execution-efficiency governance toolkit: governed repository artifacts remain authoritative; `RepositoryView` derives a fresh metadata index; context selection produces an explainable `ContextManifest` using Minimum Sufficient Context and progressive loading; execution governance evaluates budgets, checkpoints, loops, and Tier 1–5 routing; shared provenance marks derived evidence as non-approval; and validation supports safely targeted modes while preserving FULL validation for release gates and uncertain scope.
+
+These layers compose through explicit evidence rather than a monolithic execution engine. Tier 5 remains accountable human or specialist authority. The toolkit does not invoke models, execute recommended capabilities, authorize restricted context, approve governed decisions, or autonomously orchestrate delivery.
 
 ## Future state
 
 Subject to approved ADRs and incremental delivery, the framework may add:
 
-- shared repository indexing and more targeted validation execution as scale warrants;
+- broader reuse of the shared repository index and semantic source-code dependency inference;
 - search and indexing of structured knowledge;
 - packaging and compatibility checks for plugins;
 - vendor-specific adapters behind neutral contracts;
-- governed orchestration with identity, approvals, evidence, and audit integration;
+- model execution and governed persistent orchestration with identity, approvals, evidence, and audit integration;
+- cross-session checkpoint reconciliation and external model/runtime telemetry;
 - reference implementations demonstrating conformance.
 
 ## Key architectural risks

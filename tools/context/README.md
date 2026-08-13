@@ -124,11 +124,11 @@ The selector reports fallback; it does not approve access or make a human govern
 
 ## Limitations and Deferred Work
 
-- The repository view is reusable by future validators, but existing validators were not rewritten in Sprint 5.2.
+- At the completion of Sprint 5.2, broader validator reuse, execution governance, and targeted validation remained assigned to later v0.5 sprints. The current release candidate now composes the independently usable layers: Sprint 5.2 provides indexing and context selection; Sprint 5.3 provides budgets, checkpoints, loop controls, and routing; Sprint 5.4 provides targeted validation and provenance; and Sprint 5.5 provides integration and governance evidence.
+- RepositoryView is reused for targeted planning and framework-ID integrity; broader adoption by every repository-wide validator remains an incremental opportunity.
 - Relationship discovery is explicit and deterministic; it does not infer semantic source-code dependencies.
 - Restricted-path policy must be supplied by an authorized caller until a governed execution-profile mechanism exists.
-- Budget, checkpoint, retry, loop, and routing engines remain Sprint 5.3 work.
-- Changed-file and dependency-closure validation remain Sprint 5.4 work.
+- Context tooling remains independently usable and does not orchestrate the execution or validation layers.
 - The tool has no model SDK, routing, local-model, vendor-adapter, prompt, playbook, or workflow dependency.
 
 ## Governance Boundary

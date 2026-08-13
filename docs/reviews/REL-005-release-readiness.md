@@ -2,7 +2,7 @@
 
 ## Record Boundary
 
-This package records Sprint 5.5 implementation evidence for REL-005 at repository commit `630c9ad` plus the changes proposed by the Sprint 5.5 branch. Measurements are local observations from 2026-08-10 and are not performance targets. Automated results, routing recommendations, checkpoints, and this package are evidence only; they do not approve architecture, security, documentation, domain, Product Owner, release, deployment, risk, or exceptions.
+This package preserves original Sprint 5.5 evidence from repository commit `630c9ad` and records the later Architecture remediation merged through current release-candidate commit `84d808a83c946cdd619ec3a7c449bc9d1b64c56b`. Measurements dated 2026-08-10 are historical pre-Architecture-remediation observations and are not performance targets. The post-remediation context evidence below was generated from current main on 2026-08-12. Automated results, routing recommendations, checkpoints, CI, and this package are evidence only; they do not approve architecture, security, documentation, domain, Product Owner, release, deployment, risk, or exceptions.
 
 Risk classification is **Medium** because the change affects shared governance evidence and developer tooling but is reversible and has no production execution. Independent human review and complete automated validation are required.
 
@@ -39,7 +39,9 @@ Result: **PASS** for deterministic integration behavior; human escalation is the
 
 ## Efficiency Evidence Summary
 
-Representative local measurements from one run on 2026-08-10:
+### Historical Sprint 5.5 measurements
+
+Representative local measurements from one pre-Architecture-remediation run on 2026-08-10:
 
 | Evidence | Observed value |
 | --- | ---: |
@@ -58,7 +60,19 @@ Representative local measurements from one run on 2026-08-10:
 | Routing decision | 0.015 ms |
 | Loop evaluation | 0.054 ms |
 
-The index reads each metadata-bearing asset once per build. The representative targeted context set is 4 of 84 indexed assets, and targeted validation produced results for 25 assets versus 73 in full mode. These are measured file/scope observations, not token or universal performance claims. Global integrity validators still run in targeted mode, so runtime does not decrease in direct proportion to result-bearing assets.
+The historical index read each metadata-bearing asset once per build. Before mandatory repository instructions were added to selector completeness, the representative targeted context set was 4 of 84 indexed assets. Targeted validation produced results for 25 assets versus 73 in full mode. These are historical measured file/scope observations, not token or universal performance claims. Global integrity validators still run in targeted mode, so runtime does not decrease in direct proportion to result-bearing assets.
+
+### Current post-Architecture-remediation context evidence
+
+On current main commit `84d808a83c946cdd619ec3a7c449bc9d1b64c56b`, `python3 -m tools.context select --story EFF-GOV-001` selected 5 files, with 0 restricted entries, 0 unresolved entries, no fallback, and `governing_context_complete: true`. The selected paths were:
+
+- `AGENTS.md`
+- `product/epics/EPIC-002-efficient-agentic-execution-context-engineering.md`
+- `product/releases/REL-v0.5.md`
+- `product/sprints/SPR-005-005-governance-release-closeout.md`
+- `product/stories/EFF-GOV-001-governance-review-release-closeout.md`
+
+The additional file is the mandatory root repository instruction introduced by the Architecture remediation. This current observation supplements rather than rewrites the original four-file measurement.
 
 Context expansion is represented by explicit expansion levels and reasons; the representative initial selection needed no expansion. Restricted, unresolved, duplicate, stale, and governance-sensitive cases produce explicit fallback evidence. Eleven budget dimensions are supported: files, bytes, expansions, traversals, retrievals, tools, executions, retries, equivalent failures, duration, and optional tokens. Loop thresholds are caller-configurable and signatures are bounded hashes. Routing provides five conceptual tiers. Checkpoint resume verifies format and repository commit. Validation records runner elapsed time, validator set, scope, affected closure, fallback, result, and repository-read counts.
 
@@ -134,7 +148,7 @@ The v0.4 release artifact and its accepted-risk record are unchanged.
 | Persistent execution orchestration | future backlog |
 | External-model execution | future backlog |
 | Cross-session runtime and checkpoint reconciliation | future backlog |
-| Hosted CI result for the Sprint 5.5 PR | administrative |
+| Hosted CI result for the Sprint 5.5 and Architecture-remediation PRs | satisfied; Framework Validation passed before merge |
 | Branch protection and workflow ownership verification | administrative |
 
 ## Security and Privacy Review Evidence
@@ -198,7 +212,7 @@ Anti-gaming controls are documented and executable at the relevant boundaries: i
 | --- | --- | --- |
 | Architecture Review | Approve with Conditions — Remediation Pending Human Confirmation | Human Architecture Reviewer | The supplied human decision requires ARCH-REL005-001 and ARCH-REL005-002 remediation. Implementation evidence records both as remediated after validation; the Architecture Review remains conditional until the human reviewer confirms satisfaction. |
 | Domain Review | Pending (mandatory under REL-005 exit criteria) | Review ownership visibility, shared execution terminology, and partial DOM-REL004-003 disposition. |
-| Documentation Review | Pending | Review README, roadmap, changelog, release/epic/sprints/stories, architecture contracts, tool READMEs, SECURITY.md, and this package. |
+| Documentation Review | Remediation Pending Human Review | DOC-REL005-001 through DOC-REL005-006 are being corrected; implementation and automated validation do not self-approve the review. |
 | Security Review | Pending | Review containment fix, evidence minimization, restricted/stale controls, subprocess safety, and residual backlog. |
 | Product Owner | Pending | Decide story/sprint acceptance and release readiness after other evidence and hosted CI are available. |
 
@@ -212,7 +226,7 @@ Anti-gaming controls are documented and executable at the relevant boundaries: i
 - [x] All eight stories reviewed for implementation evidence
 - [x] FULL local validation PASS
 - [x] Complete local test suite PASS
-- [ ] Hosted CI PASS for Sprint 5.5 PR
+- [x] Hosted Framework Validation CI PASS for merged Sprint 5.5 and Architecture-remediation changes
 - [x] Vendor-neutrality assessment prepared
 - [x] Security/privacy assessment prepared
 - [x] Documentation assessment prepared

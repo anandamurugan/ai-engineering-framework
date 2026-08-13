@@ -43,15 +43,15 @@ Establish vendor-neutral contracts for efficient, bounded, auditable AI-assisted
 - Efficiency evidence remains useful when exact token telemetry is unavailable.
 - Quality, security, privacy, and governance gates take precedence over cost or context reduction.
 
-Sprint 5.1 has established the proposed normative context-management and efficiency-measurement contracts. They remain subject to human review; later execution mechanisms are not represented as implemented.
+Sprint 5.1 established the proposed normative context-management and efficiency-measurement contracts. At that milestone, later execution mechanisms were not represented as implemented; subsequent v0.5 sprint records below document their delivery. The contracts remain subject to human review.
 
-Sprint 5.2 has implemented the proposed derived repository view and deterministic targeted-context selector. They remain subject to human review; budgets, checkpoints, routing, and targeted validation are not represented as implemented.
+Sprint 5.2 implemented the proposed derived repository view and deterministic targeted-context selector. At that milestone, budgets, checkpoints, routing, and targeted validation remained assigned to subsequent v0.5 sprints; the following milestones record their implementation. All remain subject to human review.
 
 Sprint 5.3 has implemented proposed deterministic execution budgets, provenance-aware checkpoints, bounded loop detection, and generic capability-tier recommendations. They remain subject to human review; no model execution, vendor routing, or Sprint 5.4 targeted validation is represented as implemented.
 
 Sprint 5.4 has implemented proposed targeted-asset, changed-file, and affected-closure validation with full fallback, registry integrity, exception evidence, RepositoryView reuse, provenance-rich reports, and explicit count semantics. It remains subject to human review.
 
-Sprint 5.5 has completed deterministic integration and governance-invariant testing, release-level efficiency evidence, security/privacy and vendor-neutrality assessment, v0.4 finding and backlog disposition, documentation updates, and separate human review packages. All eight stories are In Review. Hosted CI and required Architecture, Domain, Documentation, Security, and Product Owner decisions remain pending, so REL-005 remains In Progress and is not authorized for release or tagging.
+Sprint 5.5 has completed deterministic integration and governance-invariant testing, release-level efficiency evidence, security/privacy and vendor-neutrality assessment, v0.4 finding and backlog disposition, documentation updates, and separate human review packages. Framework Validation CI passed for the merged Sprint 5.5 and Architecture-remediation changes. All eight stories remain In Review; required human decisions and Product Owner approval remain pending, so REL-005 remains In Progress and is not authorized for release or tagging.
 
 ## Deliverables
 

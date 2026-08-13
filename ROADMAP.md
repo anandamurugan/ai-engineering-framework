@@ -34,7 +34,7 @@ The roadmap communicates intended outcomes rather than delivery commitments. Pri
 - [x] Introduce shared repository indexing, targeted context selection, changed-file validation, and richer execution evidence with safe full-scan fallback.
 - [x] Measure available context, retrieval, execution, retry, validation-scope, tier, and reuse evidence without claiming unmeasured token savings.
 - [x] Preserve quality, security, privacy, validation, and human authority ahead of resource optimization.
-- [ ] Complete hosted CI and required human reviews, Product Owner approval, release authorization, date, and tag.
+- [ ] Complete required human reviews, Product Owner approval, release authorization, date, and tag. Hosted Framework Validation CI has passed for the merged Sprint 5.5 and Architecture-remediation changes.
 
 Playbooks and workflows remain future work outside REL-005; their former v0.5 placement was a planned milestone rather than released scope.
 
