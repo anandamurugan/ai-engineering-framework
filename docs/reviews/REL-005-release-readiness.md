@@ -2,7 +2,7 @@
 
 ## Record Boundary
 
-This package preserves original Sprint 5.5 evidence from repository commit `630c9ad` and records the later Architecture remediation merged through current release-candidate commit `84d808a83c946cdd619ec3a7c449bc9d1b64c56b`. Measurements dated 2026-08-10 are historical pre-Architecture-remediation observations and are not performance targets. The post-remediation context evidence below was generated from current main on 2026-08-12. Automated results, routing recommendations, checkpoints, CI, and this package are evidence only; they do not approve architecture, security, documentation, domain, Product Owner, release, deployment, risk, or exceptions.
+This package preserves original Sprint 5.5 evidence from repository commit `630c9ad` and the post-Architecture-remediation observation captured at commit `84d808a83c946cdd619ec3a7c449bc9d1b64c56b`. The current release-candidate and main commit after Documentation-remediation PR #33 is `837d9039f028ba57263a82d9e005a2b053352f7f`. Measurements dated 2026-08-10 are historical pre-Architecture-remediation observations and are not performance targets; the post-remediation context evidence below was generated at `84d808a` on 2026-08-12 and is not represented as measured at `837d903`. Automated results, routing recommendations, checkpoints, CI, and this package are evidence only; they do not approve architecture, security, documentation, domain, Product Owner, release, deployment, risk, or exceptions.
 
 Risk classification is **Medium** because the change affects shared governance evidence and developer tooling but is reversible and has no production execution. Independent human review and complete automated validation are required.
 
@@ -64,7 +64,7 @@ The historical index read each metadata-bearing asset once per build. Before man
 
 ### Current post-Architecture-remediation context evidence
 
-On current main commit `84d808a83c946cdd619ec3a7c449bc9d1b64c56b`, `python3 -m tools.context select --story EFF-GOV-001` selected 5 files, with 0 restricted entries, 0 unresolved entries, no fallback, and `governing_context_complete: true`. The selected paths were:
+In the post-Architecture-remediation observation captured at commit `84d808a83c946cdd619ec3a7c449bc9d1b64c56b`, `python3 -m tools.context select --story EFF-GOV-001` selected 5 files, with 0 restricted entries, 0 unresolved entries, no fallback, and `governing_context_complete: true`. The selected paths were:
 
 - `AGENTS.md`
 - `product/epics/EPIC-002-efficient-agentic-execution-context-engineering.md`
