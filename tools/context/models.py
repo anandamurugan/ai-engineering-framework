@@ -177,7 +177,7 @@ class ContextManifest:
 
     def to_dict(self) -> Dict[str, Any]:
         effective_scope = tuple(item.path for item in self.selected)
-        result = "COMPLETE" if self.completeness.get("governing_context_complete") else "INCOMPLETE"
+        result = "FALLBACK_REQUIRED" if self.fallback_required else "COMPLETE"
         return {
             "format_version": self.format_version,
             "operation": self.operation,

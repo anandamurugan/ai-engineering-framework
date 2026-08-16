@@ -293,6 +293,8 @@ class ContextSelectionTests(unittest.TestCase):
         self.assertTrue(manifest.completeness["governing_context_complete"])
         self.assertNotIn("architecture.unrelated", ids)
         self.assertLess(len(manifest.selected), len(index.assets) + 1)  # AGENTS.md is direct context.
+        self.assertFalse(manifest.fallback_required)
+        self.assertEqual("COMPLETE", manifest.to_dict()["provenance"]["result"])
 
     def test_applicable_standard_and_direct_relationship_are_selected(self):
         manifest = self.selector().select(task_reference="EFF-IDX-001")
@@ -318,6 +320,7 @@ class ContextSelectionTests(unittest.TestCase):
         self.assertTrue(any(item.asset_id == "STD-API-001" for item in manifest.restricted))
         self.assertTrue(manifest.fallback_required)
         self.assertFalse(manifest.completeness["restricted_required_context_clear"])
+        self.assertEqual("FALLBACK_REQUIRED", manifest.to_dict()["provenance"]["result"])
 
     def test_restricted_repository_instruction_makes_governance_incomplete(self):
         manifest = self.selector(restricted_patterns=("AGENTS.md",)).select(
@@ -328,6 +331,7 @@ class ContextSelectionTests(unittest.TestCase):
         self.assertFalse(manifest.completeness["repository_instructions_resolved"])
         self.assertFalse(manifest.completeness["governing_context_complete"])
         self.assertTrue(manifest.fallback_required)
+        self.assertEqual("FALLBACK_REQUIRED", manifest.to_dict()["provenance"]["result"])
 
     def test_missing_repository_instruction_makes_governance_incomplete(self):
         (self.fixture.root / "AGENTS.md").unlink()
@@ -336,12 +340,14 @@ class ContextSelectionTests(unittest.TestCase):
         self.assertFalse(manifest.completeness["governing_context_complete"])
         self.assertTrue(manifest.fallback_required)
         self.assertTrue(any(item.reference == "AGENTS.md" for item in manifest.unresolved))
+        self.assertEqual("FALLBACK_REQUIRED", manifest.to_dict()["provenance"]["result"])
 
     def test_level_zero_does_not_claim_unloaded_standards_complete(self):
         manifest = self.selector().select(task_reference="EFF-IDX-001", expansion_level=0)
         self.assertFalse(manifest.completeness["applicable_standards_resolved"])
         self.assertFalse(manifest.completeness["governing_context_complete"])
         self.assertTrue(manifest.fallback_required)
+        self.assertEqual("FALLBACK_REQUIRED", manifest.to_dict()["provenance"]["result"])
 
     def test_unresolved_relationship_requires_fallback(self):
         asset = next(item for item in self.index.assets if item.framework_id == "STORY-EFF-IDX-001")
@@ -363,6 +369,8 @@ class ContextSelectionTests(unittest.TestCase):
         )
         self.assertTrue(manifest.fallback_required)
         self.assertTrue(any(item.reference == "MISSING-001" for item in manifest.unresolved))
+        self.assertTrue(manifest.completeness["governing_context_complete"])
+        self.assertEqual("FALLBACK_REQUIRED", manifest.to_dict()["provenance"]["result"])
 
     def test_stale_index_requires_fallback(self):
         manifest = self.selector(
@@ -370,6 +378,7 @@ class ContextSelectionTests(unittest.TestCase):
         ).select(task_reference="EFF-IDX-001")
         self.assertTrue(manifest.fallback_required)
         self.assertFalse(manifest.completeness["index_fresh"])
+        self.assertEqual("FALLBACK_REQUIRED", manifest.to_dict()["provenance"]["result"])
 
     def test_progressive_expansion_is_deterministic(self):
         level_zero = self.selector().select(
@@ -394,6 +403,7 @@ class ContextSelectionTests(unittest.TestCase):
         provenance = value["provenance"]
         self.assertEqual("context_manifest", provenance["evidence_type"])
         self.assertEqual("DERIVED_EXECUTION_EVIDENCE_NOT_APPROVAL", provenance["authority"])
+        self.assertEqual("COMPLETE", provenance["result"])
         self.assertTrue(provenance["runtime"])
         self.assertIsNotNone(datetime.fromisoformat(provenance["generated_at"]))
         self.assertNotIn("source_body", serialized)
