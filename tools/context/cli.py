@@ -6,6 +6,8 @@ import sys
 from pathlib import Path
 from typing import Optional, Sequence
 
+from tools.repository_paths import contained_repository_path
+
 from .repository import RepositoryView
 from .selector import ContextSelector
 
@@ -60,8 +62,14 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     view = RepositoryView(root)
 
     if arguments.command == "index":
+        try:
+            output = contained_repository_path(
+                root, arguments.output, description="context evidence path"
+            )
+        except ValueError as error:
+            print("ERROR: {}".format(error), file=sys.stderr)
+            return 2
         index = view.build()
-        output = root / arguments.output
         view.write(index, output)
         print(
             "Indexed {} assets and {} relationships from {} source reads in {} ms.".format(
@@ -85,7 +93,16 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         print("ERROR: select requires --story, --asset, or --target.", file=sys.stderr)
         return 2
 
-    index_path = root / arguments.index
+    try:
+        index_path = contained_repository_path(
+            root, arguments.index, description="context evidence path"
+        )
+        output = contained_repository_path(
+            root, arguments.output, description="context evidence path"
+        )
+    except ValueError as error:
+        print("ERROR: {}".format(error), file=sys.stderr)
+        return 2
     regenerated = False
     if index_path.exists():
         index = view.read(index_path)
@@ -114,7 +131,6 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         expansion_level=arguments.expand_to,
         full_fallback=arguments.full_fallback,
     )
-    output = root / arguments.output
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(
         json.dumps(manifest.to_dict(), indent=2, sort_keys=True) + "\n",

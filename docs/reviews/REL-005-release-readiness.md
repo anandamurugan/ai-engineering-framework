@@ -155,7 +155,7 @@ The v0.4 release artifact and its accepted-risk record are unchanged.
 
 Review scope: `tools/context`, `tools/execution`, and `tools/validation`.
 
-- Path traversal: context targets and Markdown targets resolve beneath the root; Sprint 5.5 adds repository containment for all execution CLI input/output paths.
+- Path traversal: context targets and Markdown targets resolve beneath the root; shared repository containment rejects context, execution, and validation CLI evidence paths whose absolute, parent-traversal, or symlink-resolved target escapes the repository.
 - Subprocess safety: Git calls use fixed argument arrays, no shell, captured output, and explicit working directories.
 - Sensitive evidence: indexes contain metadata, checkpoints use identifiers/references, loop events store hashes, and guidance prohibits bodies/secrets/private logs. Generated evidence remains ignored.
 - Restricted context: selection separates restricted entries and routing requires Tier 5 authorization.
@@ -164,7 +164,13 @@ Review scope: `tools/context`, `tools/execution`, and `tools/validation`.
 - Vendor coupling and dynamic execution: no SDK, model invocation, dynamic plugin loading, `eval`, or `exec` exists. YAML scalar handling uses `ast.literal_eval`, not dynamic evaluation.
 - Deserialization: JSON and a repository-defined YAML subset are used; no pickle or unsafe object deserializer exists.
 
-Finding remediated in Sprint 5.5: execution CLI path containment. Residual risks: caller-supplied evidence can still contain sensitive values if callers violate guidance; repository-owned secret scanning and administrative controls remain separate backlog. Security Review decision remains Pending.
+Findings remediated: Sprint 5.5 added execution CLI path containment; SEC-REL005-001 extends the same boundary consistently to context and validation CLI evidence paths through a small shared helper. Focused tests cover valid repository-relative and nested paths, absolute outside paths, parent traversal, symlink escape, context index input/output, context-manifest output, validation-report output, and the existing execution boundary. Residual risks remain: caller-supplied evidence can contain sensitive values if callers violate guidance, repository-owned secret scanning is absent, and branch/ownership controls remain administrative backlog. Security Review decision remains Pending until a human Security Reviewer confirms the remediation and dispositions.
+
+### Security Review Conditional Remediation
+
+| Finding | Implementation disposition | Evidence |
+| --- | --- | --- |
+| SEC-REL005-001 | Remediated | `tools.repository_paths.contained_repository_path` resolves relative or absolute paths, follows existing symlinks, and rejects any result outside the repository without rewriting it. Context `--index`/`--output`, validation `--report`, and existing execution evidence paths use the common boundary and return deterministic CLI error status 2 for unsafe paths. |
 
 ## Test Completeness
 
@@ -213,7 +219,7 @@ Anti-gaming controls are documented and executable at the relevant boundaries: i
 | Architecture Review | Approve with Conditions — Remediation Pending Human Confirmation | Human Architecture Reviewer | The supplied human decision requires ARCH-REL005-001 and ARCH-REL005-002 remediation. Implementation evidence records both as remediated after validation; the Architecture Review remains conditional until the human reviewer confirms satisfaction. |
 | Domain Review | Approved — DOM-REL005-001 Condition Satisfied | Human Domain Reviewer | The authorized human decision records Domain Review as Approved based on merged-main commit `c695bf65eb67fc2a8ce75e4efa68b8b03f7fc10a`: FULL validation PASS, 131 tests PASS, focused context tests PASS, hosted Framework Validation CI PASS, `main == origin/main`, and a clean working tree. No reviewer identity, signature, credentials, or timestamp is inferred. |
 | Documentation Review | Remediation Pending Human Review | DOC-REL005-001 through DOC-REL005-006 are being corrected; implementation and automated validation do not self-approve the review. |
-| Security Review | Pending | Review containment fix, evidence minimization, restricted/stale controls, subprocess safety, and residual backlog. |
+| Security Review | Condition Remediated — Human Review Pending | SEC-REL005-001 is remediated with shared repository containment for context, execution, and validation CLI evidence paths. A human Security Reviewer must confirm the condition and disposition residual risks; this implementation does not approve Security Review. |
 | Product Owner | Pending | Decide story/sprint acceptance and release readiness after other evidence and hosted CI are available. |
 
 ## Release-Readiness Checklist

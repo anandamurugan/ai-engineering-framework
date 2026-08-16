@@ -1,10 +1,12 @@
 """Command-line interface for repository validation."""
 
 import argparse
+import sys
 from pathlib import Path
 from typing import Optional, Sequence
 
 from tools.context.repository import RepositoryView
+from tools.repository_paths import contained_repository_path
 
 from .models import ValidationMode
 from .registry import VALIDATORS
@@ -59,8 +61,13 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     args = build_parser().parse_args(argv)
     repository_root = (args.root or find_repository_root()).resolve()
     report_path = args.report or DEFAULT_REPORT
-    if not report_path.is_absolute():
-        report_path = repository_root / report_path
+    try:
+        report_path = contained_repository_path(
+            repository_root, report_path, description="validation evidence path"
+        )
+    except ValueError as error:
+        print("ERROR: {}".format(error), file=sys.stderr)
+        return 2
 
     view = RepositoryView(repository_root)
     index = view.build()
