@@ -211,7 +211,7 @@ Anti-gaming controls are documented and executable at the relevant boundaries: i
 | Review | Status | Evidence prepared / required decision |
 | --- | --- | --- |
 | Architecture Review | Approve with Conditions — Remediation Pending Human Confirmation | Human Architecture Reviewer | The supplied human decision requires ARCH-REL005-001 and ARCH-REL005-002 remediation. Implementation evidence records both as remediated after validation; the Architecture Review remains conditional until the human reviewer confirms satisfaction. |
-| Domain Review | Approve with Conditions — Remediation Pending Human Confirmation | Human Domain Reviewer | The supplied human decision requires DOM-REL005-001 remediation. Implementation evidence records it as remediated after validation; Domain approval remains conditional until the human reviewer confirms satisfaction. |
+| Domain Review | Approved — DOM-REL005-001 Condition Satisfied | Human Domain Reviewer | The authorized human decision records Domain Review as Approved based on merged-main commit `c695bf65eb67fc2a8ce75e4efa68b8b03f7fc10a`: FULL validation PASS, 131 tests PASS, focused context tests PASS, hosted Framework Validation CI PASS, `main == origin/main`, and a clean working tree. No reviewer identity, signature, credentials, or timestamp is inferred. |
 | Documentation Review | Remediation Pending Human Review | DOC-REL005-001 through DOC-REL005-006 are being corrected; implementation and automated validation do not self-approve the review. |
 | Security Review | Pending | Review containment fix, evidence minimization, restricted/stale controls, subprocess safety, and residual backlog. |
 | Product Owner | Pending | Decide story/sprint acceptance and release readiness after other evidence and hosted CI are available. |
@@ -231,7 +231,7 @@ Anti-gaming controls are documented and executable at the relevant boundaries: i
 - [x] Security/privacy assessment prepared
 - [x] Documentation assessment prepared
 - [ ] Architecture Review approved
-- [ ] Domain Review approved
+- [x] Domain Review approved
 - [ ] Documentation Review approved
 - [ ] Security Review approved
 - [ ] Product Owner approval
@@ -254,10 +254,10 @@ Non-blocking findings remain tracked without implementation in this remediation:
 
 ## Domain Review Conditional Remediation
 
-Decision: **APPROVE WITH CONDITIONS**. Domain approval is not represented as final while the required condition awaits human confirmation.
+Decision: **APPROVED**. The authorized human decision confirms that DOM-REL005-001 is satisfied. It is based on merged-main commit `c695bf65eb67fc2a8ce75e4efa68b8b03f7fc10a` and the confirmed evidence: FULL validation PASS, 131 tests PASS, focused context tests PASS, hosted Framework Validation CI PASS, `main == origin/main`, and a clean working tree. No reviewer identity, signature, credentials, or timestamp is inferred.
 
 | Finding | Implementation disposition | Evidence |
 | --- | --- | --- |
-| DOM-REL005-001 | Remediated | Context-manifest provenance now reports overall selection sufficiency: `COMPLETE` only when no fallback is required, otherwise `FALLBACK_REQUIRED`. Detailed repository, standard, task, restricted-governance, and aggregate governing-context indicators remain independent. Focused tests cover sufficient context, unresolved dependencies with complete governance, restricted context, missing governance, stale/fallback state, and the non-approval authority marker. |
+| DOM-REL005-001 | Condition Satisfied | Context-manifest provenance reports overall selection sufficiency: `COMPLETE` only when no fallback is required, otherwise `FALLBACK_REQUIRED`. Detailed repository, standard, task, restricted-governance, and aggregate governing-context indicators remain independent. Focused tests cover sufficient context, unresolved dependencies with complete governance, restricted context, missing governance, stale/fallback state, and the non-approval authority marker. |
 
 This remediation does not advance Security Review, Product Owner approval, story or sprint lifecycle, EPIC-002, or REL-005 release status.
