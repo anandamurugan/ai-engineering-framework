@@ -100,7 +100,9 @@ The JSON manifest explains:
 
 Completeness uses explainable booleans such as target resolved, dependencies resolved, index fresh, and restricted required context clear. It does not manufacture probabilistic confidence.
 
-Governing completeness separately reports repository instructions, task governance, applicable standards, restricted governance, and the aggregate `governing_context_complete`. The aggregate is true only when the mandatory root instruction exists and is authorized, the task hierarchy resolves, applicable standards at the active expansion level are selected, and no mandatory governance item is restricted. Missing or restricted mandatory governance forces fallback and cannot be represented as a normal complete result.
+Governing completeness separately reports repository instructions, task governance, applicable standards, restricted governance, and the aggregate `governing_context_complete`. The aggregate is true only when the mandatory root instruction exists and is authorized, the task hierarchy resolves, applicable standards at the active expansion level are selected, and no mandatory governance item is restricted. Missing or restricted mandatory governance forces fallback.
+
+The common provenance `result` describes overall context-selection sufficiency rather than only the governing subset. It is `COMPLETE` only when the selection requires no fallback; unresolved required dependencies, restricted required context, stale state, missing governance, or any other fallback condition produces `FALLBACK_REQUIRED`. The detailed governing indicators remain independent so consumers can distinguish complete governance from overall context sufficiency.
 
 The manifest also carries a common non-approval provenance envelope with evidence type/version, commit and index fingerprint, UTC generation time, runtime, operation, requested/effective scope, source task, authority, and completeness result.
 

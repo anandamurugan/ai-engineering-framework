@@ -211,7 +211,7 @@ Anti-gaming controls are documented and executable at the relevant boundaries: i
 | Review | Status | Evidence prepared / required decision |
 | --- | --- | --- |
 | Architecture Review | Approve with Conditions — Remediation Pending Human Confirmation | Human Architecture Reviewer | The supplied human decision requires ARCH-REL005-001 and ARCH-REL005-002 remediation. Implementation evidence records both as remediated after validation; the Architecture Review remains conditional until the human reviewer confirms satisfaction. |
-| Domain Review | Pending (mandatory under REL-005 exit criteria) | Review ownership visibility, shared execution terminology, and partial DOM-REL004-003 disposition. |
+| Domain Review | Approve with Conditions — Remediation Pending Human Confirmation | Human Domain Reviewer | The supplied human decision requires DOM-REL005-001 remediation. Implementation evidence records it as remediated after validation; Domain approval remains conditional until the human reviewer confirms satisfaction. |
 | Documentation Review | Remediation Pending Human Review | DOC-REL005-001 through DOC-REL005-006 are being corrected; implementation and automated validation do not self-approve the review. |
 | Security Review | Pending | Review containment fix, evidence minimization, restricted/stale controls, subprocess safety, and residual backlog. |
 | Product Owner | Pending | Decide story/sprint acceptance and release readiness after other evidence and hosted CI are available. |
@@ -251,3 +251,13 @@ Decision: **APPROVE WITH CONDITIONS**. Architecture approval is not represented 
 | ARCH-REL005-002 | Remediated | A small shared provenance helper supplies evidence type/version, commit/fingerprint, execution/task identity, UTC time, runtime, operation, requested/effective scope, source asset, non-approval authority, and result across context and execution evidence. Checkpoint freshness remains unchanged and validation report 2.0 remains backward compatible. |
 
 Non-blocking findings remain tracked without implementation in this remediation: ARCH-REL005-003 common path containment, ARCH-REL005-004 generic future-release fallback, ARCH-REL005-005 alternating-cycle detection, and ARCH-REL005-006 broader RepositoryView/adapters/orchestration work.
+
+## Domain Review Conditional Remediation
+
+Decision: **APPROVE WITH CONDITIONS**. Domain approval is not represented as final while the required condition awaits human confirmation.
+
+| Finding | Implementation disposition | Evidence |
+| --- | --- | --- |
+| DOM-REL005-001 | Remediated | Context-manifest provenance now reports overall selection sufficiency: `COMPLETE` only when no fallback is required, otherwise `FALLBACK_REQUIRED`. Detailed repository, standard, task, restricted-governance, and aggregate governing-context indicators remain independent. Focused tests cover sufficient context, unresolved dependencies with complete governance, restricted context, missing governance, stale/fallback state, and the non-approval authority marker. |
+
+This remediation does not advance Security Review, Product Owner approval, story or sprint lifecycle, EPIC-002, or REL-005 release status.
