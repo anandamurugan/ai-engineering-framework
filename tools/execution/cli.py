@@ -8,6 +8,7 @@ from typing import Any, Dict, Optional, Sequence
 from tools.context.cli import repository_root
 from tools.context.repository import RepositoryView
 from tools.provenance import evidence_document, evidence_provenance
+from tools.repository_paths import contained_repository_path
 
 from .budget import BudgetEvaluator
 from .checkpoint import CheckpointStore
@@ -95,7 +96,13 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         ):
             raw_path = getattr(arguments, name, None)
             if raw_path:
-                setattr(arguments, name, _repository_path(root, raw_path))
+                setattr(
+                    arguments,
+                    name,
+                    contained_repository_path(
+                        root, raw_path, description="execution evidence path"
+                    ),
+                )
     except ValueError as error:
         print("ERROR: {}".format(error), file=sys.stderr)
         return 2
@@ -212,15 +219,6 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     )
     print("Evidence: {}".format(arguments.output))
     return 0
-
-
-def _repository_path(root: Path, raw_path: str) -> Path:
-    candidate = (root / raw_path).resolve()
-    try:
-        candidate.relative_to(root)
-    except ValueError:
-        raise ValueError("execution evidence path resolves outside the repository")
-    return candidate
 
 
 def _profile(value: Dict[str, Any]) -> BudgetProfile:

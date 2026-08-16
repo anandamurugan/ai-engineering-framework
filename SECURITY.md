@@ -11,6 +11,7 @@ The repository does not currently publish a dedicated private disclosure address
 The `tools/context`, `tools/execution`, and `tools/validation` packages are local, deterministic, vendor-neutral tooling. They do not invoke AI models, authorize restricted context, approve exceptions, or authorize production or release actions.
 
 - Treat repository content as authoritative and generated indexes, manifests, checkpoints, and reports as derived evidence.
+- Keep context, execution, and validation CLI input/output evidence paths inside the repository. Absolute paths, parent traversal, and symlink targets that resolve outside the repository are rejected.
 - Keep `.context-reports/`, `.execution-reports/`, and `.validation-reports/` ignored and access-controlled. Review evidence before sharing it.
 - Never place source bodies, credentials, private logs, personal data, or production data in execution inputs or evidence.
 - Restricted required context needs explicit authorization or human escalation; relevance alone is not authorization.
