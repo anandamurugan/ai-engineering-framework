@@ -227,9 +227,9 @@ Anti-gaming controls are documented and executable at the relevant boundaries: i
 
 | Review | Status | Evidence prepared / required decision |
 | --- | --- | --- |
-| Architecture Review | Approve with Conditions — Remediation Pending Human Confirmation | Human Architecture Reviewer | The supplied human decision requires ARCH-REL005-001 and ARCH-REL005-002 remediation. Implementation evidence records both as remediated after validation; the Architecture Review remains conditional until the human reviewer confirms satisfaction. |
+| Architecture Review | Approved — Conditions Satisfied | Human Architecture Reviewer | The authorized human decision records Architecture Review as Approved and ARCH-REL005-001 and ARCH-REL005-002 as Conditions Satisfied. Remaining Architecture findings stay non-blocking/future debt. No reviewer identity, signature, credentials, or timestamp is inferred. |
 | Domain Review | Approved — DOM-REL005-001 Condition Satisfied | Human Domain Reviewer | The authorized human decision records Domain Review as Approved based on merged-main commit `c695bf65eb67fc2a8ce75e4efa68b8b03f7fc10a`: FULL validation PASS, 131 tests PASS, focused context tests PASS, hosted Framework Validation CI PASS, `main == origin/main`, and a clean working tree. No reviewer identity, signature, credentials, or timestamp is inferred. |
-| Documentation Review | Remediation Pending Human Review | DOC-REL005-001 through DOC-REL005-006 are being corrected; implementation and automated validation do not self-approve the review. |
+| Documentation Review | Approved — Conditions Satisfied | Human Documentation Reviewer | The authorized human decision records Documentation Review as Approved and DOC-REL005-001 through DOC-REL005-006 as Conditions Satisfied. No reviewer identity, signature, credentials, or timestamp is inferred. |
 | Security Review | Approved with Accepted Residual Risk | The authorized human decision records SEC-REL005-001 as Condition Satisfied and explicitly accepts or defers the visible residual findings listed in the Security Review Decision. No reviewer identity, signature, credentials, or timestamp is inferred. |
 | Product Owner | Pending | Decide story/sprint acceptance and release readiness after other evidence and hosted CI are available. |
 
@@ -247,9 +247,9 @@ Anti-gaming controls are documented and executable at the relevant boundaries: i
 - [x] Vendor-neutrality assessment prepared
 - [x] Security/privacy assessment prepared
 - [x] Documentation assessment prepared
-- [ ] Architecture Review approved
+- [x] Architecture Review approved
 - [x] Domain Review approved
-- [ ] Documentation Review approved
+- [x] Documentation Review approved
 - [x] Security Review approved
 - [ ] Product Owner approval
 - [x] Known gaps dispositioned
@@ -258,16 +258,29 @@ Anti-gaming controls are documented and executable at the relevant boundaries: i
 
 REL-005 and EPIC-002 remain **In Progress**. EFF-GOV-001 and all prior EFF stories remain **In Review**. The recorded review decisions do not imply Product Owner approval, lifecycle completion, release authorization, or a tag.
 
-## Architecture Review Conditional Remediation
+## Architecture Review Decision
 
-Decision: **APPROVE WITH CONDITIONS**. Architecture approval is not represented as final while the required conditions await human confirmation.
+Decision: **APPROVED**. The authorized human decision confirms that ARCH-REL005-001 and ARCH-REL005-002 are satisfied. No reviewer identity, signature, credentials, or timestamp is inferred.
 
 | Finding | Implementation disposition | Evidence |
 | --- | --- | --- |
-| ARCH-REL005-001 | Remediated | Context selection includes the actual mandatory root `AGENTS.md` instruction directly, reports repository-instruction, task-governance, applicable-standard, restricted-governance, and aggregate completeness, and forces fallback for missing or restricted mandatory governance. No upstream-preload assumption is used. |
-| ARCH-REL005-002 | Remediated | A small shared provenance helper supplies evidence type/version, commit/fingerprint, execution/task identity, UTC time, runtime, operation, requested/effective scope, source asset, non-approval authority, and result across context and execution evidence. Checkpoint freshness remains unchanged and validation report 2.0 remains backward compatible. |
+| ARCH-REL005-001 | Condition Satisfied | Context selection includes the actual mandatory root `AGENTS.md` instruction directly, reports repository-instruction, task-governance, applicable-standard, restricted-governance, and aggregate completeness, and forces fallback for missing or restricted mandatory governance. No upstream-preload assumption is used. |
+| ARCH-REL005-002 | Condition Satisfied | A small shared provenance helper supplies evidence type/version, commit/fingerprint, execution/task identity, UTC time, runtime, operation, requested/effective scope, source asset, non-approval authority, and result across context and execution evidence. Checkpoint freshness remains unchanged and validation report 2.0 remains backward compatible. |
 
 Non-blocking findings remain tracked without implementation in this remediation: ARCH-REL005-003 common path containment, ARCH-REL005-004 generic future-release fallback, ARCH-REL005-005 alternating-cycle detection, and ARCH-REL005-006 broader RepositoryView/adapters/orchestration work.
+
+## Documentation Review Decision
+
+Decision: **APPROVED**. The authorized human decision confirms that DOC-REL005-001 through DOC-REL005-006 are satisfied. No reviewer identity, signature, credentials, or timestamp is inferred.
+
+| Finding | Authorized disposition |
+| --- | --- |
+| DOC-REL005-001 | Condition Satisfied |
+| DOC-REL005-002 | Condition Satisfied |
+| DOC-REL005-003 | Condition Satisfied |
+| DOC-REL005-004 | Condition Satisfied |
+| DOC-REL005-005 | Condition Satisfied |
+| DOC-REL005-006 | Condition Satisfied |
 
 ## Domain Review Conditional Remediation
 
