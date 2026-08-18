@@ -37,8 +37,8 @@ The framework is managed as a product using versioned releases, epics, sprints, 
 
 - [Release v0.4.0 – Enterprise Standards Framework](product/releases/REL-v0.4.md) — released 2026-08-08
 - [EPIC-001 – Enterprise Standards Framework](product/epics/EPIC-001-enterprise-standards-framework.md)
-- [Release v0.5 – Efficient Agentic Execution & Context Engineering](product/releases/REL-v0.5.md) — In Progress
-- [EPIC-002 – Efficient Agentic Execution & Context Engineering](product/epics/EPIC-002-efficient-agentic-execution-context-engineering.md) — In Progress
+- [Release v0.5.0 – Efficient Agentic Execution & Context Engineering](product/releases/REL-v0.5.md) — released 2026-08-18
+- [EPIC-002 – Efficient Agentic Execution & Context Engineering](product/epics/EPIC-002-efficient-agentic-execution-context-engineering.md) — Completed
 
 ## Standards Foundation
 

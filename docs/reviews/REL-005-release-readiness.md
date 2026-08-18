@@ -80,7 +80,7 @@ Context expansion is represented by explicit expansion levels and reasons; the r
 
 ## Success Assessment
 
-REL-005 demonstrates smaller initial context by default, explainable selection, progressive expansion, configurable budgets, bounded retry, deterministic loop detection, capability escalation/de-escalation, explicit human-only Tier 5, durable checkpoints, targeted validation, full fallback, provenance, and vendor neutrality. Quality and governance remain prerequisites for efficiency success. Human review and release authorization are still pending, so the release is not closed.
+REL-005 demonstrates smaller initial context by default, explainable selection, progressive expansion, configurable budgets, bounded retry, deterministic loop detection, capability escalation/de-escalation, explicit human-only Tier 5, durable checkpoints, targeted validation, full fallback, provenance, and vendor neutrality. Quality and governance remain prerequisites for efficiency success. Required human reviews, Product Owner acceptance, and release authorization are recorded; tag and GitHub Release creation remain contingent on the final merged-main gates.
 
 ## Vendor-Neutrality and Adapter Readiness
 
@@ -253,14 +253,20 @@ Anti-gaming controls are documented and executable at the relevant boundaries: i
 - [x] Security Review approved
 - [x] Product Owner approval
 - [x] Known gaps dispositioned
-- [ ] Release date recorded
+- [x] Release date recorded: 2026-08-18
 - [ ] v0.5 tag created after authorization
 
-All eight EFF stories are **Done**, Sprints 5.1–5.5 are **Completed**, and EPIC-002 is **Completed** under the authorized Product Owner decision. REL-005 remains **In Progress** pending separate final release authorization. No `v0.5.0` tag or GitHub Release is authorized by lifecycle closeout.
+All eight EFF stories are **Done**, Sprints 5.1–5.5 are **Completed**, EPIC-002 is **Completed**, and REL-005 is **Released** under the authorized human decisions. The release date is 2026-08-18. The annotated `v0.5.0` tag and GitHub Release may be created only after every final merged-main gate passes.
 
 ## Product Owner Decision
 
-Decision: **APPROVED**. The authorized Product Owner decision accepts all eight EFF stories, all five sprints, and EPIC-002 for lifecycle completion. Documented non-blocking debt and accepted residual risks remain visible. REL-005 may proceed to final release-readiness closeout, but release authorization, the `v0.5.0` tag, and GitHub Release remain pending. No reviewer identity, signature, credentials, or timestamp is inferred.
+Decision: **APPROVED**. The authorized Product Owner decision accepts all eight EFF stories, all five sprints, and EPIC-002 for lifecycle completion. Documented non-blocking debt and accepted residual risks remain visible. At the Product Owner decision, release authorization, the `v0.5.0` tag, and GitHub Release remained separate pending controls; release authorization is now recorded below. No reviewer identity, signature, credentials, or timestamp is inferred.
+
+## Release Authorization
+
+Decision: **AUTHORIZED FOR RELEASE** on 2026-08-18. REL-005 is recorded as **Released**. The annotated `v0.5.0` tag and non-draft, non-prerelease GitHub Release are authorized only if FULL validation, all tests, diff hygiene, and hosted Framework Validation pass on the same final merged-main commit. No reviewer identity, signature, credentials, or timestamp beyond the authorized release date is inferred.
+
+Accepted and deferred Architecture, Domain, Documentation, and Security findings remain visible. Release authorization does not represent model execution, vendor/model adapters, autonomous orchestration, semantic source-code dependency inference, persistent cross-session runtime, governed restriction profiles, or external model/token/cost telemetry as delivered capabilities.
 
 ## Architecture Review Decision
 

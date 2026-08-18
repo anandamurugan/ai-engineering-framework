@@ -2,9 +2,9 @@
 id: REL-005
 title: Release v0.5 - Efficient Agentic Execution & Context Engineering
 version: 0.5.0
-status: In Progress
+status: Released
 owner: Framework PMO
-target_release: Unscheduled
+target_release: 2026-08-18
 ---
 
 # Release v0.5 – Efficient Agentic Execution & Context Engineering
@@ -43,15 +43,15 @@ Establish vendor-neutral contracts for efficient, bounded, auditable AI-assisted
 - Efficiency evidence remains useful when exact token telemetry is unavailable.
 - Quality, security, privacy, and governance gates take precedence over cost or context reduction.
 
-Sprint 5.1 established the proposed normative context-management and efficiency-measurement contracts. At that milestone, later execution mechanisms were not represented as implemented; subsequent v0.5 sprint records below document their delivery. The contracts remain subject to human review.
+Sprint 5.1 established the proposed normative context-management and efficiency-measurement contracts. At that milestone, later execution mechanisms were not represented as implemented and the contracts remained subject to human review; subsequent v0.5 sprint records document delivery, and the required reviews are now recorded.
 
-Sprint 5.2 implemented the proposed derived repository view and deterministic targeted-context selector. At that milestone, budgets, checkpoints, routing, and targeted validation remained assigned to subsequent v0.5 sprints; the following milestones record their implementation. All remain subject to human review.
+Sprint 5.2 implemented the proposed derived repository view and deterministic targeted-context selector. At that milestone, budgets, checkpoints, routing, and targeted validation remained assigned to subsequent v0.5 sprints; the following milestones record their implementation and completed human review.
 
-Sprint 5.3 has implemented proposed deterministic execution budgets, provenance-aware checkpoints, bounded loop detection, and generic capability-tier recommendations. They remain subject to human review; no model execution, vendor routing, or Sprint 5.4 targeted validation is represented as implemented.
+Sprint 5.3 implemented deterministic execution budgets, provenance-aware checkpoints, bounded loop detection, and generic capability-tier recommendations. At that milestone they remained subject to human review; the required reviews are now recorded. No model execution or vendor routing is represented as implemented.
 
-Sprint 5.4 has implemented proposed targeted-asset, changed-file, and affected-closure validation with full fallback, registry integrity, exception evidence, RepositoryView reuse, provenance-rich reports, and explicit count semantics. It remains subject to human review.
+Sprint 5.4 implemented targeted-asset, changed-file, and affected-closure validation with full fallback, registry integrity, exception evidence, RepositoryView reuse, provenance-rich reports, and explicit count semantics. The required human reviews are now recorded.
 
-Sprint 5.5 completed deterministic integration and governance-invariant testing, release-level efficiency evidence, security/privacy and vendor-neutrality assessment, v0.4 finding and backlog disposition, documentation updates, and separate human review packages. Architecture, Domain, Documentation, Security, and Product Owner decisions are recorded. All eight stories are Done, Sprints 5.1–5.5 are Completed, and EPIC-002 is Completed. REL-005 remains In Progress pending a separate final release authorization and is not yet authorized for tagging or a GitHub Release.
+Sprint 5.5 completed deterministic integration and governance-invariant testing, release-level efficiency evidence, security/privacy and vendor-neutrality assessment, v0.4 finding and backlog disposition, documentation updates, and separate human review packages. Architecture, Domain, Documentation, Security, and Product Owner decisions are recorded. All eight stories are Done, Sprints 5.1–5.5 are Completed, and EPIC-002 is Completed. The authorized human release decision records REL-005 as Released on 2026-08-18. The `v0.5.0` tag and GitHub Release may be created only from the final release commit after its local and hosted gates pass.
 
 ## Deliverables
 
@@ -134,3 +134,9 @@ Metrics MUST NOT reward unsafe under-contexting or discourage required escalatio
 ## Product Owner Decision
 
 Decision: **APPROVED**. The authorized Product Owner decision accepts all eight EFF stories as Done, Sprints 5.1–5.5 as Completed, and EPIC-002 as Completed, with documented non-blocking debt and accepted residual risks remaining visible. REL-005 may proceed to final release-readiness closeout. This decision does not authorize the `v0.5.0` tag or GitHub Release. No reviewer identity, signature, credentials, or timestamp is inferred.
+
+## Release Authorization
+
+Decision: **AUTHORIZED FOR RELEASE** on 2026-08-18. REL-005 is **Released** as version 0.5.0. The annotated `v0.5.0` tag and non-draft, non-prerelease GitHub Release are authorized only after FULL validation, the complete test suite, diff hygiene, and hosted Framework Validation pass on the final merged-main release commit. No reviewer identity, signature, credentials, or timestamp beyond the authorized release date is inferred.
+
+Deferred capabilities remain future scope: model execution, vendor/model adapters, autonomous orchestration, semantic source-code dependency inference, persistent cross-session runtime, governed restriction profiles, and external model/token/cost telemetry. Accepted and deferred Architecture, Domain, Documentation, and Security findings remain visible in the release-readiness package and are not closed by release authorization.
