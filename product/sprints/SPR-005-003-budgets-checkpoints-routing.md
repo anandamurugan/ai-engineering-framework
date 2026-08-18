@@ -2,7 +2,7 @@
 id: SPR-005-003
 title: Sprint 5.3 - Budgets, Checkpoints & Routing
 version: 0.5.0
-status: In Review
+status: Completed
 owner: Framework PMO
 release: REL-005
 epic: EPIC-002
@@ -57,8 +57,8 @@ Both stories are complete, failure and resumption paths are tested, and automate
 - JSON checkpoints preserve budget, retry, loop, routing, escalation, and restricted-context state; incompatible repository commits require revalidation.
 - Generic Tier 1–5 routing returns evidence-backed recommendations only. Tier 5 remains accountable human or specialist authority and cannot be replaced by Tier 4.
 - Focused standard-library tests cover budget boundaries, optional telemetry, checkpoint round trips and staleness, normalized loop signatures and responses, tier selection, escalation, de-escalation, and human-only decisions.
-- EFF-BUD-001 and EFF-ROUTE-001 are **In Review**. Sprint 5.3 is not complete until human review and Product Owner approval are recorded.
-- Implementation status: **Complete**. Human approval status: **Pending**.
+- EFF-BUD-001 and EFF-ROUTE-001 are **Done** under the authorized Product Owner decision.
+- Implementation status: **Complete**. Human approval status: **Approved**. Sprint status: **Completed**.
 
 ## Carried Findings
 

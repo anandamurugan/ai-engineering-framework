@@ -2,7 +2,7 @@
 id: SPR-005-005
 title: Sprint 5.5 - Governance Validation & Release Closeout
 version: 0.5.0
-status: In Review
+status: Completed
 owner: Framework PMO
 release: REL-005
 epic: EPIC-002
@@ -52,6 +52,6 @@ EFF-GOV-001 is complete, required human reviews are recorded without fabrication
 
 ## Implementation Evidence
 
-Sprint 5.5 implementation is complete and **In Review**. The deterministic integration scenario, governance-invariant tests, measurable efficiency evidence, finding and backlog dispositions, security/privacy analysis, performance observations, acceptance reviews, and separate human review packages are recorded in the [REL-005 release-readiness package](../../docs/reviews/REL-005-release-readiness.md).
+Sprint 5.5 implementation and human review are complete. The deterministic integration scenario, governance-invariant tests, measurable efficiency evidence, finding and backlog dispositions, security/privacy analysis, performance observations, acceptance reviews, and separate human review packages are recorded in the [REL-005 release-readiness package](../../docs/reviews/REL-005-release-readiness.md).
 
-Implementation completion does not complete the sprint. Framework Validation CI passed for the merged Sprint 5.5 work and its Architecture-remediation follow-up. Architecture remains Approve with Conditions pending human confirmation; Domain, Documentation, Security, and Product Owner decisions remain Pending. REL-005 remains In Progress and no release tag is authorized.
+Architecture, Domain, Documentation, Security, and Product Owner decisions are separately recorded. EFF-GOV-001 is **Done**, and Sprint 5.5 is **Completed**. REL-005 remains In Progress pending a separate final release authorization; no release tag or GitHub Release is authorized.

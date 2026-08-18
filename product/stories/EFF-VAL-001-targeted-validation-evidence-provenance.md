@@ -2,7 +2,7 @@
 id: STORY-EFF-VAL-001
 title: Deliver EFF-VAL-001 Targeted Validation & Evidence Provenance
 version: 0.5.0
-status: In Review
+status: Done
 owner: Framework PMO
 release: REL-005
 epic: EPIC-002
@@ -63,8 +63,8 @@ Index, relationship authority, selection policy, product contracts, fallback rul
 
 The enhancements pass complete and targeted validation, tests, CI, documentation review, security review, and Product Owner approval.
 
-Implementation, automated tests, documentation, and validation evidence are complete. Human review and Product Owner approval remain pending, so this story remains **In Review**.
+Implementation, automated tests, documentation, validation evidence, and required specialist reviews are complete. The authorized Product Owner decision accepts this story as **Done** with documented non-blocking debt remaining visible.
 
 ## Product Owner Approval
 
-Product Owner approval is required before this story is complete.
+Product Owner decision: **APPROVED**. No reviewer identity, signature, credentials, or timestamp is inferred.
