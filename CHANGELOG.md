@@ -6,6 +6,8 @@ This project follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) an
 
 ## [Unreleased]
 
+## [0.5.0] - 2026-08-18
+
 ### Added
 
 - REL-005 planning foundation for vendor-neutral efficient agentic execution and context engineering, including EPIC-002, five sprints, eight stories, measurable efficiency contracts, v0.4 backlog dispositions, and governed human-authority boundaries.
@@ -13,8 +15,8 @@ This project follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) an
 - Sprint 5.2 dependency-free repository intelligence tooling with a derived metadata-only asset index, commit and content freshness, immutable-per-run repository view, deterministic relationship-aware context selection, exclusions, restricted-context evidence, explicit completeness and fallback, JSON manifests, local commands, and focused tests. At the Sprint 5.2 milestone, routing and targeted validation remained planned for subsequent v0.5 sprints; both are now implemented below.
 - Sprint 5.3 dependency-free execution governance with configurable multidimensional budgets, explicit unavailable telemetry, durable provenance-aware checkpoints, bounded normalized loop detection, generic Tier 1–5 routing recommendations, de-escalation, non-substitutable human authority, context-manifest integration, JSON evidence, local commands, and focused failure-path tests. No model or vendor adapter is included.
 - Sprint 5.4 safe targeted validation with Git changed-file discovery, authoritative affected-closure planning, deterministic full fallback, scoped and repository-wide validator contracts, registry integrity, structured exception failures, shared RepositoryView reuse, provenance-rich JSON reports, explicit scan semantics, and focused tests. Full CI and release validation remain the default.
-- Sprint 5.5 deterministic cross-component integration and governance-invariant tests, release-level efficiency and performance evidence, vendor-neutrality and local-readiness assessment, security guidance and execution-CLI path containment, finding/backlog dispositions, acceptance reviews, and separate pending human-review packages. Hosted Framework Validation CI passed for the merged Sprint 5.5 and Architecture-remediation changes; REL-005 remains In Progress pending required approvals, release authorization, date, and tag.
-- Architecture Review conditional remediation: mandatory root repository instructions now participate in explicit context completeness, and context, budget, routing, loop, checkpoint, and compatible validation evidence share a UTC/runtime/scope-aware non-approval provenance envelope. Architecture Review remains Approve with Conditions pending human confirmation.
+- Sprint 5.5 deterministic cross-component integration and governance-invariant tests, release-level efficiency and performance evidence, vendor-neutrality and local-readiness assessment, security guidance and common CLI path containment, finding/backlog dispositions, acceptance reviews, and separately recorded human review packages.
+- Architecture Review remediation: mandatory root repository instructions participate in explicit context completeness, and context, budget, routing, loop, checkpoint, and compatible validation evidence share a UTC/runtime/scope-aware non-approval provenance envelope. The Architecture conditions are satisfied and the review is approved.
 
 ## [0.4.0] - 2026-08-08
 
