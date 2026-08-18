@@ -2,7 +2,7 @@
 id: STORY-EFF-ROUTE-001
 title: Deliver EFF-ROUTE-001 Risk-Aware Capability Routing & Escalation
 version: 0.5.0
-status: In Review
+status: Done
 owner: Framework PMO
 release: REL-005
 epic: EPIC-002
@@ -63,8 +63,8 @@ Tier semantics, risk dimensions, profile authority, evidence fields, and mandato
 
 Routing is implemented, deterministic where defined, tested, documented, audited, validated, and human-reviewed.
 
-Implementation, automated tests, documentation, and validation evidence are complete. Human review and Product Owner approval remain pending, so this story remains **In Review**.
+Implementation, automated tests, documentation, validation evidence, and required specialist reviews are complete. The authorized Product Owner decision accepts this story as **Done** with documented non-blocking debt remaining visible.
 
 ## Product Owner Approval
 
-Product Owner approval is required before this story is complete.
+Product Owner decision: **APPROVED**. No reviewer identity, signature, credentials, or timestamp is inferred.

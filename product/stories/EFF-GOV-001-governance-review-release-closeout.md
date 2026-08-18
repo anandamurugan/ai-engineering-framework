@@ -2,7 +2,7 @@
 id: STORY-EFF-GOV-001
 title: Deliver EFF-GOV-001 Governance Review, Deferred Findings & Release Closeout
 version: 0.5.0
-status: In Review
+status: Done
 owner: Framework PMO
 release: REL-005
 epic: EPIC-002
@@ -42,7 +42,7 @@ Fabricated approval, automatic release or tagging, deferred secret scanning or b
 
 ## Required Deliverable
 
-A governance review package, finding-disposition record, release-readiness checklist, accurate product tracking, and controlled closeout evidence.
+The [REL-005 release-readiness package](../../docs/reviews/REL-005-release-readiness.md), including the governance review package, finding-disposition record, release-readiness checklist, accurate product tracking, and controlled closeout evidence.
 
 ## Acceptance Criteria
 
@@ -65,10 +65,10 @@ All mandatory reviews and Product Owner approval are recorded without fabricatio
 
 ## Product Owner Approval
 
-Product Owner approval is required before this story is complete.
+Product Owner decision: **APPROVED**. The story is accepted as **Done** and REL-005 may proceed to the separate final release-readiness closeout. No reviewer identity, signature, credentials, or timestamp is inferred.
 
 ## Implementation Review Evidence
 
-Implementation is complete and **In Review**. The [REL-005 release-readiness package](../../docs/reviews/REL-005-release-readiness.md) contains the end-to-end scenario, invariant coverage, efficiency and performance measurements, vendor-neutrality and security/privacy assessments, v0.4 finding dispositions, remaining-gap dispositions, acceptance reviews, and release checklist.
+Implementation and required human reviews are complete. The [REL-005 release-readiness package](../../docs/reviews/REL-005-release-readiness.md) contains the end-to-end scenario, invariant coverage, efficiency and performance measurements, vendor-neutrality and security/privacy assessments, v0.4 finding dispositions, remaining-gap dispositions, acceptance reviews, and release checklist.
 
-Architecture, Domain, Documentation, Security, and Product Owner approvals remain Pending. Automated PASS evidence, checkpoints, routing decisions, and implementation completion do not satisfy those human gates.
+Architecture, Domain, Documentation, Security, and Product Owner decisions are separately recorded. Automated PASS evidence, checkpoints, routing decisions, and implementation completion did not substitute for those decisions. Release authorization, the `v0.5.0` tag, and GitHub Release remain separate and pending.

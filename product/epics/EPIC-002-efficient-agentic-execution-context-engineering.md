@@ -2,7 +2,7 @@
 id: EPIC-002
 title: Efficient Agentic Execution & Context Engineering
 version: 0.5.0
-status: In Progress
+status: Completed
 owner: Framework PMO
 release: REL-005
 priority: Critical
@@ -60,11 +60,11 @@ Enable bounded AI-assisted engineering execution that selects only justified con
 
 | Sprint ID | Sprint | Goal | Progress |
 | --- | --- | --- | --- |
-| [SPR-005-001](../sprints/SPR-005-001-release-architecture-efficiency-contracts.md) | Sprint 5.1 | Release Architecture, Requirements & Efficiency Contracts | In Review |
-| [SPR-005-002](../sprints/SPR-005-002-repository-index-targeted-context.md) | Sprint 5.2 | Repository Index & Targeted Context | In Review |
-| [SPR-005-003](../sprints/SPR-005-003-budgets-checkpoints-routing.md) | Sprint 5.3 | Budgets, Checkpoints & Routing | In Review |
-| [SPR-005-004](../sprints/SPR-005-004-targeted-validation-evidence.md) | Sprint 5.4 | Targeted Validation & Evidence Provenance | In Review |
-| [SPR-005-005](../sprints/SPR-005-005-governance-release-closeout.md) | Sprint 5.5 | Governance Validation & Release Closeout | In Review |
+| [SPR-005-001](../sprints/SPR-005-001-release-architecture-efficiency-contracts.md) | Sprint 5.1 | Release Architecture, Requirements & Efficiency Contracts | Completed |
+| [SPR-005-002](../sprints/SPR-005-002-repository-index-targeted-context.md) | Sprint 5.2 | Repository Index & Targeted Context | Completed |
+| [SPR-005-003](../sprints/SPR-005-003-budgets-checkpoints-routing.md) | Sprint 5.3 | Budgets, Checkpoints & Routing | Completed |
+| [SPR-005-004](../sprints/SPR-005-004-targeted-validation-evidence.md) | Sprint 5.4 | Targeted Validation & Evidence Provenance | Completed |
+| [SPR-005-005](../sprints/SPR-005-005-governance-release-closeout.md) | Sprint 5.5 | Governance Validation & Release Closeout | Completed |
 
 ## Dependencies
 
@@ -94,3 +94,7 @@ Enable bounded AI-assisted engineering execution that selects only justified con
 - Planned contracts, implementation, tests, documentation, and evidence pass governed validation.
 - Included v0.4 findings have explicit disposition.
 - Required human reviews and Product Owner approval are recorded separately from automated PASS results.
+
+## Completion Record
+
+All eight EFF stories are **Done**, all five sprints are **Completed**, and the authorized Product Owner decision accepts EPIC-002 as **Completed**. Documented non-blocking debt and accepted residual risks remain visible. REL-005 release authorization and tagging remain separate controls.

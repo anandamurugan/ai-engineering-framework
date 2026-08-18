@@ -2,7 +2,7 @@
 id: SPR-005-002
 title: Sprint 5.2 - Repository Index & Targeted Context
 version: 0.5.0
-status: In Review
+status: Completed
 owner: Framework PMO
 release: REL-005
 epic: EPIC-002
@@ -56,8 +56,8 @@ Both stories meet their Definitions of Done, validation passes, and human review
 - `python3 -m tools.context index` builds generated metadata-only repository evidence using one source read per metadata-bearing governed asset.
 - `python3 -m tools.context select --story EFF-IDX-001` selects deterministic context and explains category, reason, relationship path, mandatory state, restriction, expansion level, completeness, and fallback.
 - Focused standard-library tests cover determinism, identity conflicts, relationships, freshness, stability, exclusions, absence of source bodies, hierarchy, standards, targets, dependencies, restrictions, unresolved references, stale regeneration, expansion, and serialization.
-- EFF-IDX-001 and EFF-SEL-001 are **In Review**. Sprint 5.2 is not complete until human review and Product Owner approval are recorded.
-- Implementation status: **Complete**. Human approval status: **Pending**.
+- EFF-IDX-001 and EFF-SEL-001 are **Done** under the authorized Product Owner decision.
+- Implementation status: **Complete**. Human approval status: **Approved**. Sprint status: **Completed**.
 
 ## Carried Finding
 
